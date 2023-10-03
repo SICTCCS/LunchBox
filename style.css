@@ -174,36 +174,6 @@
   .contact-form > button:hover {
     background: black;
   }
-/* for horizontal contact page*/
-  .horiz-parent{
-    display: flex;
-    align-items: center;
-    padding: 0px;
-  }
-  .contact-form-half {
-    padding-left: 1.4em;
-    width: 20em;
-    margin: 0;
-    display: grid;
-    gap: 16px;
-  }
-  .contact-form-half > input,
-  .contact-form > button {
-    width: 75%;
-    height: 50px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .contact-form-half > input {
-    border: 2px solid #ebebeb;
-    font-size: 15px;
-    padding: 0 16px;
-    border-radius: 1.25rem;
-    transition: all 0.375s;
-  }
-  .contact-form-half > input:hover {
-    border: 2px solid #084c61;
-  }
   /* Menu page cards */
   .menu-container {
     display: flex;
@@ -538,37 +508,6 @@
   .contact-form > button:hover {
     background: black;
   }
-/* for horizontal contact page*/
-.horiz-parent{
-  display: flex;
-  align-items: center;
-  padding: 0px;
-}
-.contact-form-half {
-  padding-left: 1.4em;
-  width: 15em;
-  margin: 0;
-  display: grid;
-  gap: 16px;
-}
-.contact-form-half > input,
-.contact-form > button {
-  width: 75%;
-  height: 50px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.contact-form-half > input {
-  border: 2px solid #ebebeb;
-  font-size: 15px;
-  padding: 0 16px;
-  border-radius: 1.25rem;
-  transition: all 0.375s;
-  font-size: x-small;
-}
-.contact-form-half > input:hover {
-  border: 2px solid #084c61;
-}
   /* Menu page cards */
   .menu-container {
     display: flex;
