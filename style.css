@@ -329,8 +329,8 @@
 
 
 
-/* Mobile view */
-@media (max-width: 750px) {
+/* Mobile view and Half-Desktop */
+@media (max-width: 750px), (max-width: 1023px) {
   html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
