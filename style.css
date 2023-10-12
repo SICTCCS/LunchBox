@@ -392,19 +392,20 @@
   .upload-card {
     position: relative;
     z-index: 3;
-    width: 80vw;
+    max-width: 500px;
+    flex: 1;
     margin: 0 20px;
     padding: 30px 30px 44px;
     border-radius: 1.25rem;
     background: #ffc857;
     text-align: center;
-    margin-bottom: 10em;
+    margin-bottom: 5em;
     margin-top: 5em;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   }
   .upload-form {
-    width: 80vw;
+    max-width: 500px;
     margin: 0;
     display: grid;
     gap: 16px;
