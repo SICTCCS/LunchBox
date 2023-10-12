@@ -600,8 +600,8 @@
   .map-pic {
     margin-top: 3em;
     margin-bottom: 4em;
-    max-width: 400px;
-    max-height: 350px;
+    max-width: 300px;
+    max-height: 200px;
   }
   .thank-you{
     display: flex;
