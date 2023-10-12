@@ -461,7 +461,8 @@
     height: 500px;
     border-radius: 1.25rem;
     background-color: #ffc857;
-    margin: 1.9em;
+    margin-left: 3em;
+    margin-right: 3em;
     text-align: center;
     margin-top: 5em;
   }
