@@ -556,6 +556,7 @@
     width: 100%;
     margin-top: 8em;
     margin-bottom: 5em;
+
   }
   #homePageWarningSign {
     height: 150px;
@@ -576,8 +577,7 @@
   /* For the big logo on the home page */
   .bigLogo-container {
     display: flex;
-    width: 100vw;
-    height: 50vh;
+    width: 100%;
     justify-content: center;
     align-items: center;
   }
@@ -600,8 +600,8 @@
   .map-pic {
     margin-top: 3em;
     margin-bottom: 4em;
-    height: 250px;
-    width: 350px;
+    max-width: 400px;
+    max-height: 350px;
   }
   .thank-you{
     display: flex;
