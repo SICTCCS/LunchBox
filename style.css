@@ -552,9 +552,9 @@
     margin: 0;
   }
   #homePageLunchboxLogo {
-    height: 300px;
-    width: 400px;
-    padding-top: 2em;
+    height: 100%;
+    width: 100%;
+    padding-top: 5em;
     padding-bottom: 2em;
   }
   #homePageWarningSign {
