@@ -39,7 +39,6 @@
   }
   .nav-on-the-left {
     padding-left: 4em;
-    font-size: large;
     display: grid;
     align-items: center;
     height: 125px;
@@ -50,9 +49,17 @@
     align-items: center;
     height: 125px;
   }
+  .nav-upload-middle {
+    display: inline-block;
+    margin: 0 auto;
+  }
+  #logo-upload-middle {
+    height: 125px;
+    width: 175px;
+  }
   a {
     color: black;
-    text-decoration: none;
+    text-decoration: underline;
     font-size: larger;
     font-weight: bold;
   }
@@ -371,7 +378,6 @@
   }
   .nav-on-the-left {
     padding-left: 4em;
-    font-size: small;
     display: grid;
     align-items: center;
     height: 100px;
@@ -382,9 +388,17 @@
     align-items: center;
     height: 100px;
   }
+  .nav-upload-middle {
+    display: inline-block;
+    margin: 0 auto;
+  }
+  #logo-upload-middle {
+    height: 100px;
+    width: 150px;
+  }
   a {
     color: black;
-    text-decoration: none;
+    text-decoration: underline;
     font-size: larger;
     font-weight: bold;
   }
