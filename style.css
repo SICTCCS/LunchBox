@@ -9,7 +9,7 @@
     padding: 0;
     display: grid;
     place-items: center;
-    background-color: whitesmoke;
+    background-color: white;
   }
   footer {
     background-color: #ADD8E6;
@@ -214,7 +214,7 @@
   }
   .menu-items-spaced-over {
     margin-left: 1.5em;
-    color: black;
+    color: white;
     padding:0;
     margin:0;
   }
@@ -303,6 +303,38 @@
     font-weight: bold;
   }
   .card-container-COMMON {
+    display: flex;
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
+  /* For WHATSINCLUDED INFO */
+  .card-WHATSINCLUDED {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 1.25rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    color: #084c61;
+    flex: 1;
+    margin-left: 3em;
+    margin-right: 3em;
+    font-weight: 700;
+    min-width: 700px;
+    text-align: center;
+  }
+  .card-WHATSINCLUDED h2 {
+    color: #084c61;
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+  .card-WHATSINCLUDED p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .card-WHATSINCLUDED .info-label {
+    font-weight: bold;
+  }
+  .card-container-WHATSINCLUDED {
     display: flex;
     margin-top: 3em;
     margin-bottom: 3em;
@@ -558,7 +590,7 @@
   }
   .menu-items-spaced-over {
     margin-left: 1.5em;
-    color: black;
+    color: white;
     padding: 0;
     margin: 0;
   }
@@ -662,4 +694,36 @@
     margin-bottom: 3em;
     flex-direction: column;
   }
+/* For WHATSINCLUDED INFO */
+  .card-WHATSINCLUDED {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 1.25rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      color: #084c61;
+      flex: 1;
+      margin-left: 3em;
+      margin-right: 3em;
+      font-weight: 700;
+      max-width: 500px;
+      text-align: center;
+    }
+  .card-WHATSINCLUDED h2 {
+      color: #084c61;
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+  .card-WHATSINCLUDED p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  .card-WHATSINCLUDED .info-label {
+      font-weight: bold;
+    }
+  .card-container-WHATSINCLUDED {
+      display: flex;
+      margin-top: 3em;
+      margin-bottom: 3em;
+    }
 }
