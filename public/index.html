@@ -7,13 +7,12 @@
                 <meta name="viewport" content="width=device-width,initial-scale=0.75">
                 <link rel="icon" type="image/x-icon" href="content/favicon.png">
 
-
-                <!-- firebase -->
-                <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js"></script>
-                <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js"></script>
-
-                <!-- firebase config -->
-                <script>
+                <script type="module">
+                    // Include the main Firebase App script
+                    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+                    // Include the script for the specific Firebase module you need (Firestore in this case)
+                    import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+                
                     const firebaseConfig = {
                         apiKey: "AIzaSyCH0Zyzj5tukPUZacOM_xJZk3wFLQIvgNw",
                         authDomain: "lunchbox-60fb5.firebaseapp.com",
@@ -24,19 +23,20 @@
                         appId: "1:534903316915:web:e7b8e503540d234632ebc6",
                         measurementId: "G-TD5GSSYSSY"
                     };
-                    // initialize firebase 
-                    firebase.initializeApp(firebaseConfig);
-
-                        // Reference to the Firestore database
-                        const db = firebase.firestore();
-
+                
+                    // Initialize Firebase
+                    const app = initializeApp(firebaseConfig);
+                
+                    // Reference to the Firestore database
+                    const db = getFirestore(app);
+                
                     // Reference to the Firestore collection
-                    const menuRef = db.collection('menu');
-
+                    const menuRef = doc(db, 'menu', 'menuDocument');
+                
                     // Function to update the menu content
                     function updateMenu(snapshot) {
                         const menuData = snapshot.data();
-
+                
                         // Update the HTML based on your current data structure
                         document.getElementById('dateINPUT1').innerText = menuData.tuesday.date;
                         document.getElementById('entreeINPUT1').innerText = menuData.tuesday.entree;
@@ -45,7 +45,7 @@
                         document.getElementById('sideINPUT1').innerText = menuData.tuesday.side;
                         document.getElementById('dessertINPUT1').innerText = menuData.tuesday.dessert;
                         document.getElementById('excINPUT1').innerText = menuData.tuesday.exception;
-
+                
                         document.getElementById('dateINPUT2').innerText = menuData.wednesday.date;
                         document.getElementById('entreeINPUT2').innerText = menuData.wednesday.entree;
                         document.getElementById('soupINPUT2').innerText = menuData.wednesday.soup;
@@ -53,7 +53,7 @@
                         document.getElementById('sideINPUT2').innerText = menuData.wednesday.side;
                         document.getElementById('dessertINPUT2').innerText = menuData.wednesday.dessert;
                         document.getElementById('excINPUT2').innerText = menuData.wednesday.exception;
-
+                
                         document.getElementById('dateINPUT3').innerText = menuData.thursday.date;
                         document.getElementById('entreeINPUT3').innerText = menuData.thursday.entree;
                         document.getElementById('soupINPUT3').innerText = menuData.thursday.soup;
@@ -62,12 +62,11 @@
                         document.getElementById('dessertINPUT3').innerText = menuData.thursday.dessert;
                         document.getElementById('excINPUT3').innerText = menuData.thursday.exception;
                     }
-
+                
                     // Attach an event listener to get updates whenever data changes
-                    menuRef.doc('menu').onSnapshot(updateMenu);
+                    onSnapshot(menuRef, updateMenu);
                 </script>
-
-
+                
             </head>
             <body>
                 <nav>
