@@ -39,8 +39,8 @@
         // Function to handle form submission
         function submitForm(event) {
           event.preventDefault();
-          const email = document.getElementById('email').value;
-          const password = document.getElementById('password').value;
+          const email = document.getElementById('emailINPUT').value;
+          const password = document.getElementById('passwordINPUT').value;
       
           auth.signInWithEmailAndPassword(email, password)
             .then((userCredential) => {
@@ -53,7 +53,7 @@
               const saladINPUT1 = document.getElementById('saladINPUT1').value;
               const sideINPUT1 = document.getElementById('sideINPUT1').value;
               const dessertINPUT1 = document.getElementById('dessertINPUT1').value;
-              const exceptionINPUT1 = document.getElementById('excINPUT1').value;
+              const exceptionINPUT1 = document.getElementById('explanationINPUT1').value;
       
               const dateINPUT2 = document.getElementById('dateINPUT2').value;
               const entreeINPUT2 = document.getElementById('entreeINPUT2').value;
@@ -61,7 +61,7 @@
               const saladINPUT2 = document.getElementById('saladINPUT2').value;
               const sideINPUT2 = document.getElementById('sideINPUT2').value;
               const dessertINPUT2 = document.getElementById('dessertINPUT2').value;
-              const exceptionINPUT2 = document.getElementById('excINPUT2').value;
+              const exceptionINPUT2 = document.getElementById('explanationINPUT2').value;
       
               const dateINPUT3 = document.getElementById('dateINPUT3').value;
               const entreeINPUT3 = document.getElementById('entreeINPUT3').value;
@@ -69,7 +69,7 @@
               const saladINPUT3 = document.getElementById('saladINPUT3').value;
               const sideINPUT3 = document.getElementById('sideINPUT3').value;
               const dessertINPUT3 = document.getElementById('dessertINPUT3').value;
-              const exceptionINPUT3 = document.getElementById('excINPUT3').value;
+              const exceptionINPUT3 = document.getElementById('explanationINPUT3').value;
       
               // Construct menu data object
               const menuData = {
@@ -80,7 +80,7 @@
                   salad: saladINPUT1,
                   side: sideINPUT1,
                   dessert: dessertINPUT1,
-                  exception: exceptionINPUT1
+                  explanation: explanationINPUT1
                 },
                 wednesday: {
                   date: dateINPUT2,
@@ -89,7 +89,7 @@
                   salad: saladINPUT2,
                   side: sideINPUT2,
                   dessert: dessertINPUT2,
-                  exception: exceptionINPUT2
+                  explanation: explanationINPUT2
                 },
                 thursday: {
                   date: dateINPUT3,
@@ -98,14 +98,14 @@
                   salad: saladINPUT3,
                   side: sideINPUT3,
                   dessert: dessertINPUT3,
-                  exception: exceptionINPUT3
+                  explanation: explanationINPUT3
                 }
               };
       
               console.log("Menu data:", menuData);
       
               // Update the realtime database
-              setDoc(doc(db, "menu"), menuData)
+              setDoc(doc(db, "menu", "menuDocument"), menuData)
                 .then(() => {
                   console.log("Menu published successfully!");
                   alert("Menu published successfully!");
@@ -121,49 +121,67 @@
             });
         }
       </script>
-      
     </head>
-
-
-
-
-
     <nav>
         <div class="nav-upload-middle">
             <img id="logo-upload-middle" src="content/lunchboxWithText.png" alt="lunchboxLogoWithText">
         </div>
     </nav>
-    <main>
-        <div class="upload-card">
-            <h2>UPLOAD MENU</h2><br>
-            <h3>Separate items with commas</h3>
-            <form id="menuUploadForm" class="upload-form" onSubmit="submitForm(event)">
-                <input id="email" type="email" placeholder="Email" required style="background-color:#e56b6f">
-                            <input id="password" type="password" placeholder="Password" required style="background-color:#e56b6f">
-                            <input id="dateINPUT1" type="text" placeholder="Date (number)" style="background-color:silver">
-                            <input id="entreeINPUT1" type="text" placeholder="Tuesday - Entree" style="background-color:silver">
-                            <input id="soupINPUT1" type="text" placeholder="Tuesday - Soups" style="background-color:silver">
-                            <input id="saladINPUT1" type="text" placeholder="Tuesday - Salads" style="background-color:silver">
-                            <input id="sideINPUT1" type="text" placeholder="Tuesday - Sides" style="background-color:silver">
-                            <input id="dessertINPUT1" type="text" placeholder="Tuesday - Desserts" style="background-color:silver">
-                            <input id="excINPUT1" type="text" placeholder="Exceptions ex: reason why closed" style="background-color:silver">
-                            <input id="dateINPUT2" type="text" placeholder="Date (number)" style="background-color:silver">
-                            <input id="entreeINPUT2" type="text" placeholder="Wednesday - Entree" style="background-color: white">
-                            <input id="soupINPUT2" type="text" placeholder="Wednesday - Soups" style="background-color: white">
-                            <input id="saladINPUT2" type="text" placeholder="Wednesday - Salads" style="background-color: white">
-                            <input id="sideINPUT2" type="text" placeholder="Wednesday - Sides" style="background-color: white">
-                            <input id="dessertINPUT2" type="text" placeholder="Wednesday - Desserts" style="background-color: white">
-                            <input id="excINPUT2" type="text" placeholder="Exceptions ex: reason why closed" style="background-color: white">
-                            <input id="dateINPUT3" type="text" placeholder="Date (number)" style="background-color:silver">
-                            <input id="entreeINPUT3" type="text" placeholder="Thursday - Entree" style="background-color: silver">
-                            <input id="soupINPUT3" type="text" placeholder="Thursday - Soups" style="background-color: silver">
-                            <input id="saladINPUT3" type="text" placeholder="Thursday - Salads" style="background-color: silver">
-                            <input id="sideINPUT3" type="text" placeholder="Thursday - Sides" style="background-color: silver">
-                            <input id="dessertINPUT3" type="text" placeholder="Thursday - Desserts" style="background-color: silver">
-                            <input id="excINPUT3" type="text" placeholder="Exceptions ex: reason why closed" style="background-color:silver">
-                <button type="submit">Publish</button>
-                * publishing replaces all current menu details
-            </form>
+      <main>
+        <div class="upload-container">
+            <div class="upload-card">
+                <form class="upload-form">
+                    <input id="dateINPUT1" type="text" placeholder="Tuesday - Date (num)" style="background-color:silver">
+                    <input id="entreeINPUT1" type="text" placeholder="Tuesday - Entree" style="background-color:silver">
+                    <input id="soupINPUT1" type="text" placeholder="Tuesday - Soups" style="background-color:silver">
+                    <input id="saladINPUT1" type="text" placeholder="Tuesday - Salads" style="background-color:silver">
+                    <input id="sideINPUT1" type="text" placeholder="Tuesday - Sides" style="background-color:silver">
+                    <input id="dessertINPUT1" type="text" placeholder="Tuesday - Desserts" style="background-color:silver">
+                    <label class="checkbox-label">
+                        <input id="closedCHECKBOX1" type="checkbox" class="custom-checkbox">
+                        <span class="checkbox-text">closed</span>
+                    </label>
+                    <input id="explanationINPUT1" type="text" placeholder="explanation - why closed?" style="background-color:silver">
+                </form>
+            </div>
+            <div class="upload-card">
+                <form class="upload-form">
+                    <input id="dateINPUT2" type="text" placeholder="Wednesday - Date (num)" style="background-color:silver">
+                    <input id="entreeINPUT2" type="text" placeholder="Wednesday - Entree" style="background-color:silver">
+                    <input id="soupINPUT2" type="text" placeholder="Wednesday - Soups" style="background-color:silver">
+                    <input id="saladINPUT2" type="text" placeholder="Wednesday - Salads" style="background-color:silver">
+                    <input id="sideINPUT2" type="text" placeholder="Wednesday - Sides" style="background-color:silver">
+                    <input id="dessertINPUT2" type="text" placeholder="Wednesday - Desserts" style="background-color:silver">
+                    <label class="checkbox-label">
+                        <input id="closedCHECKBOX2" type="checkbox" class="custom-checkbox">
+                        <span class="checkbox-text">closed</span>
+                    </label>
+                    <input id="explanationINPUT2" type="text" placeholder="explanation - why closed?" style="background-color:silver">
+                </form>
+            </div>
+            <div class="upload-card">
+                <form class="upload-form">
+                    <input id="dateINPUT3" type="text" placeholder="Thursday - Date (num)" style="background-color:silver">
+                    <input id="entreeINPUT3" type="text" placeholder="Thursday - Entree" style="background-color:silver">
+                    <input id="soupINPUT3" type="text" placeholder="Thursday - Soups" style="background-color:silver">
+                    <input id="saladINPUT3" type="text" placeholder="Thursday - Salads" style="background-color:silver">
+                    <input id="sideINPUT3" type="text" placeholder="Thursday - Sides" style="background-color:silver">
+                    <input id="dessertINPUT3" type="text" placeholder="Thursday - Desserts" style="background-color:silver">
+                    <label class="checkbox-label">
+                        <input id="closedCHECKBOX3" type="checkbox" class="custom-checkbox">
+                        <span class="checkbox-text">closed</span>
+                    </label>
+                    <input id="explanationINPUT3" type="text" placeholder="explanation - why closed?" style="background-color:silver">
+                </form>
+            </div>   
+            <div class="upload-card">
+                <form class="upload-form">
+                  <input id="emailINPUT" class="email-textbox" type="text" placeholder="email" style="background-color:#e56b6f">
+                  <input id="passwordINPUT" type="text" placeholder="password" style="background-color:#e56b6f">
+                    <button type="submit">publish</button>
+                    * publishing replaces all current menu details
+                </form>
+            </div>   
         </div>
     </main>
     <footer>
@@ -173,5 +191,4 @@
         <a href="https://sictc.evscschools.com/"><img src="content/footerSICTC.png" style="width:150px;height:75px;" alt="footerSICTC"></a>
     </footer>
 </body>
-
 </html>

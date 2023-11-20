@@ -25,26 +25,61 @@
                         <div class="card">
                           <h2>CONNECT WITH US</h2>
                         <form class="contact-form">
-                            <input type="text" placeholder="first name" style="background-color:silver">
-                            <input type="text" placeholder="last name" style="background-color:silver">
-                            <input type="email" placeholder="username@email.com" style="background-color:silver">
-                                        <div class="contact-form">
-                                            <input type="text" list="optionsList" placeholder="How did you find out about us?" style="background-color:silver">
-                                            <datalist id="optionsList">
-                                                <option value="Instagram">
-                                                <option value="Facebook">
-                                                <option value="sictc.com">
-                                                <option value="Friend">
-                                                <option value="News Articles">
-                                            </datalist>
-                                        </div>
+                            <input id="firstname" type="text" placeholder="first name (required)" style="background-color:silver" required>
+                            <input id="lastname" type="text" placeholder="last name (required)" style="background-color:silver" required>
+                            <textarea id="comment" placeholder="comments/questions... (required)" style="background-color:silver; height: 10em; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding-top: 1em;" required></textarea>
+                            <div class="contact-form">
+                                <input id="foundOut" type="text" list="optionsList" placeholder="How did you find out about us?" style="background-color:silver">
+                                <datalist id="optionsList">
+                                    <option value="Instagram">
+                                    <option value="Facebook">
+                                    <option value="sictc.com">
+                                    <option value="Friend">
+                                    <option value="News Articles">
+                                </datalist>
+                            </div>
                                         <label class="checkbox-label">
-                                            <input type="checkbox" class="custom-checkbox">
+                                            <input id="mailingList" type="checkbox" class="custom-checkbox">
                                             <span class="checkbox-text">Sign up for the weekly newsletter</span>
                                         </label>
-                                    <input type="text" placeholder="comments" style="background-color:silver; height: 6em;">
-                                    <button type="submit">connect</button> 
+                                    <button type="button" onclick="submitForm()">submit</button>
                             </div>
+                            <script>
+                                function submitForm() {
+                                    // Get form input values
+                                    var firstName = document.getElementById('firstname').value;
+                                    var lastName = document.getElementById('lastname').value;
+                                    var comments = document.getElementById('comment').value;
+                                    var foundOut = document.getElementById('foundOut').value;
+                                    var mailingList = document.getElementById('mailingList').checked;
+                            
+                                    // Check if required fields are not empty
+                                    if (firstName.trim() === '' || lastName.trim() === '' || comments.trim() === '') {
+                                        alert('Please fill in all required fields.');
+                                        return;
+                                    }
+                            
+                                    // Create email content
+                                    var fullName = `${firstName} ${lastName}`;
+                                    var mailingListText = mailingList ? 'Yes' : 'No';
+                            
+                                    // Construct the email content as a full sentence with new lines
+                                    var emailContent = `My name is ${fullName} and my comment/question is "${comments}".\n`;
+                            
+                                    if (foundOut.trim() !== '') {
+                                        emailContent += `I found out about this restaurant from ${foundOut}.\n`;
+                                    }
+                            
+                                    if (mailingList) {
+                                        emailContent += `I want to be part of the mailing list.\n`;
+                                    } else {
+                                        emailContent += `I do not want to be part of the mailing list.\n`;
+                                    }
+                            
+                                    // Open email client with preloaded content
+                                    window.location.href = 'mailto:samuel.wagoner@evsck12.com?subject=Contact Form Submission&body=' + encodeURIComponent(emailContent);
+                                }
+                            </script>
                         <!-- card right -->
                         <div class="card" style="background-color: #335879">
                             <img class="map-pic" src="content/sictcMapViewMarked.png" height="280px" width="420px" alt="SICTCMap" style="border-radius: 1.25rem;"><br>
