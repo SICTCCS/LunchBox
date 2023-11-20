@@ -9,8 +9,8 @@
 
 
                 <!-- firebase -->
-                <script src="https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js"></script>
-                <script src="https://www.gstatic.com/firebasejs/9.6.4/firebase-firestore.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js"></script>
 
                 <!-- firebase config -->
                 <script>
@@ -26,6 +26,45 @@
                     };
                     // initialize firebase 
                     firebase.initializeApp(firebaseConfig);
+
+                        // Reference to the Firestore database
+                        const db = firebase.firestore();
+
+                    // Reference to the Firestore collection
+                    const menuRef = db.collection('menu');
+
+                    // Function to update the menu content
+                    function updateMenu(snapshot) {
+                        const menuData = snapshot.data();
+
+                        // Update the HTML based on your current data structure
+                        document.getElementById('dateINPUT1').innerText = menuData.tuesday.date;
+                        document.getElementById('entreeINPUT1').innerText = menuData.tuesday.entree;
+                        document.getElementById('soupINPUT1').innerText = menuData.tuesday.soup;
+                        document.getElementById('saladINPUT1').innerText = menuData.tuesday.salad;
+                        document.getElementById('sideINPUT1').innerText = menuData.tuesday.side;
+                        document.getElementById('dessertINPUT1').innerText = menuData.tuesday.dessert;
+                        document.getElementById('excINPUT1').innerText = menuData.tuesday.exception;
+
+                        document.getElementById('dateINPUT2').innerText = menuData.wednesday.date;
+                        document.getElementById('entreeINPUT2').innerText = menuData.wednesday.entree;
+                        document.getElementById('soupINPUT2').innerText = menuData.wednesday.soup;
+                        document.getElementById('saladINPUT2').innerText = menuData.wednesday.salad;
+                        document.getElementById('sideINPUT2').innerText = menuData.wednesday.side;
+                        document.getElementById('dessertINPUT2').innerText = menuData.wednesday.dessert;
+                        document.getElementById('excINPUT2').innerText = menuData.wednesday.exception;
+
+                        document.getElementById('dateINPUT3').innerText = menuData.thursday.date;
+                        document.getElementById('entreeINPUT3').innerText = menuData.thursday.entree;
+                        document.getElementById('soupINPUT3').innerText = menuData.thursday.soup;
+                        document.getElementById('saladINPUT3').innerText = menuData.thursday.salad;
+                        document.getElementById('sideINPUT3').innerText = menuData.thursday.side;
+                        document.getElementById('dessertINPUT3').innerText = menuData.thursday.dessert;
+                        document.getElementById('excINPUT3').innerText = menuData.thursday.exception;
+                    }
+
+                    // Attach an event listener to get updates whenever data changes
+                    menuRef.doc('menu').onSnapshot(updateMenu);
                 </script>
 
 
@@ -152,56 +191,6 @@
                     1901 Lynch Rd, Evansville, IN 47711 <br>
                     <a href="https://sictc.evscschools.com/"><img src="content/footerSICTC.png" style="width:150px;height:75px;" alt="footerSICTC"><a></a>
                 </footer>
-
-
-
-
-
-                <script>
-                    // Reference to the database
-                    const dbRef = firebase.database().ref('menu');
-                
-                    // Function to update the menu content
-                    function updateMenu(snapshot) {
-                        // Assuming the menuData is an object with keys for each day
-                        const menuData = snapshot.val();
-                
-                        // Update the HTML based on your current data structure
-                        document.getElementById('dateINPUT1').innerText = menuData.tuesday.date;
-                        document.getElementById('entreeINPUT1').innerText = menuData.tuesday.entree;
-                        document.getElementById('soupINPUT1').innerText = menuData.tuesday.soup;
-                        document.getElementById('saladINPUT1').innerText = menuData.tuesday.salad;
-                        document.getElementById('sideINPUT1').innerText = menuData.tuesday.side;
-                        document.getElementById('dessertINPUT1').innerText = menuData.tuesday.dessert;
-                        document.getElementById('excINPUT1').innerText = menuData.tuesday.exception;
-                        
-                        document.getElementById('dateINPUT2').innerText = menuData.wednesday.date;
-                        document.getElementById('entreeINPUT2').innerText = menuData.wednesday.entree;
-                        document.getElementById('soupINPUT2').innerText = menuData.wednesday.soup;
-                        document.getElementById('saladINPUT2').innerText = menuData.wednesday.salad;
-                        document.getElementById('sideINPUT2').innerText = menuData.wednesday.side;
-                        document.getElementById('dessertINPUT2').innerText = menuData.wednesday.dessert;
-                        document.getElementById('excINPUT2').innerText = menuData.wednesday.exception;
-
-                        document.getElementById('dateINPUT3').innerText = menuData.thursday.date;
-                        document.getElementById('entreeINPUT3').innerText = menuData.thursday.entree;
-                        document.getElementById('soupINPUT3').innerText = menuData.thursday.soup;
-                        document.getElementById('saladINPUT3').innerText = menuData.thursday.salad;
-                        document.getElementById('sideINPUT3').innerText = menuData.thursday.side;
-                        document.getElementById('dessertINPUT3').innerText = menuData.thursday.dessert;
-                        document.getElementById('excINPUT3').innerText = menuData.thursday.exception;
-                
-                    }
-                
-                    // Attach an event listener to get updates whenever data changes
-                    dbRef.on('value', updateMenu);
-                </script>
-                
-                
-
-
-
-
 
             </body>
     </html>
