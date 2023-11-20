@@ -64,10 +64,15 @@
     font-weight: bold;
   }
   /* Upload card */
+  .upload-container {
+    display: flex;
+    margin: 0;
+    margin-bottom: 3em;
+  }
   .upload-card {
     position: relative;
     z-index: 3;
-    width: 30em;
+    width: 15em;
     margin: 0 20px;
     padding: 30px 30px 44px;
     border-radius: 1.25rem;
@@ -79,7 +84,7 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   }
   .upload-form {
-    width: 30em;
+    width: 15em;
     margin: 0;
     display: grid;
     gap: 16px;
