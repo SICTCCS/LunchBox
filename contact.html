@@ -25,25 +25,38 @@
                         <div class="card">
                           <h2>CONNECT WITH US</h2>
                         <form class="contact-form">
-                            <input type="text" placeholder="first name" style="background-color:silver">
-                            <input type="text" placeholder="last name" style="background-color:silver">
+                            <input id="fullname" type="text" placeholder="first + last name" style="background-color:silver">
+                            <input id="comment" type="text" placeholder="comments/questions..." style="background-color:silver; height: 6em;">
+                            <button onclick="sendEmail()">send email</button>
+                            <script>
+                                function sendEmail() {
+                                    var fullName = document.getElementById("fullname").value;
+                                    var commentText = document.getElementById("comment").value;
+                                    var subject = "LunchBox Comment/Question";
+                                    var emailAddress = "tjtichenor14@gmail.com"; // replace with chef's email
+                                    // combine name and comment
+                                    var emailBody = "Name: " + encodeURIComponent(fullname) + "%0D%0A%0D%0A" + "Comment/Question: " + encodeURIComponent(commentText);
+                                    var mailtoLink = "mailto:" + emailAddress + "?subject=" + encodeURIComponent(subject) + "&body=" + emailBody;
+                                    // open the default email client
+                                    window.location.href = mailtoLink;
+                                }
+                            </script>
+                            <div class="contact-form">
+                                <input type="text" list="optionsList" placeholder="How did you find out about us?" style="background-color:silver">
+                                <datalist id="optionsList">
+                                    <option value="Instagram">
+                                    <option value="Facebook">
+                                    <option value="sictc.com">
+                                    <option value="Friend">
+                                    <option value="News Articles">
+                                </datalist>
+                            </div>
                             <input type="email" placeholder="username@email.com" style="background-color:silver">
-                                        <div class="contact-form">
-                                            <input type="text" list="optionsList" placeholder="How did you find out about us?" style="background-color:silver">
-                                            <datalist id="optionsList">
-                                                <option value="Instagram">
-                                                <option value="Facebook">
-                                                <option value="sictc.com">
-                                                <option value="Friend">
-                                                <option value="News Articles">
-                                            </datalist>
-                                        </div>
                                         <label class="checkbox-label">
                                             <input type="checkbox" class="custom-checkbox">
                                             <span class="checkbox-text">Sign up for the weekly newsletter</span>
                                         </label>
-                                    <input type="text" placeholder="comments" style="background-color:silver; height: 6em;">
-                                    <button type="submit">connect</button> 
+                            <button>submit</button>
                             </div>
                         <!-- card right -->
                         <div class="card" style="background-color: #335879">
