@@ -8,9 +8,7 @@
                 <link rel="icon" type="image/x-icon" href="content/favicon.png">
 
                 <script type="module">
-                    // Include the main Firebase App script
                     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-                    // Include the script for the specific Firebase module you need (Firestore in this case)
                     import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
                 
                     const firebaseConfig = {
@@ -36,35 +34,49 @@
                     // Function to update the menu content
                     function updateMenu(snapshot) {
                         const menuData = snapshot.data();
+
+                        // Check if menuData is defined
+                        if (!menuData) {
+                            console.error("Menu data is undefined");
+                            return;
+                        }
                 
                         // Update the HTML based on your current data structure
-                        document.getElementById('date1').innerText = menuData.tuesday.date;
-                        document.getElementById('entree1').innerText = menuData.tuesday.entree;
-                        document.getElementById('soup1').innerText = menuData.tuesday.soup;
-                        document.getElementById('salad1').innerText = menuData.tuesday.salad;
-                        document.getElementById('side1').innerText = menuData.tuesday.side;
-                        document.getElementById('dessert1').innerText = menuData.tuesday.dessert;
-                        document.getElementById('explanation1').innerText = menuData.tuesday.explanation;
-                
-                        document.getElementById('date2').innerText = menuData.wednesday.date;
-                        document.getElementById('entree2').innerText = menuData.wednesday.entree;
-                        document.getElementById('soup2').innerText = menuData.wednesday.soup;
-                        document.getElementById('salad2').innerText = menuData.wednesday.salad;
-                        document.getElementById('side2').innerText = menuData.wednesday.side;
-                        document.getElementById('dessert2').innerText = menuData.wednesday.dessert;
-                        document.getElementById('explanation2').innerText = menuData.wednesday.explanation;
-                
-                        document.getElementById('date3').innerText = menuData.thursday.date;
-                        document.getElementById('entree3').innerText = menuData.thursday.entree;
-                        document.getElementById('soup3').innerText = menuData.thursday.soup;
-                        document.getElementById('salad3').innerText = menuData.thursday.salad;
-                        document.getElementById('side3').innerText = menuData.thursday.side;
-                        document.getElementById('dessert3').innerText = menuData.thursday.dessert;
-                        document.getElementById('explanation3').innerText = menuData.thursday.explanation;
+                        // Update the HTML based on your current data structure
+                        updateMenuItem('date1', 'tuesday_date');
+                        updateMenuItem('entree1', 'tuesday_entree');
+                        updateMenuItem('soup1', 'tuesday_soup');
+                        updateMenuItem('salad1', 'tuesday_salad');
+                        updateMenuItem('side1', 'tuesday_side');
+                        updateMenuItem('dessert1', 'tuesday_dessert');
+                        updateMenuItem('explanation1', 'tuesday_explanation');
+
+                        updateMenuItem('date2', 'wednesday_date');
+                        updateMenuItem('entree2', 'wednesday_entree');
+                        updateMenuItem('soup2', 'wednesday_soup');
+                        updateMenuItem('salad2', 'wednesday_salad');
+                        updateMenuItem('side2', 'wednesday_side');
+                        updateMenuItem('dessert2', 'wednesday_dessert');
+                        updateMenuItem('explanation2', 'wednesday_explanation');
+
+                        updateMenuItem('date3', 'thursday_date');
+                        updateMenuItem('entree3', 'thursday_entree');
+                        updateMenuItem('soup3', 'thursday_soup');
+                        updateMenuItem('salad3', 'thursday_salad');
+                        updateMenuItem('side3', 'thursday_side');
+                        updateMenuItem('dessert3', 'thursday_dessert');
+                        updateMenuItem('explanation3', 'thursday_explanation');
+                    
+                        function updateMenuItem(elementId, dataKey) {
+                        // Check if the dataKey is defined in menuData
+                        if (menuData[dataKey] !== undefined) {
+                            // Update the HTML element with the corresponding data
+                            document.getElementById(elementId).innerText = menuData[dataKey];
+                        } else {
+                            console.error(`${dataKey} is undefined in menuData`);
+                        }
                     }
-                
-                    // Attach an event listener to get updates whenever data changes
-                    onSnapshot(menuRef, updateMenu);
+                }
                 </script>
                 
             </head>

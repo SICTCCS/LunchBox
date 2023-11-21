@@ -11,10 +11,7 @@
     <script type="module">
         // Include the main Firebase App script
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-        // Include the script for the specific Firebase module you need (Firestore in this case)
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
         import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
-        // Import Authentication module
         import { getAuth } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
       
         const firebaseConfig = {
@@ -30,7 +27,6 @@
       
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
       
         // Reference to the realtime database
         const db = getFirestore(app);
@@ -53,7 +49,7 @@
               const saladINPUT1 = document.getElementById('saladINPUT1').value;
               const sideINPUT1 = document.getElementById('sideINPUT1').value;
               const dessertINPUT1 = document.getElementById('dessertINPUT1').value;
-              const exceptionINPUT1 = document.getElementById('explanationINPUT1').value;
+              const explanationINPUT1 = document.getElementById('explanationINPUT1').value;
       
               const dateINPUT2 = document.getElementById('dateINPUT2').value;
               const entreeINPUT2 = document.getElementById('entreeINPUT2').value;
@@ -61,7 +57,7 @@
               const saladINPUT2 = document.getElementById('saladINPUT2').value;
               const sideINPUT2 = document.getElementById('sideINPUT2').value;
               const dessertINPUT2 = document.getElementById('dessertINPUT2').value;
-              const exceptionINPUT2 = document.getElementById('explanationINPUT2').value;
+              const excplanationINPUT2 = document.getElementById('explanationINPUT2').value;
       
               const dateINPUT3 = document.getElementById('dateINPUT3').value;
               const entreeINPUT3 = document.getElementById('entreeINPUT3').value;
@@ -69,55 +65,45 @@
               const saladINPUT3 = document.getElementById('saladINPUT3').value;
               const sideINPUT3 = document.getElementById('sideINPUT3').value;
               const dessertINPUT3 = document.getElementById('dessertINPUT3').value;
-              const exceptionINPUT3 = document.getElementById('explanationINPUT3').value;
+              const explanationINPUT3 = document.getElementById('explanationINPUT3').value;
       
               // Construct menu data object
               const menuData = {
-                tuesday: {
-                  date: dateINPUT1,
-                  entree: entreeINPUT1,
-                  soup: soupINPUT1,
-                  salad: saladINPUT1,
-                  side: sideINPUT1,
-                  dessert: dessertINPUT1,
-                  explanation: explanationINPUT1
-                },
-                wednesday: {
-                  date: dateINPUT2,
-                  entree: entreeINPUT2,
-                  soup: soupINPUT2,
-                  salad: saladINPUT2,
-                  side: sideINPUT2,
-                  dessert: dessertINPUT2,
-                  explanation: explanationINPUT2
-                },
-                thursday: {
-                  date: dateINPUT3,
-                  entree: entreeINPUT3,
-                  soup: soupINPUT3,
-                  salad: saladINPUT3,
-                  side: sideINPUT3,
-                  dessert: dessertINPUT3,
-                  explanation: explanationINPUT3
-                }
+                  tuesday_date: dateINPUT1,
+                  tuesday_entree: entreeINPUT1,
+                  tuesday_soup: soupINPUT1,
+                  tuesday_salad: saladINPUT1,
+                  tuesday_side: sideINPUT1,
+                  tuesday_dessert: dessertINPUT1,
+                  tuesday_explanation: explanationINPUT1,
+                  wednesday_date: dateINPUT2,
+                  wednesday_entree: entreeINPUT2,
+                  wednesday_soup: soupINPUT2,
+                  wednesday_salad: saladINPUT2,
+                  wednesday_side: sideINPUT2,
+                  wednesday_dessert: dessertINPUT2,
+                  wednesday_explanation: explanationINPUT2,
+                  thursday_date: dateINPUT3,
+                  thursday_entree: entreeINPUT3,
+                  thursday_soup: soupINPUT3,
+                  thursday_salad: saladINPUT3,
+                  thursday_side: sideINPUT3,
+                  thursday_dessert: dessertINPUT3,
+                  thursday_explanation: explanationINPUT3
               };
       
               console.log("Menu data:", menuData);
       
-              // Update the realtime database
-              setDoc(doc(db, "menu", "menuDocument"), menuData)
-                .then(() => {
-                  console.log("Menu published successfully!");
-                  alert("Menu published successfully!");
-                })
-                .catch((error) => {
-                  console.error("Error publishing menu: ", error);
-                  alert("Error publishing menu. Check the console for details.");
-                });
+              // Update the Firestore database
+            setDoc(doc(db, "menu", "menuDocument"), menuData)
+            .then(() => {
+                console.log("Menu published successfully!");
+                alert("Menu published successfully!");
             })
             .catch((error) => {
-              console.error("Authentication failed: ", error);
-              alert("Authentication failed. Check the console for details.");
+                console.error("Error publishing menu: ", error);
+                alert("Error publishing menu. Check the console for details.");
+            });
             });
         }
       </script>
