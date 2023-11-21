@@ -11,9 +11,9 @@
     <script type="module">
         // Include the main Firebase App script
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-        import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
-        import { getAuth } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
-      
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+        
         const firebaseConfig = {
           apiKey: "AIzaSyCH0Zyzj5tukPUZacOM_xJZk3wFLQIvgNw",
           authDomain: "lunchbox-60fb5.firebaseapp.com",
@@ -24,78 +24,68 @@
           appId: "1:534903316915:web:e7b8e503540d234632ebc6",
           measurementId: "G-TD5GSSYSSY"
         };
-      
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-      
-        // Reference to the realtime database
         const db = getFirestore(app);
-        const auth = getAuth(app);
+        const auth = getAuth();
       
         // Function to handle form submission
         function submitForm(event) {
           event.preventDefault();
           const email = document.getElementById('emailINPUT').value;
           const password = document.getElementById('passwordINPUT').value;
-      
-          auth.signInWithEmailAndPassword(email, password)
+          signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-              console.log("Authentication successful!");
-      
-              // Get values from input fields
-              const dateINPUT1 = document.getElementById('dateINPUT1').value;
-              const entreeINPUT1 = document.getElementById('entreeINPUT1').value;
-              const soupINPUT1 = document.getElementById('soupINPUT1').value;
-              const saladINPUT1 = document.getElementById('saladINPUT1').value;
-              const sideINPUT1 = document.getElementById('sideINPUT1').value;
-              const dessertINPUT1 = document.getElementById('dessertINPUT1').value;
-              const explanationINPUT1 = document.getElementById('explanationINPUT1').value;
-      
-              const dateINPUT2 = document.getElementById('dateINPUT2').value;
-              const entreeINPUT2 = document.getElementById('entreeINPUT2').value;
-              const soupINPUT2 = document.getElementById('soupINPUT2').value;
-              const saladINPUT2 = document.getElementById('saladINPUT2').value;
-              const sideINPUT2 = document.getElementById('sideINPUT2').value;
-              const dessertINPUT2 = document.getElementById('dessertINPUT2').value;
-              const excplanationINPUT2 = document.getElementById('explanationINPUT2').value;
-      
-              const dateINPUT3 = document.getElementById('dateINPUT3').value;
-              const entreeINPUT3 = document.getElementById('entreeINPUT3').value;
-              const soupINPUT3 = document.getElementById('soupINPUT3').value;
-              const saladINPUT3 = document.getElementById('saladINPUT3').value;
-              const sideINPUT3 = document.getElementById('sideINPUT3').value;
-              const dessertINPUT3 = document.getElementById('dessertINPUT3').value;
-              const explanationINPUT3 = document.getElementById('explanationINPUT3').value;
-      
-              // Construct menu data object
-              const menuData = {
-                  tuesday_date: dateINPUT1,
-                  tuesday_entree: entreeINPUT1,
-                  tuesday_soup: soupINPUT1,
-                  tuesday_salad: saladINPUT1,
-                  tuesday_side: sideINPUT1,
-                  tuesday_dessert: dessertINPUT1,
-                  tuesday_explanation: explanationINPUT1,
-                  wednesday_date: dateINPUT2,
-                  wednesday_entree: entreeINPUT2,
-                  wednesday_soup: soupINPUT2,
-                  wednesday_salad: saladINPUT2,
-                  wednesday_side: sideINPUT2,
-                  wednesday_dessert: dessertINPUT2,
-                  wednesday_explanation: explanationINPUT2,
-                  thursday_date: dateINPUT3,
-                  thursday_entree: entreeINPUT3,
-                  thursday_soup: soupINPUT3,
-                  thursday_salad: saladINPUT3,
-                  thursday_side: sideINPUT3,
-                  thursday_dessert: dessertINPUT3,
-                  thursday_explanation: explanationINPUT3
+                console.log("Authentication successful!");
+                // Get values from input fields
+                const dateINPUT1 = document.getElementById('dateINPUT1').value;
+                const entreeINPUT1 = document.getElementById('entreeINPUT1').value;
+                const soupINPUT1 = document.getElementById('soupINPUT1').value;
+                const saladINPUT1 = document.getElementById('saladINPUT1').value;
+                const sideINPUT1 = document.getElementById('sideINPUT1').value;
+                const dessertINPUT1 = document.getElementById('dessertINPUT1').value;
+                const explanationINPUT1 = document.getElementById('explanationINPUT1').value;
+        
+                const dateINPUT2 = document.getElementById('dateINPUT2').value;
+                const entreeINPUT2 = document.getElementById('entreeINPUT2').value;
+                const soupINPUT2 = document.getElementById('soupINPUT2').value;
+                const saladINPUT2 = document.getElementById('saladINPUT2').value;
+                const sideINPUT2 = document.getElementById('sideINPUT2').value;
+                const dessertINPUT2 = document.getElementById('dessertINPUT2').value;
+                const explanationINPUT2 = document.getElementById('explanationINPUT2').value;
+        
+                const dateINPUT3 = document.getElementById('dateINPUT3').value;
+                const entreeINPUT3 = document.getElementById('entreeINPUT3').value;
+                const soupINPUT3 = document.getElementById('soupINPUT3').value;
+                const saladINPUT3 = document.getElementById('saladINPUT3').value;
+                const sideINPUT3 = document.getElementById('sideINPUT3').value;
+                const dessertINPUT3 = document.getElementById('dessertINPUT3').value;
+                const explanationINPUT3 = document.getElementById('explanationINPUT3').value;
+        
+                // Construct menu data object
+                const menuData = {
+                    tuesday_date: dateINPUT1,
+                    tuesday_entree: entreeINPUT1,
+                    tuesday_soup: soupINPUT1,
+                    tuesday_salad: saladINPUT1,
+                    tuesday_side: sideINPUT1,
+                    tuesday_dessert: dessertINPUT1,
+                    tuesday_explanation: explanationINPUT1,
+                    wednesday_date: dateINPUT2,
+                    wednesday_entree: entreeINPUT2,
+                    wednesday_soup: soupINPUT2,
+                    wednesday_salad: saladINPUT2,
+                    wednesday_side: sideINPUT2,
+                    wednesday_dessert: dessertINPUT2,
+                    wednesday_explanation: explanationINPUT2,
+                    thursday_date: dateINPUT3,
+                    thursday_entree: entreeINPUT3,
+                    thursday_soup: soupINPUT3,
+                    thursday_salad: saladINPUT3,
+                    thursday_side: sideINPUT3,
+                    thursday_dessert: dessertINPUT3,
+                    thursday_explanation: explanationINPUT3
               };
-      
-              console.log("Menu data:", menuData);
-      
-              // Update the Firestore database
-            setDoc(doc(db, "menu", "menuDocument"), menuData)
+              setDoc(doc(db, "menu", "menuDocument"), menuData)
             .then(() => {
                 console.log("Menu published successfully!");
                 alert("Menu published successfully!");
@@ -104,8 +94,15 @@
                 console.error("Error publishing menu: ", error);
                 alert("Error publishing menu. Check the console for details.");
             });
+            })
+            .catch((error) => {
+                console.error("Authentication failed: ", error);
+                alert("Authentication failed. Check the console for details.");
             });
-        }
+            }
+
+            const submitBTN = document.getElementById("submitBTN");
+            submitBTN.addEventListener("click", submitForm);
       </script>
     </head>
     <nav>
@@ -164,7 +161,7 @@
                 <form class="upload-form">
                   <input id="emailINPUT" class="email-textbox" type="text" placeholder="email" style="background-color:#e56b6f">
                   <input id="passwordINPUT" type="text" placeholder="password" style="background-color:#e56b6f">
-                    <button type="submit">publish</button>
+                    <button id="submitBTN" type="submit" >publish</button>
                     * publishing replaces all current menu details
                 </form>
             </div>   

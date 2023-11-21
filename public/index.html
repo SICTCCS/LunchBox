@@ -7,77 +7,87 @@
                 <meta name="viewport" content="width=device-width,initial-scale=0.75">
                 <link rel="icon" type="image/x-icon" href="content/favicon.png">
 
+
+
+            
                 <script type="module">
                     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
                     import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+                    document.addEventListener("DOMContentLoaded", function () {
+                        
+                        const firebaseConfig = {
+                            apiKey: "AIzaSyCH0Zyzj5tukPUZacOM_xJZk3wFLQIvgNw",
+                            authDomain: "lunchbox-60fb5.firebaseapp.com",
+                            databaseURL: "https://lunchbox-60fb5-default-rtdb.firebaseio.com",
+                            projectId: "lunchbox-60fb5",
+                            storageBucket: "lunchbox-60fb5.appspot.com",
+                            messagingSenderId: "534903316915",
+                            appId: "1:534903316915:web:e7b8e503540d234632ebc6",
+                            measurementId: "G-TD5GSSYSSY"
+                        };
                 
-                    const firebaseConfig = {
-                        apiKey: "AIzaSyCH0Zyzj5tukPUZacOM_xJZk3wFLQIvgNw",
-                        authDomain: "lunchbox-60fb5.firebaseapp.com",
-                        databaseURL: "https://lunchbox-60fb5-default-rtdb.firebaseio.com",
-                        projectId: "lunchbox-60fb5",
-                        storageBucket: "lunchbox-60fb5.appspot.com",
-                        messagingSenderId: "534903316915",
-                        appId: "1:534903316915:web:e7b8e503540d234632ebc6",
-                        measurementId: "G-TD5GSSYSSY"
-                    };
+                        // Initialize Firebase
+                        const app = initializeApp(firebaseConfig);
                 
-                    // Initialize Firebase
-                    const app = initializeApp(firebaseConfig);
+                        // Reference to the Firestore database
+                        const db = getFirestore(app);
                 
-                    // Reference to the Firestore database
-                    const db = getFirestore(app);
+                        // Reference to the Firestore collection
+                        const menuRef = doc(db, 'menu', 'menuDocument');
                 
-                    // Reference to the Firestore collection
-                    const menuRef = doc(db, 'menu', 'menuDocument');
+                        // Function to update the menu content
+                        function updateMenu(snapshot) {
+                            console.log("function activated")
+                            const menuDocument = snapshot.data();
                 
-                    // Function to update the menu content
-                    function updateMenu(snapshot) {
-                        const menuData = snapshot.data();
-
-                        // Check if menuData is defined
-                        if (!menuData) {
-                            console.error("Menu data is undefined");
-                            return;
+                            // Check if menuDocument is defined
+                            if (!menuDocument) {
+                                console.log("Menu data is undefined");
+                                return;
+                            }
+                
+                            console.log("should be updating...........");
+                            // Update the HTML based on your current data structure
+                            updateMenuItem('date1', 'tuesday_date');
+                            updateMenuItem('entree1', 'tuesday_entree');
+                            updateMenuItem('soup1', 'tuesday_soup');
+                            updateMenuItem('salad1', 'tuesday_salad');
+                            updateMenuItem('side1', 'tuesday_side');
+                            updateMenuItem('dessert1', 'tuesday_dessert');
+                            updateMenuItem('explanation1', 'tuesday_explanation');
+                
+                            updateMenuItem('date2', 'wednesday_date');
+                            updateMenuItem('entree2', 'wednesday_entree');
+                            updateMenuItem('soup2', 'wednesday_soup');
+                            updateMenuItem('salad2', 'wednesday_salad');
+                            updateMenuItem('side2', 'wednesday_side');
+                            updateMenuItem('dessert2', 'wednesday_dessert');
+                            updateMenuItem('explanation2', 'wednesday_explanation');
+                
+                            updateMenuItem('date3', 'thursday_date');
+                            updateMenuItem('entree3', 'thursday_entree');
+                            updateMenuItem('soup3', 'thursday_soup');
+                            updateMenuItem('salad3', 'thursday_salad');
+                            updateMenuItem('side3', 'thursday_side');
+                            updateMenuItem('dessert3', 'thursday_dessert');
+                            updateMenuItem('explanation3', 'thursday_explanation');
+                
+                            function updateMenuItem(elementId, dataKey) {
+                                // Check if the dataKey is defined in menuDocument
+                                if (menuDocument[dataKey] !== undefined) {
+                                    // Update the HTML element with the corresponding data
+                                    document.getElementById(elementId).innerText = menuDocument[dataKey];
+                                } else {
+                                    console.error(`${dataKey} is undefined in menuDocument`);
+                                }
+                            }
                         }
                 
-                        // Update the HTML based on your current data structure
-                        // Update the HTML based on your current data structure
-                        updateMenuItem('date1', 'tuesday_date');
-                        updateMenuItem('entree1', 'tuesday_entree');
-                        updateMenuItem('soup1', 'tuesday_soup');
-                        updateMenuItem('salad1', 'tuesday_salad');
-                        updateMenuItem('side1', 'tuesday_side');
-                        updateMenuItem('dessert1', 'tuesday_dessert');
-                        updateMenuItem('explanation1', 'tuesday_explanation');
-
-                        updateMenuItem('date2', 'wednesday_date');
-                        updateMenuItem('entree2', 'wednesday_entree');
-                        updateMenuItem('soup2', 'wednesday_soup');
-                        updateMenuItem('salad2', 'wednesday_salad');
-                        updateMenuItem('side2', 'wednesday_side');
-                        updateMenuItem('dessert2', 'wednesday_dessert');
-                        updateMenuItem('explanation2', 'wednesday_explanation');
-
-                        updateMenuItem('date3', 'thursday_date');
-                        updateMenuItem('entree3', 'thursday_entree');
-                        updateMenuItem('soup3', 'thursday_soup');
-                        updateMenuItem('salad3', 'thursday_salad');
-                        updateMenuItem('side3', 'thursday_side');
-                        updateMenuItem('dessert3', 'thursday_dessert');
-                        updateMenuItem('explanation3', 'thursday_explanation');
-                    
-                        function updateMenuItem(elementId, dataKey) {
-                        // Check if the dataKey is defined in menuData
-                        if (menuData[dataKey] !== undefined) {
-                            // Update the HTML element with the corresponding data
-                            document.getElementById(elementId).innerText = menuData[dataKey];
-                        } else {
-                            console.error(`${dataKey} is undefined in menuData`);
-                        }
-                    }
-                }
+                        // Set up the snapshot listener
+                        onSnapshot(menuRef, updateMenu);
+                    });
                 </script>
+
                 
             </head>
             <body>
