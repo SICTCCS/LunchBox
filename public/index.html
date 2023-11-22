@@ -6,15 +6,11 @@
                 <link rel="stylesheet" href="style.css">
                 <meta name="viewport" content="width=device-width,initial-scale=0.75">
                 <link rel="icon" type="image/x-icon" href="content/favicon.png">
-
-
-
-            
                 <script type="module">
+                    //imports and configs
                     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
                     import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
                     document.addEventListener("DOMContentLoaded", function () {
-                        
                         const firebaseConfig = {
                             apiKey: "AIzaSyCH0Zyzj5tukPUZacOM_xJZk3wFLQIvgNw",
                             authDomain: "lunchbox-60fb5.firebaseapp.com",
@@ -25,29 +21,14 @@
                             appId: "1:534903316915:web:e7b8e503540d234632ebc6",
                             measurementId: "G-TD5GSSYSSY"
                         };
-                
-                        // Initialize Firebase
+                        //initialize firebase
                         const app = initializeApp(firebaseConfig);
-                
-                        // Reference to the Firestore database
                         const db = getFirestore(app);
-                
-                        // Reference to the Firestore collection
                         const menuRef = doc(db, 'menu', 'menuDocument');
-                
-                        // Function to update the menu content
+                        //function to update the menu content
                         function updateMenu(snapshot) {
-                            console.log("function activated")
                             const menuDocument = snapshot.data();
-                
-                            // Check if menuDocument is defined
-                            if (!menuDocument) {
-                                console.log("Menu data is undefined");
-                                return;
-                            }
-                
-                            console.log("should be updating...........");
-                            // Update the HTML based on your current data structure
+                            //update the HTML based on current data structure
                             updateMenuItem('date1', 'tuesday_date');
                             updateMenuItem('entree1', 'tuesday_entree');
                             updateMenuItem('soup1', 'tuesday_soup');
@@ -71,24 +52,20 @@
                             updateMenuItem('side3', 'thursday_side');
                             updateMenuItem('dessert3', 'thursday_dessert');
                             updateMenuItem('explanation3', 'thursday_explanation');
-                
                             function updateMenuItem(elementId, dataKey) {
-                                // Check if the dataKey is defined in menuDocument
+                                //check if the dataKey is defined in menuDocument
                                 if (menuDocument[dataKey] !== undefined) {
-                                    // Update the HTML element with the corresponding data
+                                    //update the HTML element with the corresponding data
                                     document.getElementById(elementId).innerText = menuDocument[dataKey];
                                 } else {
                                     console.error(`${dataKey} is undefined in menuDocument`);
                                 }
                             }
                         }
-                
-                        // Set up the snapshot listener
+                        //set up the snapshot listener
                         onSnapshot(menuRef, updateMenu);
                     });
                 </script>
-
-                
             </head>
             <body>
                 <nav>
@@ -106,9 +83,6 @@
                     <div class="bigLogo-container">
                         <img id="homePageLunchboxLogo" src="content/lunchboxWithText.png" alt="homePageLunchboxLogo">
                     </div>
-                    <!-- <div class="closed-Alert-Container">
-                        <img id="homePageWarningSign" src="content/warningSign.png" alt="warningSign"> <h1>The Lunchbox is currently out of food. (10/1/2023)</h1>
-                    </div> -->
                     <div class="menu-container">
                         <div class="menu">
                             <h1 id="menuCard" style="text-align:center;">TUESDAY</h1>
@@ -207,7 +181,7 @@
                     </div>
                 </main>
                 <footer>
-                    &copy; Maekyn Grigsby & Ty Tichenor<br>
+                    &copy; <a class="no-style-link" href="https://github.com/maekyngrigs10">Maekyn Grigsby</a> & <a class="no-style-link" href="https://github.com/tytichenor">Ty Tichenor</a><br>
                     The Lunchbox <br>
                     1901 Lynch Rd, Evansville, IN 47711 <br>
                     <a href="https://sictc.evscschools.com/"><img src="content/footerSICTC.png" style="width:150px;height:75px;" alt="footerSICTC"><a></a>

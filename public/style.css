@@ -67,7 +67,6 @@
   .upload-container {
     display: flex;
     margin: 0;
-    /* pushes upload cards further up */
     margin-top: -1.5em;
     margin-bottom: 3em;
   }
@@ -248,19 +247,6 @@
     height: 60vh;
     width: 50vw;
   }
-  #homePageWarningSign {
-    height: 200px;
-    width: 200px;
-  }
-  /* To keep the warning sign centered */
-  .closed-Alert-Container {
-    display: flex;
-    width: 100%;
-    height: 10vh;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 4em;
-  }
   /* For the big logo on the home page */
   .bigLogo-container {
     display: flex;
@@ -283,6 +269,12 @@
     font-size: 18px;
   }
   /* Other stuff */
+  .no-style-link{
+    font-weight: 700;
+    font-size:medium;
+    font-style: normal;
+    text-decoration: none;
+  }
   .white-address {
     color: white;
   }
@@ -362,32 +354,6 @@
     margin-bottom: 3em;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Mobile view and Half-Desktop */
@@ -561,7 +527,7 @@
   }
   .contact-form > textarea {
     height: 10em;
-    resize: none; /* Prevent resizing */
+    resize: none; 
     border: 2px solid #ebebeb;
     font-size: 15px;
     padding: 0 16px;
@@ -639,22 +605,6 @@
     margin-bottom: 5em;
 
   }
-  #homePageWarningSign {
-    height: 150px;
-    width: 150px;
-  }
-  /* To keep the warning sign centered */
-  .closed-Alert-Container {
-    display: flex;
-    width: 100%;
-    height: 10vh;
-    justify-content: center;
-    align-items: center;
-    padding-top: 4em;
-    padding-bottom: 4em;
-    flex-direction: column;
-    text-align: center;
-  }
   /* For the big logo on the home page */
   .bigLogo-container {
     display: flex;
@@ -675,6 +625,12 @@
     font-size: 18px;
   }
   /* Other stuff */
+  .no-style-link{
+    font-weight: 700;
+    font-size:medium;
+    font-style: normal;
+    text-decoration: none;
+  }
   .white-address {
     color: white;
   }
