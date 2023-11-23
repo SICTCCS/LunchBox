@@ -38,45 +38,39 @@
                                     <option value="News Articles">
                                 </datalist>
                             </div>
-                                        <label class="checkbox-label">
-                                            <input id="mailingList" type="checkbox" class="custom-checkbox">
-                                            <span class="checkbox-text">Sign up for the weekly newsletter</span>
-                                        </label>
-                                    <button type="button" onclick="submitForm()">submit</button>
+                                <label class="checkbox-label">
+                                    <input id="mailingList" type="checkbox" class="custom-checkbox">
+                                    <span class="checkbox-text">Sign up for the weekly newsletter</span>
+                                </label>
+                                <button type="button" onclick="submitForm()">submit</button>
                             </div>
                             <script>
                                 function submitForm() {
-                                    // Get form input values
+                                    //get form input values
                                     var firstName = document.getElementById('firstname').value;
                                     var lastName = document.getElementById('lastname').value;
                                     var comments = document.getElementById('comment').value;
                                     var foundOut = document.getElementById('foundOut').value;
                                     var mailingList = document.getElementById('mailingList').checked;
-                            
-                                    // Check if required fields are not empty
+                                    //check if required fields are not empty
                                     if (firstName.trim() === '' || lastName.trim() === '' || comments.trim() === '') {
                                         alert('Please fill in all required fields.');
                                         return;
                                     }
-                            
-                                    // Create email content
+                                    //create email content
                                     var fullName = `${firstName} ${lastName}`;
                                     var mailingListText = mailingList ? 'Yes' : 'No';
-                            
-                                    // Construct the email content as a full sentence with new lines
+                                    //construct the email content as a full sentence with new lines
                                     var emailContent = `My name is ${fullName} and my comment/question is "${comments}".\n`;
-                            
                                     if (foundOut.trim() !== '') {
                                         emailContent += `I found out about this restaurant from ${foundOut}.\n`;
                                     }
-                            
                                     if (mailingList) {
                                         emailContent += `I want to be part of the mailing list.\n`;
                                     } else {
                                         emailContent += `I do not want to be part of the mailing list.\n`;
                                     }
-                            
-                                    // Open email client with preloaded content
+                                    //open email client with preloaded content
                                     window.location.href = 'mailto:samuel.wagoner@evsck12.com?subject=Contact Form Submission&body=' + encodeURIComponent(emailContent);
                                 }
                             </script>
@@ -88,7 +82,7 @@
                       </div>
                 </main>
                 <footer>
-                    &copy; Maekyn Grigsby & Ty Tichenor<br>
+                    &copy; <a class="no-style-link" href="https://github.com/maekyngrigs10">Maekyn Grigsby</a> & <a class="no-style-link" href="https://github.com/tytichenor">Ty Tichenor</a><br>
                     The Lunchbox <br>
                     1901 Lynch Rd, Evansville, IN 47711 <br>
                     <a href="https://sictc.evscschools.com/"><img src="content/footerSICTC.png" style="width:150px;height:75px;" alt="footerSICTC"><a></a>

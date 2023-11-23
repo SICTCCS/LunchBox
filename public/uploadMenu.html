@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <title>The Lunchbox - Menu Upload</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="style.css">
+            <link rel="icon" type="image/x-icon" href="content/favicon.png">
+            <script type="module">
+                //imports and configs
+                import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+                import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+                import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+                const firebaseConfig = {
+                apiKey: "AIzaSyCH0Zyzj5tukPUZacOM_xJZk3wFLQIvgNw",
+                authDomain: "lunchbox-60fb5.firebaseapp.com",
+                databaseURL: "https://lunchbox-60fb5-default-rtdb.firebaseio.com",
+                projectId: "lunchbox-60fb5",
+                storageBucket: "lunchbox-60fb5.appspot.com",
+                messagingSenderId: "534903316915",
+                appId: "1:534903316915:web:e7b8e503540d234632ebc6",
+                measurementId: "G-TD5GSSYSSY"
+                };
+                const app = initializeApp(firebaseConfig);
+                const db = getFirestore(app);
+                const auth = getAuth();
+                //handle form submission
+                function submitForm(event) {
+                event.preventDefault();
+                const email = document.getElementById('emailINPUT').value;
+                const password = document.getElementById('passwordINPUT').value;
+                signInWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        //get values from input fields
+                        const dateINPUT1 = document.getElementById('dateINPUT1').value;
+                        const entreeINPUT1 = document.getElementById('entreeINPUT1').value;
+                        const soupINPUT1 = document.getElementById('soupINPUT1').value;
+                        const saladINPUT1 = document.getElementById('saladINPUT1').value;
+                        const sideINPUT1 = document.getElementById('sideINPUT1').value;
+                        const dessertINPUT1 = document.getElementById('dessertINPUT1').value;
+                
+                        const dateINPUT2 = document.getElementById('dateINPUT2').value;
+                        const entreeINPUT2 = document.getElementById('entreeINPUT2').value;
+                        const soupINPUT2 = document.getElementById('soupINPUT2').value;
+                        const saladINPUT2 = document.getElementById('saladINPUT2').value;
+                        const sideINPUT2 = document.getElementById('sideINPUT2').value;
+                        const dessertINPUT2 = document.getElementById('dessertINPUT2').value;
+                
+                        const dateINPUT3 = document.getElementById('dateINPUT3').value;
+                        const entreeINPUT3 = document.getElementById('entreeINPUT3').value;
+                        const soupINPUT3 = document.getElementById('soupINPUT3').value;
+                        const saladINPUT3 = document.getElementById('saladINPUT3').value;
+                        const sideINPUT3 = document.getElementById('sideINPUT3').value;
+                        const dessertINPUT3 = document.getElementById('dessertINPUT3').value;
+                        //checkbox initializations
+                        const closedCHECKBOX1 = document.getElementById('closedCHECKBOX1');
+                        const closedINPUT1 = closedCHECKBOX1.checked ? "closed" : " ";
+                        const closedCHECKBOX2 = document.getElementById('closedCHECKBOX2');
+                        const closedINPUT2 = closedCHECKBOX2.checked ? "closed" : " ";
+                        const closedCHECKBOX3 = document.getElementById('closedCHECKBOX3');
+                        const closedINPUT3 = closedCHECKBOX3.checked ? "closed" : " ";
+                        //construct menu data object
+                        const menuData = {
+                            tuesday_date: dateINPUT1,
+                            tuesday_entree: entreeINPUT1,
+                            tuesday_soup: soupINPUT1,
+                            tuesday_salad: saladINPUT1,
+                            tuesday_side: sideINPUT1,
+                            tuesday_dessert: dessertINPUT1,
+                            tuesday_closed: closedINPUT1,
+                            wednesday_date: dateINPUT2,
+                            wednesday_entree: entreeINPUT2,
+                            wednesday_soup: soupINPUT2,
+                            wednesday_salad: saladINPUT2,
+                            wednesday_side: sideINPUT2,
+                            wednesday_dessert: dessertINPUT2,
+                            wednesday_closed: closedINPUT2,
+                            thursday_date: dateINPUT3,
+                            thursday_entree: entreeINPUT3,
+                            thursday_soup: soupINPUT3,
+                            thursday_salad: saladINPUT3,
+                            thursday_side: sideINPUT3,
+                            thursday_dessert: dessertINPUT3,
+                            thursday_closed: closedINPUT3
+                    };
+                    //pushes up new data - error catches and alerts
+                    setDoc(doc(db, "menu", "menuDocument"), menuData)
+                    .then(() => {
+                        console.log("Menu published successfully!");
+                        alert("Menu published successfully!");
+                    })
+                    .catch((error) => {
+                        console.error("Error publishing menu: ", error);
+                        alert("Error publishing menu.");
+                    });
+                    })
+                    .catch((error) => {
+                        console.error("Authentication failed: ", error);
+                        alert("Authentication failed.");
+                    });
+                    }
+                    const submitBTN = document.getElementById("submitBTN");
+                    submitBTN.addEventListener("click", submitForm);
+            </script>
+            </head>
+            <nav>
+                <div class="nav-upload-middle">
+                    <img id="logo-upload-middle" src="content/lunchboxWithText.png" alt="lunchboxLogoWithText">
+                </div>
+            </nav>
+            <main>
+                <div class="upload-container">
+                    <div class="upload-card">
+                        <form class="upload-form">
+                            <input id="dateINPUT1" type="text" placeholder="Tuesday - Date (JAN 1)" style="background-color:silver">
+                            <input id="entreeINPUT1" type="text" placeholder="Tuesday - Entree" style="background-color:silver">
+                            <input id="soupINPUT1" type="text" placeholder="Tuesday - Soups" style="background-color:silver">
+                            <input id="saladINPUT1" type="text" placeholder="Tuesday - Salads" style="background-color:silver">
+                            <input id="sideINPUT1" type="text" placeholder="Tuesday - Sides" style="background-color:silver">
+                            <input id="dessertINPUT1" type="text" placeholder="Tuesday - Desserts" style="background-color:silver">
+                            <label class="checkbox-label">
+                                <input id="closedCHECKBOX1" type="checkbox" class="custom-checkbox">
+                                <span class="checkbox-text">closed</span>
+                            </label>
+                        </form>
+                    </div>
+                    <div class="upload-card">
+                        <form class="upload-form">
+                            <input id="dateINPUT2" type="text" placeholder="Wednesday - Date (JAN 1)" style="background-color:silver">
+                            <input id="entreeINPUT2" type="text" placeholder="Wednesday - Entree" style="background-color:silver">
+                            <input id="soupINPUT2" type="text" placeholder="Wednesday - Soups" style="background-color:silver">
+                            <input id="saladINPUT2" type="text" placeholder="Wednesday - Salads" style="background-color:silver">
+                            <input id="sideINPUT2" type="text" placeholder="Wednesday - Sides" style="background-color:silver">
+                            <input id="dessertINPUT2" type="text" placeholder="Wednesday - Desserts" style="background-color:silver">
+                            <label class="checkbox-label">
+                                <input id="closedCHECKBOX2" type="checkbox" class="custom-checkbox">
+                                <span class="checkbox-text">closed</span>
+                            </label>
+                        </form>
+                    </div>
+                    <div class="upload-card">
+                        <form class="upload-form">
+                            <input id="dateINPUT3" type="text" placeholder="Thursday - Date (JAN 1)" style="background-color:silver">
+                            <input id="entreeINPUT3" type="text" placeholder="Thursday - Entree" style="background-color:silver">
+                            <input id="soupINPUT3" type="text" placeholder="Thursday - Soups" style="background-color:silver">
+                            <input id="saladINPUT3" type="text" placeholder="Thursday - Salads" style="background-color:silver">
+                            <input id="sideINPUT3" type="text" placeholder="Thursday - Sides" style="background-color:silver">
+                            <input id="dessertINPUT3" type="text" placeholder="Thursday - Desserts" style="background-color:silver">
+                            <label class="checkbox-label">
+                                <input id="closedCHECKBOX3" type="checkbox" class="custom-checkbox">
+                                <span class="checkbox-text">closed</span>
+                            </label>
+                        </form>
+                    </div>   
+                    <div class="upload-card">
+                        <form class="upload-form">
+                        <h2 class="current-site-text"></h2><a href="https://sictccs.github.io/LunchBox/index.html" target="_blank">current menu &#x2197;</a></h2>
+                        <input id="emailINPUT" type="text" placeholder="email" style="background-color:#e56b6f">
+                        <input id="passwordINPUT" type="password" placeholder="password" style="background-color:#e56b6f">
+                            <button id="submitBTN" type="submit" >publish</button>
+                            * publishing replaces all current menu details
+                        </form>
+                    </div>   
+                </div>
+            </main>
+            <footer>
+                &copy; <a class="no-style-link" href="https://github.com/maekyngrigs10">Maekyn Grigsby</a> & <a class="no-style-link" href="https://github.com/tytichenor">Ty Tichenor</a><br>
+                The Lunchbox <br>
+                1901 Lynch Rd, Evansville, IN 47711 <br>
+                <a href="https://sictc.evscschools.com/"><img src="content/footerSICTC.png" style="width:150px;height:75px;" alt="footerSICTC"></a>
+            </footer>
+        </body>
+</html>
