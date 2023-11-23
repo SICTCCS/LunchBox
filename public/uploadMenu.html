@@ -54,11 +54,11 @@
                         const dessertINPUT3 = document.getElementById('dessertINPUT3').value;
                         //checkbox initializations
                         const closedCHECKBOX1 = document.getElementById('closedCHECKBOX1');
-                        const explanationINPUT1 = closedCHECKBOX1.checked ? "closed" : "open";
+                        const closedINPUT1 = closedCHECKBOX1.checked ? "closed" : " ";
                         const closedCHECKBOX2 = document.getElementById('closedCHECKBOX2');
-                        const explanationINPUT2 = closedCHECKBOX2.checked ? "closed" : "open";
+                        const closedINPUT2 = closedCHECKBOX2.checked ? "closed" : " ";
                         const closedCHECKBOX3 = document.getElementById('closedCHECKBOX3');
-                        const explanationINPUT3 = closedCHECKBOX3.checked ? "closed" : "open";
+                        const closedINPUT3 = closedCHECKBOX3.checked ? "closed" : " ";
                         //construct menu data object
                         const menuData = {
                             tuesday_date: dateINPUT1,
@@ -67,21 +67,21 @@
                             tuesday_salad: saladINPUT1,
                             tuesday_side: sideINPUT1,
                             tuesday_dessert: dessertINPUT1,
-                            tuesday_explanation: explanationINPUT1,
+                            tuesday_closed: closedINPUT1,
                             wednesday_date: dateINPUT2,
                             wednesday_entree: entreeINPUT2,
                             wednesday_soup: soupINPUT2,
                             wednesday_salad: saladINPUT2,
                             wednesday_side: sideINPUT2,
                             wednesday_dessert: dessertINPUT2,
-                            wednesday_explanation: explanationINPUT2,
+                            wednesday_closed: closedINPUT2,
                             thursday_date: dateINPUT3,
                             thursday_entree: entreeINPUT3,
                             thursday_soup: soupINPUT3,
                             thursday_salad: saladINPUT3,
                             thursday_side: sideINPUT3,
                             thursday_dessert: dessertINPUT3,
-                            thursday_explanation: explanationINPUT3
+                            thursday_closed: closedINPUT3
                     };
                     //pushes up new data - error catches and alerts
                     setDoc(doc(db, "menu", "menuDocument"), menuData)
@@ -112,7 +112,7 @@
                 <div class="upload-container">
                     <div class="upload-card">
                         <form class="upload-form">
-                            <input id="dateINPUT1" type="text" placeholder="Tuesday - Date (num)" style="background-color:silver">
+                            <input id="dateINPUT1" type="text" placeholder="Tuesday - Date (JAN 1)" style="background-color:silver">
                             <input id="entreeINPUT1" type="text" placeholder="Tuesday - Entree" style="background-color:silver">
                             <input id="soupINPUT1" type="text" placeholder="Tuesday - Soups" style="background-color:silver">
                             <input id="saladINPUT1" type="text" placeholder="Tuesday - Salads" style="background-color:silver">
@@ -126,7 +126,7 @@
                     </div>
                     <div class="upload-card">
                         <form class="upload-form">
-                            <input id="dateINPUT2" type="text" placeholder="Wednesday - Date (num)" style="background-color:silver">
+                            <input id="dateINPUT2" type="text" placeholder="Wednesday - Date (JAN 1)" style="background-color:silver">
                             <input id="entreeINPUT2" type="text" placeholder="Wednesday - Entree" style="background-color:silver">
                             <input id="soupINPUT2" type="text" placeholder="Wednesday - Soups" style="background-color:silver">
                             <input id="saladINPUT2" type="text" placeholder="Wednesday - Salads" style="background-color:silver">
@@ -140,7 +140,7 @@
                     </div>
                     <div class="upload-card">
                         <form class="upload-form">
-                            <input id="dateINPUT3" type="text" placeholder="Thursday - Date (num)" style="background-color:silver">
+                            <input id="dateINPUT3" type="text" placeholder="Thursday - Date (JAN 1)" style="background-color:silver">
                             <input id="entreeINPUT3" type="text" placeholder="Thursday - Entree" style="background-color:silver">
                             <input id="soupINPUT3" type="text" placeholder="Thursday - Soups" style="background-color:silver">
                             <input id="saladINPUT3" type="text" placeholder="Thursday - Salads" style="background-color:silver">
@@ -154,7 +154,8 @@
                     </div>   
                     <div class="upload-card">
                         <form class="upload-form">
-                        <input id="emailINPUT" class="email-textbox" type="text" placeholder="email" style="background-color:#e56b6f">
+                        <h2 class="current-site-text"></h2><a href="https://sictccs.github.io/LunchBox/index.html" target="_blank">current menu &#x2197;</a></h2>
+                        <input id="emailINPUT" type="text" placeholder="email" style="background-color:#e56b6f">
                         <input id="passwordINPUT" type="password" placeholder="password" style="background-color:#e56b6f">
                             <button id="submitBTN" type="submit" >publish</button>
                             * publishing replaces all current menu details

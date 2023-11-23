@@ -35,7 +35,7 @@
                             updateMenuItem('salad1', 'tuesday_salad');
                             updateMenuItem('side1', 'tuesday_side');
                             updateMenuItem('dessert1', 'tuesday_dessert');
-                            updateMenuItem('explanation1', 'tuesday_explanation');
+                            updateMenuItem('closed1', 'tuesday_closed');
                 
                             updateMenuItem('date2', 'wednesday_date');
                             updateMenuItem('entree2', 'wednesday_entree');
@@ -43,7 +43,7 @@
                             updateMenuItem('salad2', 'wednesday_salad');
                             updateMenuItem('side2', 'wednesday_side');
                             updateMenuItem('dessert2', 'wednesday_dessert');
-                            updateMenuItem('explanation2', 'wednesday_explanation');
+                            updateMenuItem('closed2', 'wednesday_closed');
                 
                             updateMenuItem('date3', 'thursday_date');
                             updateMenuItem('entree3', 'thursday_entree');
@@ -51,7 +51,7 @@
                             updateMenuItem('salad3', 'thursday_salad');
                             updateMenuItem('side3', 'thursday_side');
                             updateMenuItem('dessert3', 'thursday_dessert');
-                            updateMenuItem('explanation3', 'thursday_explanation');
+                            updateMenuItem('closed3', 'thursday_closed');
                             function updateMenuItem(elementId, dataKey) {
                                 //check if the dataKey is defined in menuDocument
                                 if (menuDocument[dataKey] !== undefined) {
@@ -86,63 +86,63 @@
                     <div class="menu-container">
                         <div class="menu">
                             <h1 id="menuCard" style="text-align:center;">TUESDAY</h1>
-                            <h3 id="date1" style="text-align:center;">NOV 14</h3>
-                            <h1 style="color:#335879">ENTREE</h1> 
-                            <h3 id="entree1" class="menu-items-spaced-over">Grilled Chicken Parmesan</h3>
+                            <h3 id="date1" style="text-align:center;">{date}</h3>
+                            <h1 style="color:#335879"></h1> 
+                            <h3 id="entree1" class="menu-items-spaced-over">{entree}</h3>
                             <div class="divider"></div>
                             <h1 style="color:#335879">SOUPS</h1> 
-                            <h3 id="soup1" class="menu-items-spaced-over">Tomato Basil Bisque</h3>
+                            <h3 id="soup1" class="menu-items-spaced-over">{soup}</h3>
                             <div class="divider"></div>
                             <h1 style="color:#335879">SALADS</h1> 
-                            <h3 id="salad1" class="menu-items-spaced-over">Garden Salad w/ Asst. Dressings, Italian Pasta Salad</h3>
+                            <h3 id="salad1" class="menu-items-spaced-over">{salad}</h3>
                             <div class="divider"></div>
                             <h1 style="color:#335879">SIDES</h1> 
-                            <h3 id="side1" class="menu-items-spaced-over">Roasted Red Potatoes, Mixed Vegetables</h3>
+                            <h3 id="side1" class="menu-items-spaced-over">{side}</h3>
                             <div class="divider"></div> 
                             <h1 style="color:#335879">DESSERTS</h1> 
-                            <h3 id="dessert1" class="menu-items-spaced-over">Apple Cobbler, Peanut Butter Cookie, Chocolate Cream Pie</h3>
+                            <h3 id="dessert1" class="menu-items-spaced-over">{dessert}</h3>
                             <div class="divider"></div>
-                            <h3 id="explanation1" style="color:grey">     </h3>
+                            <h3 id="closed1" style="color:grey"></h3>
                         </div>
                         <div class="menu">
                             <h1 id="menuCard" style="text-align:center;">WEDNESDAY</h1>
-                            <h3 id="date2" style="text-align:center;">NOV 15</h3>
+                            <h3 id="date2" style="text-align:center;">{date}</h3>
                             <h1 style="color:#335879">ENTREE</h1> 
-                            <h3 id="entree2" class="menu-items-spaced-over">Sliced Turkey Breast</h3>
+                            <h3 id="entree2" class="menu-items-spaced-over">{entree}</h3>
                             <div class="divider"></div>
                             <h1 style="color:#335879">SOUPS</h1> 
-                            <h3 id="soup2" class="menu-items-spaced-over">Roasted Sweet Potato Bisque</h3>
+                            <h3 id="soup2" class="menu-items-spaced-over">{soup}</h3>
                             <div class="divider"></div>
                             <h1 style="color:#335879">SALADS</h1> 
-                            <h3 id="salad2" class="menu-items-spaced-over">Garden Salad w/ Asst. Dressings, Cranberry Relish</h3>
+                            <h3 id="salad2" class="menu-items-spaced-over">{salad}</h3>
                             <div class="divider"></div>
                             <h1 style="color:#335879">SIDES</h1> 
-                            <h3 id="side2" class="menu-items-spaced-over">Mashed Potatoes & Turkey Gravy, Green Bean Casserole</h3>
+                            <h3 id="side2" class="menu-items-spaced-over">{side}</h3>
                             <div class="divider"></div>
                             <h1 style="color:#335879">DESSERTS</h1> 
-                            <h3 id="dessert2" class="menu-items-spaced-over">Cherry Cobbler, Chocolate Chip Cookie, Pumpkin Pie</h3>
+                            <h3 id="dessert2" class="menu-items-spaced-over">{dessert}</h3>
                             <div class="divider"></div>
-                            <h3 id="explanation2" style="color:grey">      </h3>
+                            <h3 id="closed2" style="color:grey"></h3>
                         </div>
                         <div class="menu">
                             <h1 id="menuCard" style="text-align:center;">THURSDAY</h1>
-                            <h3 id="date3" style="text-align:center;">NOV 16</h3>
+                            <h3 id="date3" style="text-align:center;">{date}</h3>
                             <h1 style="color:#335879">ENTREE</h1> 
-                            <h3 id="entree3" class="menu-items-spaced-over">Rosemary & Garlic Crusted Pork Loin</h3>
+                            <h3 id="entree3" class="menu-items-spaced-over">{entree}</h3>
                             <div class="divider"></div>
                             <h1 style="color:#335879">SOUPS</h1> 
-                            <h3 id="soup3" class="menu-items-spaced-over">Cream of Spinach</h3>
+                            <h3 id="soup3" class="menu-items-spaced-over">{soup}</h3>
                             <div class="divider"></div>
                             <h1 style="color:#335879">SALADS</h1> 
-                            <h3 id="salad3" class="menu-items-spaced-over">Garden Salad w/ Asst. Dressings, Potato Salad</h3>
+                            <h3 id="salad3" class="menu-items-spaced-over">{salad}</h3>
                             <div class="divider"></div>
                             <h1 style="color:#335879">SIDES</h1> 
-                            <h3 id="side3" class="menu-items-spaced-over">Twice Baked Potato Casserole, Buttered Corn</h3>
+                            <h3 id="side3" class="menu-items-spaced-over">{side}</h3>
                             <div class="divider"></div>
                             <h1 style="color:#335879">DESSERTS</h1> 
-                            <h3 id="dessert3" class="menu-items-spaced-over">Bread Pudding w/Caramel Sauce, Cookie of the Day, Assorted Pies</h3>
+                            <h3 id="dessert3" class="menu-items-spaced-over">{dessert}</h3>
                             <div class="divider"></div>
-                            <h3 id="explanation3" style="color:grey">      </h3>
+                            <h3 id="closed3" style="color:grey"></h3>
                         </div>
                       </div>
                     <div class="card-container-WHATSINCLUDED">

@@ -126,8 +126,8 @@
   .upload-form > button:hover {
     background: black;
   }
-  .email-textbox{
-    margin-top: 9em;
+  .current-site-text{
+    margin-top: 2em;
   }
   /* Contact page cards */
   .card-container {
