@@ -118,7 +118,7 @@ function updateMenuItem(elementId, dataKey) {
 
 The following code is located near the bottom of contact.html. This page does not have firebase script. <br>
 
-The  <br>
+The 'sumbitForm' function is called when the 'submit' button is clicked in the 'CONNECT WITH US' card.<br>
 ```
 <script>
     function submitForm() {
@@ -155,16 +155,132 @@ The  <br>
 
 
 
+## uploadMenu.html
+
+The following code is located at the top of 'uploadMenu.html' in the head section. <br>
+
+The firebase imports are made and the firebase is configurated (similar to index.html). The 'auth' import allows for only authorized users to publish menu data. <br>
+```
+<script type="module">
+    //imports and configs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+    const firebaseConfig = {
+        apiKey: "AIzaSyCH0Zyzj5tukPUZacOM_xJZk3wFLQIvgNw",
+        authDomain: "lunchbox-60fb5.firebaseapp.com",
+        databaseURL: "https://lunchbox-60fb5-default-rtdb.firebaseio.com",
+        projectId: "lunchbox-60fb5",
+        storageBucket: "lunchbox-60fb5.appspot.com",
+        messagingSenderId: "534903316915",
+        appId: "1:534903316915:web:e7b8e503540d234632ebc6",
+        measurementId: "G-TD5GSSYSSY"
+    };
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth();
+```
 
 
 
 
+This code section runs when the 'submit' button is pressed. The authentication is checked here, passing the email and password in the function. If authenticated, the values are taken from the input fields and are assigned to constant variables to be passed on to the firestore. The checkbox initializations check if the checkbox is checked, and if it is, it sends, 'closed', and if it is unchecked, it sends a blank string.<br>
+```
+//handle form submission
+function submitForm(event) {
+    event.preventDefault();
+    const email = document.getElementById('emailINPUT').value;
+    const password = document.getElementById('passwordINPUT').value;
+    signInWithEmailAndPassword(auth, email, password)
+    then((userCredential) => {
+        //get values from input fields
+        const dateINPUT1 = document.getElementById('dateINPUT1').value;
+        const entreeINPUT1 = document.getElementById('entreeINPUT1').value;
+        const soupINPUT1 = document.getElementById('soupINPUT1').value;
+        const saladINPUT1 = document.getElementById('saladINPUT1').value;
+        const sideINPUT1 = document.getElementById('sideINPUT1').value;
+        const dessertINPUT1 = document.getElementById('dessertINPUT1').value;
+                
+        const dateINPUT2 = document.getElementById('dateINPUT2').value;
+        const entreeINPUT2 = document.getElementById('entreeINPUT2').value;
+        const soupINPUT2 = document.getElementById('soupINPUT2').value;
+        const saladINPUT2 = document.getElementById('saladINPUT2').value;
+        const sideINPUT2 = document.getElementById('sideINPUT2').value;
+        const dessertINPUT2 = document.getElementById('dessertINPUT2').value;
+                
+        const dateINPUT3 = document.getElementById('dateINPUT3').value;
+        const entreeINPUT3 = document.getElementById('entreeINPUT3').value;
+        const soupINPUT3 = document.getElementById('soupINPUT3').value;
+        const saladINPUT3 = document.getElementById('saladINPUT3').value;
+        const sideINPUT3 = document.getElementById('sideINPUT3').value;
+        const dessertINPUT3 = document.getElementById('dessertINPUT3').value;
+        //checkbox initializations
+        const closedCHECKBOX1 = document.getElementById('closedCHECKBOX1');
+        const closedINPUT1 = closedCHECKBOX1.checked ? "closed" : " ";
+        const closedCHECKBOX2 = document.getElementById('closedCHECKBOX2');
+        const closedINPUT2 = closedCHECKBOX2.checked ? "closed" : " ";
+        const closedCHECKBOX3 = document.getElementById('closedCHECKBOX3');
+        const closedINPUT3 = closedCHECKBOX3.checked ? "closed" : " ";
+```
 
 
 
+This code assigns the constant variables to a data structure in the firestore. <br>
+```
+//construct menu data object
+const menuData = {
+    tuesday_date: dateINPUT1,
+    tuesday_entree: entreeINPUT1,
+    tuesday_soup: soupINPUT1,
+    tuesday_salad: saladINPUT1,
+    tuesday_side: sideINPUT1,
+    tuesday_dessert: dessertINPUT1,
+    tuesday_closed: closedINPUT1,
+    wednesday_date: dateINPUT2,
+    wednesday_entree: entreeINPUT2,
+    wednesday_soup: soupINPUT2,
+    wednesday_salad: saladINPUT2,
+    wednesday_side: sideINPUT2,
+    wednesday_dessert: dessertINPUT2,
+    wednesday_closed: closedINPUT2,
+    thursday_date: dateINPUT3,
+    thursday_entree: entreeINPUT3,
+    thursday_soup: soupINPUT3,
+    thursday_salad: saladINPUT3,
+    thursday_side: sideINPUT3,
+    thursday_dessert: dessertINPUT3,
+    thursday_closed: closedINPUT3
+};
+```
+
+
+This data can be seen in the firebase console as seen below: <br>
+<img src="mdimages/firestoreConstruct.png" height="300px" width="600px"> <br>
 
 
 
+This code is at the bottom of the script tag and it handles the checks of the information that the user inputs. The alerts are shown at the top of the screen and the console messages can be seen in the web console after inspecting the page.  <br>
+```
+//pushes up new data - error catches and alerts
+setDoc(doc(db, "menu", "menuDocument"), menuData)
+.then(() => {
+    console.log("Menu published successfully!");
+    alert("Menu published successfully!");
+})
+.catch((error) => {
+    console.error("Error publishing menu: ", error);
+    alert("Error publishing menu.");
+});
+})
+.catch((error) => {
+    console.error("Authentication failed: ", error);
+    alert("Authentication failed.");
+});
+}
+const submitBTN = document.getElementById("submitBTN");
+submitBTN.addEventListener("click", submitForm);
+</script>
+```
 
 
 
@@ -178,9 +294,8 @@ The  <br>
 
 ### Inside Public Folder
 The 'public' folder contains the HTML files, as well as the CSS file. <br>
-The 'content' folder contains the images used within the website. <br>
-The 'DS_Store' is a file that can be seen throughout the project and can be ignored.<br>
-<img src="mdimages/publicFileList.png" height="225px" width="140px"> 
+The 'content' folder contains the images used within the website. <br> <br>
+<img src="mdimages/publicFileList.png" height="225px" width="180px"> 
 
 
 
