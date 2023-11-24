@@ -299,8 +299,19 @@ The 'content' folder contains the images used within the website. <br> <br>
 <img src="mdimages/publicFileList.png" height="225px" width="180px"> <br>
 
 ### 'README.md' and 'mdimages'
-These files are only for the README, not to be changed. 
+These files are only for the README, not to be changed. <br>
 
+### '.firebaserc'
+This file sets the default firebase project ID - should not be changed. <br>
+
+### '.gitignore' 
+This file has a list of file types that are ignored when changes are pushed. The only one that has been manually added is 'DS_Store', which is a file that macOS uses to store file arrangement data. 
+
+### 'database.rules.json'
+This file contains the permissions for reading and writing of the data, but this file is blank. The actual reading and writing permssions can be found in the firebase console as seen below: <br>
+<img src="mdimages/rules.png" height="300px" width="600px"> <br>
+
+### 'firebase.json'
 
 
 
