@@ -24,7 +24,7 @@ This is the admin page. Each day (tue, wed, thu) have their own cards that mimic
 
 The following code is located at the top of 'index.html' in the head section. <br>
 
-The firebase is imported, configurated, and initialized - This data can be found in the project settings of the firebase console site. <br>
+The firebase is imported, configurated, and initialized - This data can be found in the project settings of the firebase console site. <br> 
 ```
 <script type="module">
     //imports and configs
@@ -47,8 +47,7 @@ The firebase is imported, configurated, and initialized - This data can be found
         const menuRef = doc(db, 'menu', 'menuDocument');
 ```
 
-
-
+<br>
 
 The function 'updateMenu(snapshot)' is called to update the menu data. The function contains each data field that is being updated. <br>
 updateMenuItem('{elementId}','{dataKey - found in the 'construct menu data' section in uploadMenu.html}') <br>
@@ -82,7 +81,7 @@ function updateMenu(snapshot) {
     updateMenuItem('closed3', 'thursday_closed');
 ```
 
-
+<br>
 
 
 This function 'updateMenuItem' checks that the data key is valid and updates the data. The snapshot listener looks for new data to load. <br>
@@ -103,17 +102,7 @@ function updateMenuItem(elementId, dataKey) {
 </script>
 ```
 
-
-
-
-
-
-
-
-
-
-
-
+<br>
 
 ## contact.html
 
@@ -153,8 +142,7 @@ The 'sumbitForm' function is called when the 'submit' button is clicked in the '
 </script>
 ```
 
-
-
+<br>
 
 ## uploadMenu.html
 
@@ -182,8 +170,7 @@ The firebase imports are made and the firebase is configurated (similar to index
     const auth = getAuth();
 ```
 
-
-
+<br>
 
 This code section runs when the 'submit' button is pressed. The authentication is checked here, passing the email and password in the function. If authenticated, the values are taken from the input fields and are assigned to constant variables to be passed on to the firestore. The checkbox initializations check if the checkbox is checked, and if it is, it sends, 'closed', and if it is unchecked, it sends a blank string.<br>
 ```
@@ -224,7 +211,7 @@ function submitForm(event) {
         const closedINPUT3 = closedCHECKBOX3.checked ? "closed" : " ";
 ```
 
-
+<br>
 
 This code assigns the constant variables to a data structure in the firestore. <br>
 ```
@@ -254,6 +241,7 @@ const menuData = {
 };
 ```
 
+<br>
 
 This data can be seen in the firebase console as seen below: <br>
 <img src="mdimages/firestoreConstruct.png" height="300px" width="600px"> <br>
@@ -291,26 +279,39 @@ submitBTN.addEventListener("click", submitForm);
 
 ## What does each file do?
 ### Full File List:
-<img src="mdimages/fileList.png" height="500px" width="180px"> <br>
+<img src="mdimages/fileList.png" height="500px" width="180px"> <br> 
 
 ### 'content' folder
-This contains the images used within the website. <br> 
+This contains the images used within the website. <br> <br>
 
 ### 'README.md' and 'mdimages'
-These files are only for the README, not to be changed. <br>
+These files are only for the README, not to be changed. <br> <br>
 
 ### '.firebaserc'
-This file sets the default firebase project ID - should not be changed. <br>
+This file sets the default firebase project ID - should not be changed. <br> <br>
 
 ### '.gitignore' 
-This file has a list of file types that are ignored when changes are pushed. The only one that has been manually added is 'DS_Store', which is a file that macOS uses to store file arrangement data. 
+This file has a list of file types that are ignored when changes are pushed. The only one that has been manually added is 'DS_Store', which is a file that macOS uses to store file arrangement data. <br> <br>
 
 ### 'database.rules.json'
 This file contains the permissions for reading and writing of the data, but this file is blank. The actual reading and writing permssions can be found in the firebase console as seen below: <br>
-<img src="mdimages/rules.png" height="300px" width="600px"> <br>
+<img src="mdimages/rules.png" height="270px" width="600px"> <br> <br>
 
 ### 'firebase.json'
+This file contains the location for the public files. The "." sets the public location to the main directory. The 'rules' line sets the file location to the 'database.rules.json' file. 
+```
+{
+  "hosting": {
+    "public": ".",
+    "rules": "database.rules.json"
+  }
+}
+```
 
+<br>
 
+### 'package-lock.json'
+This file contains the packages and dependencies used in the database - should not be changed. <br> <br>
 
-
+### 'package.json'
+This file contains project details and essential configurations for the database - should not be changed. 
