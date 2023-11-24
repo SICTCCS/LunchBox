@@ -291,12 +291,10 @@ submitBTN.addEventListener("click", submitForm);
 
 ## What does each file do?
 ### Full File List:
-<img src="mdimages/fileList.png" height="320px" width="180px"> 
+<img src="mdimages/fileList.png" height="500px" width="180px"> <br>
 
-### Inside Public Folder
-The 'public' folder contains the HTML files, as well as the CSS file. <br>
-The 'content' folder contains the images used within the website. <br> <br>
-<img src="mdimages/publicFileList.png" height="225px" width="180px"> <br>
+### 'content' folder
+This contains the images used within the website. <br> 
 
 ### 'README.md' and 'mdimages'
 These files are only for the README, not to be changed. <br>
