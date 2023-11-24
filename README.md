@@ -4,17 +4,18 @@ Website for The Lunchbox - SICTC's Culinary Program's Restaurant
 ## Front-End Overview
 
 ### index.html
-<img src="mdimages/indexOverview.png" height="300px" width="600px"> <br>
 This is the main landing page, which shows the weekly menu, information about the resturaunt, and pricing information. <br>
+<img src="mdimages/indexOverview.png" height="300px" width="600px"> <br>
+
 
 ### contact.html
-<img src="mdimages/contactOverview.png" height="300px" width="600px"> <br>
 This is the other page that the public can access, which has a 'connect with us' form that allows the user to input their name, comments/questions they have, how they found out about the resturaunt, and whether or not they want to sign up for the weekly newsletter. When the user clicks 'submit', the default mail app will open with the information they entered preloaded in the body of the email. <br><br>
 The second card displays a map of SICTC and where the visitors need to park. A link to Google Maps is also provided. <br>
+<img src="mdimages/contactOverview.png" height="300px" width="600px"> <br>
 
 ### uploadMenu.html
-<img src="mdimages/uploadOverview.png" height="300px" width="600px"> <br>
 This is the admin page. Each day (tue, wed, thu) have their own cards that mimic a similar look to the menu seen by the public. The card on the right has a link to the current menu to make it easier for the admin to see what changes need to be made, email and password input areas, and a publish button. *IMPORTANT - Leaving data fields blank will result in the current menu data being erased, NOT unchanged.<br>
+<img src="mdimages/uploadOverview.png" height="300px" width="600px"> <br>
 
 
 # Inside the Code
@@ -290,12 +291,15 @@ submitBTN.addEventListener("click", submitForm);
 
 ## What does each file do?
 ### Full File List:
-<img src="mdimages/fileList.png" height="260px" width="140px"> 
+<img src="mdimages/fileList.png" height="320px" width="180px"> 
 
 ### Inside Public Folder
 The 'public' folder contains the HTML files, as well as the CSS file. <br>
 The 'content' folder contains the images used within the website. <br> <br>
-<img src="mdimages/publicFileList.png" height="225px" width="180px"> 
+<img src="mdimages/publicFileList.png" height="225px" width="180px"> <br>
+
+### 'README.md' and 'mdimages'
+These files are only for the README, not to be changed. 
 
 
 
