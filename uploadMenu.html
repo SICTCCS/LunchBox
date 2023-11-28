@@ -11,7 +11,6 @@
                 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
                 import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
                 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
-              
                 const firebaseConfig = {
                 apiKey: "AIzaSyCH0Zyzj5tukPUZacOM_xJZk3wFLQIvgNw",
                 authDomain: "lunchbox-60fb5.firebaseapp.com",
@@ -22,17 +21,14 @@
                 appId: "1:534903316915:web:e7b8e503540d234632ebc6",
                 measurementId: "G-TD5GSSYSSY"
                 };
-              
                 const app = initializeApp(firebaseConfig);
                 const db = getFirestore(app);
                 const auth = getAuth();
-              
                 // handle form submission
                 function submitForm(event) {
                   event.preventDefault();
                   const email = document.getElementById('emailINPUT').value;
                   const password = document.getElementById('passwordINPUT').value;
-              
                   signInWithEmailAndPassword(auth, email, password)
                     .then((userCredential) => {
                       // get values from input fields
@@ -63,7 +59,6 @@
                         const closedINPUT2 = closedCHECKBOX2.checked ? "closed" : " ";
                         const closedCHECKBOX3 = document.getElementById('closedCHECKBOX3');
                         const closedINPUT3 = closedCHECKBOX3.checked ? "closed" : " ";
-              
                       // construct menu data object
                       const menuData = {
                         tuesday_date: dateINPUT1,
@@ -92,11 +87,9 @@
                       // generate a timestamp-based document name
                       const timestamp = new Date().toISOString();
                       const documentName = `menu_${timestamp}`;
-              
                       // push up new data with dynamic document name
                       setDoc(doc(db, "menu", documentName), {
-                        ...menuData,
-                        timestamp: serverTimestamp() // add a server timestamp field if needed
+                        ...menuData
                       })
                         .then(() => {
                           console.log("Menu published successfully!");
@@ -112,7 +105,6 @@
                       alert("Authentication failed.");
                     });
                 }
-              
                 const submitBTN = document.getElementById("submitBTN");
                 submitBTN.addEventListener("click", submitForm);
               </script>
