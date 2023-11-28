@@ -7,32 +7,43 @@
             <link rel="stylesheet" href="style.css">
             <link rel="icon" type="image/x-icon" href="content/favicon.png">
             <script type="module">
-                //imports and configs
+                // imports and configs
                 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-                import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+                import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
                 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+              
                 const firebaseConfig = {
-                apiKey: "AIzaSyCH0Zyzj5tukPUZacOM_xJZk3wFLQIvgNw",
-                authDomain: "lunchbox-60fb5.firebaseapp.com",
-                databaseURL: "https://lunchbox-60fb5-default-rtdb.firebaseio.com",
-                projectId: "lunchbox-60fb5",
-                storageBucket: "lunchbox-60fb5.appspot.com",
-                messagingSenderId: "534903316915",
-                appId: "1:534903316915:web:e7b8e503540d234632ebc6",
-                measurementId: "G-TD5GSSYSSY"
+                    apiKey: "AIzaSyCH0Zyzj5tukPUZacOM_xJZk3wFLQIvgNw",
+                    authDomain: "lunchbox-60fb5.firebaseapp.com",
+                    databaseURL: "https://lunchbox-60fb5-default-rtdb.firebaseio.com",
+                    projectId: "lunchbox-60fb5",
+                    storageBucket: "lunchbox-60fb5.appspot.com",
+                    messagingSenderId: "534903316915",
+                    appId: "1:534903316915:web:e7b8e503540d234632ebc6",
+                    measurementId: "G-TD5GSSYSSY"
                 };
+              
                 const app = initializeApp(firebaseConfig);
                 const db = getFirestore(app);
                 const auth = getAuth();
+              
+                // Function to generate a dynamic document name based on a timestamp
+                function generateDocumentName() {
+                  const timestamp = new Date().toISOString();
+                  return `menu_${timestamp}`;
+                }
+              
                 // handle form submission
-                function submitForm(event) {
+                async function submitForm(event) {
                   event.preventDefault();
                   const email = document.getElementById('emailINPUT').value;
                   const password = document.getElementById('passwordINPUT').value;
-                  signInWithEmailAndPassword(auth, email, password)
-                    .then((userCredential) => {
-                      // get values from input fields
-                      const dateINPUT1 = document.getElementById('dateINPUT1').value;
+              
+                  try {
+                    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+              
+                    //get values from input fields
+                    const dateINPUT1 = document.getElementById('dateINPUT1').value;
                         const entreeINPUT1 = document.getElementById('entreeINPUT1').value;
                         const soupINPUT1 = document.getElementById('soupINPUT1').value;
                         const saladINPUT1 = document.getElementById('saladINPUT1').value;
@@ -59,9 +70,10 @@
                         const closedINPUT2 = closedCHECKBOX2.checked ? "closed" : " ";
                         const closedCHECKBOX3 = document.getElementById('closedCHECKBOX3');
                         const closedINPUT3 = closedCHECKBOX3.checked ? "closed" : " ";
-                      // construct menu data object
-                      const menuData = {
-                        tuesday_date: dateINPUT1,
+              
+                    // construct menu data object
+                    const menuData = {
+                            tuesday_date: dateINPUT1,
                             tuesday_entree: entreeINPUT1,
                             tuesday_soup: soupINPUT1,
                             tuesday_salad: saladINPUT1,
@@ -82,32 +94,44 @@
                             thursday_side: sideINPUT3,
                             thursday_dessert: dessertINPUT3,
                             thursday_closed: closedINPUT3
-                      };
+                    };
               
-                      // generate a timestamp-based document name
-                      const timestamp = new Date().toISOString();
-                      const documentName = `menu_${timestamp}`;
-                      // push up new data with dynamic document name
-                      setDoc(doc(db, "menu", documentName), {
-                        ...menuData
-                      })
-                        .then(() => {
-                          console.log("Menu published successfully!");
-                          alert("Menu published successfully!");
-                        })
-                        .catch((error) => {
-                          console.error("Error publishing menu: ", error);
-                          alert("Error publishing menu.");
-                        });
-                    })
-                    .catch((error) => {
-                      console.error("Authentication failed: ", error);
-                      alert("Authentication failed.");
-                    });
+                    // retrieve existing menu data
+                    const existingDoc = await getDoc(doc(db, "menu", generateDocumentName()));
+              
+                    if (existingDoc.exists()) {
+                      const existingData = existingDoc.data();
+              
+                      // compare and update only the fields that have changed
+                      Object.keys(menuData).forEach((key) => {
+                        if (menuData[key] !== existingData[key]) {
+                          existingData[key] = menuData[key];
+                        }
+                      });
+              
+                      // update the document
+                      await setDoc(doc(db, "menu", generateDocumentName()), existingData);
+                      console.log("Menu updated successfully!");
+                      alert("Menu updated successfully!");
+                    } else {
+                      // if the document doesn't exist, create a new one
+                      await setDoc(doc(db, "menu", generateDocumentName()), {
+                        ...menuData,
+                        timestamp: serverTimestamp()
+                      });
+                      console.log("Menu published successfully!");
+                      alert("Menu published successfully!");
+                    }
+                  } catch (error) {
+                    console.error("Error updating/publishing menu: ", error);
+                    alert("Error updating/publishing menu.");
+                  }
                 }
+              
                 const submitBTN = document.getElementById("submitBTN");
                 submitBTN.addEventListener("click", submitForm);
               </script>
+              
             </head>
             <nav>
                 <div class="nav-upload-middle">
