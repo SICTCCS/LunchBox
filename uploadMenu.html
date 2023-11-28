@@ -6,153 +6,116 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="style.css">
             <link rel="icon" type="image/x-icon" href="content/favicon.png">
-            <script type="module">            
+            <script type="module">
                 //imports and configs
-                    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-                    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
-                    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
-                    const firebaseConfig = {
-                            apiKey: "AIzaSyCH0Zyzj5tukPUZacOM_xJZk3wFLQIvgNw",
-                            authDomain: "lunchbox-60fb5.firebaseapp.com",
-                            databaseURL: "https://lunchbox-60fb5-default-rtdb.firebaseio.com",
-                            projectId: "lunchbox-60fb5",
-                            storageBucket: "lunchbox-60fb5.appspot.com",
-                            messagingSenderId: "534903316915",
-                            appId: "1:534903316915:web:e7b8e503540d234632ebc6",
-                            measurementId: "G-TD5GSSYSSY"
-                        };
-                    const app = initializeApp(firebaseConfig);
-                    const db = getFirestore(app);
-                    const auth = getAuth();
-                    //function to get the current timestamp in a readable format
-                    //source - https://docs.oracle.com/javase/8/docs/api/java/sql/Timestamp.html
-                    function getCurrentTimestamp() {
-                        const now = new Date();
-                        const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-                        return now.toLocaleDateString('en-US', options);
-                    }
-                    //function that writes the menu data to a text file
-                    function writeMenuDataToFile(menuData) {
-                        const timestamp = getCurrentTimestamp();
-                        const menuText = `
-                            Timestamp: ${timestamp}
-                            Tuesday:
-                            Date: ${menuData.tuesday_date}
-                            Entree: ${menuData.tuesday_entree}
-                            Soup: ${menuData.tuesday_soup}
-                            Salad: ${menuData.tuesday_salad}
-                            Side: ${menuData.tuesday_side}
-                            Dessert: ${menuData.tuesday_dessert}
-                            Closed: ${menuData.tuesday_closed}
-
-                            Wednesday:
-                            Date: ${menuData.wednesday_date}
-                            Entree: ${menuData.wednesday_entree}
-                            Soup: ${menuData.wednesday_soup}
-                            Salad: ${menuData.wednesday_salad}
-                            Side: ${menuData.wednesday_side}
-                            Dessert: ${menuData.wednesday_dessert}
-                            Closed: ${menuData.wednesday_closed}
-
-                            Thursday:
-                            Date: ${menuData.thursday_date}
-                            Entree: ${menuData.thursday_entree}
-                            Soup: ${menuData.thursday_soup}
-                            Salad: ${menuData.thursday_salad}
-                            Side: ${menuData.thursday_side}
-                            Dessert: ${menuData.thursday_dessert}
-                            Closed: ${menuData.thursday_closed}
-                            `;
-                        //create a Blob with the menu text
-                        //source - https://javascript.info/blob
-                        const blob = new Blob([menuText], { type: 'text/plain' });
-                        //create a link element to trigger the download
-                        const link = document.createElement('a');
-                        link.href = URL.createObjectURL(blob);
-                        link.download = `menu_${timestamp.replace(/[/: ]/g, '_')}.txt`; //use timestamp in the file name
-                        link.click();
-                    }
-                        //handle form submission
-                        //source - https://www.geeksforgeeks.org/how-to-trigger-a-file-download-when-clicking-an-html-button-or-javascript/
-                        function submitForm(event) {
-                            event.preventDefault();
-                            const email = document.getElementById('emailINPUT').value;
-                            const password = document.getElementById('passwordINPUT').value;
-                            signInWithEmailAndPassword(auth, email, password)
-                                .then((userCredential) => {
-                                //get values from input fields
-                                const dateINPUT1 = document.getElementById('dateINPUT1').value;
-                                const entreeINPUT1 = document.getElementById('entreeINPUT1').value;
-                                const soupINPUT1 = document.getElementById('soupINPUT1').value;
-                                const saladINPUT1 = document.getElementById('saladINPUT1').value;
-                                const sideINPUT1 = document.getElementById('sideINPUT1').value;
-                                const dessertINPUT1 = document.getElementById('dessertINPUT1').value;
-                                const dateINPUT2 = document.getElementById('dateINPUT2').value;
-                                const entreeINPUT2 = document.getElementById('entreeINPUT2').value;
-                                const soupINPUT2 = document.getElementById('soupINPUT2').value;
-                                const saladINPUT2 = document.getElementById('saladINPUT2').value;
-                                const sideINPUT2 = document.getElementById('sideINPUT2').value;
-                                const dessertINPUT2 = document.getElementById('dessertINPUT2').value;
-                                const dateINPUT3 = document.getElementById('dateINPUT3').value;
-                                const entreeINPUT3 = document.getElementById('entreeINPUT3').value;
-                                const soupINPUT3 = document.getElementById('soupINPUT3').value;
-                                const saladINPUT3 = document.getElementById('saladINPUT3').value;
-                                const sideINPUT3 = document.getElementById('sideINPUT3').value;
-                                const dessertINPUT3 = document.getElementById('dessertINPUT3').value;
-                                //checkbox initializations
-                                const closedCHECKBOX1 = document.getElementById('closedCHECKBOX1');
-                                const closedINPUT1 = closedCHECKBOX1.checked ? "closed" : " ";
-                                const closedCHECKBOX2 = document.getElementById('closedCHECKBOX2');
-                                const closedINPUT2 = closedCHECKBOX2.checked ? "closed" : " ";
-                                const closedCHECKBOX3 = document.getElementById('closedCHECKBOX3');
-                                const closedINPUT3 = closedCHECKBOX3.checked ? "closed" : " ";
-                                //construct menu data object
-                                const menuData = {
-                                    tuesday_date: dateINPUT1,
-                                    tuesday_entree: entreeINPUT1,
-                                    tuesday_soup: soupINPUT1,
-                                    tuesday_salad: saladINPUT1,
-                                    tuesday_side: sideINPUT1,
-                                    tuesday_dessert: dessertINPUT1,
-                                    tuesday_closed: closedINPUT1,
-                                    wednesday_date: dateINPUT2,
-                                    wednesday_entree: entreeINPUT2,
-                                    wednesday_soup: soupINPUT2,
-                                    wednesday_salad: saladINPUT2,
-                                    wednesday_side: sideINPUT2,
-                                    wednesday_dessert: dessertINPUT2,
-                                    wednesday_closed: closedINPUT2,
-                                    thursday_date: dateINPUT3,
-                                    thursday_entree: entreeINPUT3,
-                                    thursday_soup: soupINPUT3,
-                                    thursday_salad: saladINPUT3,
-                                    thursday_side: sideINPUT3,
-                                    thursday_dessert: dessertINPUT3,
-                                    thursday_closed: closedINPUT3
-                                };
-                                //pushes up new data - error catches and alerts
-                                setDoc(doc(db, "menu", "menuDocument"), menuData)
-                                    .then(() => {
-                                        console.log("Menu published successfully!");
-
-                                        //write menu data to a text file
-                                        writeMenuDataToFile(menuData);
-
-                                        alert("Menu published successfully!");
-                                    })
-                                    .catch((error) => {
-                                        console.error("Error publishing menu: ", error);
-                                        alert("Error publishing menu.");
-                                    });
-                            })
-                            .catch((error) => {
-                                console.error("Authentication failed: ", error);
-                                alert("Authentication failed.");
-                            });
-                    }
-                    const submitBTN = document.getElementById("submitBTN");
-                    submitBTN.addEventListener("click", submitForm);
-            </script>
+                import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+                import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+                import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+              
+                const firebaseConfig = {
+                apiKey: "AIzaSyCH0Zyzj5tukPUZacOM_xJZk3wFLQIvgNw",
+                authDomain: "lunchbox-60fb5.firebaseapp.com",
+                databaseURL: "https://lunchbox-60fb5-default-rtdb.firebaseio.com",
+                projectId: "lunchbox-60fb5",
+                storageBucket: "lunchbox-60fb5.appspot.com",
+                messagingSenderId: "534903316915",
+                appId: "1:534903316915:web:e7b8e503540d234632ebc6",
+                measurementId: "G-TD5GSSYSSY"
+                };
+              
+                const app = initializeApp(firebaseConfig);
+                const db = getFirestore(app);
+                const auth = getAuth();
+              
+                // handle form submission
+                function submitForm(event) {
+                  event.preventDefault();
+                  const email = document.getElementById('emailINPUT').value;
+                  const password = document.getElementById('passwordINPUT').value;
+              
+                  signInWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                      // get values from input fields
+                      const dateINPUT1 = document.getElementById('dateINPUT1').value;
+                        const entreeINPUT1 = document.getElementById('entreeINPUT1').value;
+                        const soupINPUT1 = document.getElementById('soupINPUT1').value;
+                        const saladINPUT1 = document.getElementById('saladINPUT1').value;
+                        const sideINPUT1 = document.getElementById('sideINPUT1').value;
+                        const dessertINPUT1 = document.getElementById('dessertINPUT1').value;
+                
+                        const dateINPUT2 = document.getElementById('dateINPUT2').value;
+                        const entreeINPUT2 = document.getElementById('entreeINPUT2').value;
+                        const soupINPUT2 = document.getElementById('soupINPUT2').value;
+                        const saladINPUT2 = document.getElementById('saladINPUT2').value;
+                        const sideINPUT2 = document.getElementById('sideINPUT2').value;
+                        const dessertINPUT2 = document.getElementById('dessertINPUT2').value;
+                
+                        const dateINPUT3 = document.getElementById('dateINPUT3').value;
+                        const entreeINPUT3 = document.getElementById('entreeINPUT3').value;
+                        const soupINPUT3 = document.getElementById('soupINPUT3').value;
+                        const saladINPUT3 = document.getElementById('saladINPUT3').value;
+                        const sideINPUT3 = document.getElementById('sideINPUT3').value;
+                        const dessertINPUT3 = document.getElementById('dessertINPUT3').value;
+                        //checkbox initializations
+                        const closedCHECKBOX1 = document.getElementById('closedCHECKBOX1');
+                        const closedINPUT1 = closedCHECKBOX1.checked ? "closed" : " ";
+                        const closedCHECKBOX2 = document.getElementById('closedCHECKBOX2');
+                        const closedINPUT2 = closedCHECKBOX2.checked ? "closed" : " ";
+                        const closedCHECKBOX3 = document.getElementById('closedCHECKBOX3');
+                        const closedINPUT3 = closedCHECKBOX3.checked ? "closed" : " ";
+              
+                      // construct menu data object
+                      const menuData = {
+                        tuesday_date: dateINPUT1,
+                            tuesday_entree: entreeINPUT1,
+                            tuesday_soup: soupINPUT1,
+                            tuesday_salad: saladINPUT1,
+                            tuesday_side: sideINPUT1,
+                            tuesday_dessert: dessertINPUT1,
+                            tuesday_closed: closedINPUT1,
+                            wednesday_date: dateINPUT2,
+                            wednesday_entree: entreeINPUT2,
+                            wednesday_soup: soupINPUT2,
+                            wednesday_salad: saladINPUT2,
+                            wednesday_side: sideINPUT2,
+                            wednesday_dessert: dessertINPUT2,
+                            wednesday_closed: closedINPUT2,
+                            thursday_date: dateINPUT3,
+                            thursday_entree: entreeINPUT3,
+                            thursday_soup: soupINPUT3,
+                            thursday_salad: saladINPUT3,
+                            thursday_side: sideINPUT3,
+                            thursday_dessert: dessertINPUT3,
+                            thursday_closed: closedINPUT3
+                      };
+              
+                      // generate a timestamp-based document name
+                      const timestamp = new Date().toISOString();
+                      const documentName = `menu_${timestamp}`;
+              
+                      // push up new data with dynamic document name
+                      setDoc(doc(db, "menu", documentName), {
+                        ...menuData,
+                        timestamp: serverTimestamp() // add a server timestamp field if needed
+                      })
+                        .then(() => {
+                          console.log("Menu published successfully!");
+                          alert("Menu published successfully!");
+                        })
+                        .catch((error) => {
+                          console.error("Error publishing menu: ", error);
+                          alert("Error publishing menu.");
+                        });
+                    })
+                    .catch((error) => {
+                      console.error("Authentication failed: ", error);
+                      alert("Authentication failed.");
+                    });
+                }
+              
+                const submitBTN = document.getElementById("submitBTN");
+                submitBTN.addEventListener("click", submitForm);
+              </script>
             </head>
             <nav>
                 <div class="nav-upload-middle">
