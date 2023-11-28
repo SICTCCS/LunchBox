@@ -35,101 +35,77 @@
               
                 // handle form submission
                 async function submitForm(event) {
-                  event.preventDefault();
-                  const email = document.getElementById('emailINPUT').value;
-                  const password = document.getElementById('passwordINPUT').value;
-              
-                  try {
-                    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-              
-                    //get values from input fields
-                    const dateINPUT1 = document.getElementById('dateINPUT1').value;
-                        const entreeINPUT1 = document.getElementById('entreeINPUT1').value;
-                        const soupINPUT1 = document.getElementById('soupINPUT1').value;
-                        const saladINPUT1 = document.getElementById('saladINPUT1').value;
-                        const sideINPUT1 = document.getElementById('sideINPUT1').value;
-                        const dessertINPUT1 = document.getElementById('dessertINPUT1').value;
-                
-                        const dateINPUT2 = document.getElementById('dateINPUT2').value;
-                        const entreeINPUT2 = document.getElementById('entreeINPUT2').value;
-                        const soupINPUT2 = document.getElementById('soupINPUT2').value;
-                        const saladINPUT2 = document.getElementById('saladINPUT2').value;
-                        const sideINPUT2 = document.getElementById('sideINPUT2').value;
-                        const dessertINPUT2 = document.getElementById('dessertINPUT2').value;
-                
-                        const dateINPUT3 = document.getElementById('dateINPUT3').value;
-                        const entreeINPUT3 = document.getElementById('entreeINPUT3').value;
-                        const soupINPUT3 = document.getElementById('soupINPUT3').value;
-                        const saladINPUT3 = document.getElementById('saladINPUT3').value;
-                        const sideINPUT3 = document.getElementById('sideINPUT3').value;
-                        const dessertINPUT3 = document.getElementById('dessertINPUT3').value;
-                        //checkbox initializations
-                        const closedCHECKBOX1 = document.getElementById('closedCHECKBOX1');
-                        const closedINPUT1 = closedCHECKBOX1.checked ? "closed" : " ";
-                        const closedCHECKBOX2 = document.getElementById('closedCHECKBOX2');
-                        const closedINPUT2 = closedCHECKBOX2.checked ? "closed" : " ";
-                        const closedCHECKBOX3 = document.getElementById('closedCHECKBOX3');
-                        const closedINPUT3 = closedCHECKBOX3.checked ? "closed" : " ";
-              
-                    // construct menu data object
-                    const menuData = {
-                            tuesday_date: dateINPUT1,
-                            tuesday_entree: entreeINPUT1,
-                            tuesday_soup: soupINPUT1,
-                            tuesday_salad: saladINPUT1,
-                            tuesday_side: sideINPUT1,
-                            tuesday_dessert: dessertINPUT1,
-                            tuesday_closed: closedINPUT1,
-                            wednesday_date: dateINPUT2,
-                            wednesday_entree: entreeINPUT2,
-                            wednesday_soup: soupINPUT2,
-                            wednesday_salad: saladINPUT2,
-                            wednesday_side: sideINPUT2,
-                            wednesday_dessert: dessertINPUT2,
-                            wednesday_closed: closedINPUT2,
-                            thursday_date: dateINPUT3,
-                            thursday_entree: entreeINPUT3,
-                            thursday_soup: soupINPUT3,
-                            thursday_salad: saladINPUT3,
-                            thursday_side: sideINPUT3,
-                            thursday_dessert: dessertINPUT3,
-                            thursday_closed: closedINPUT3
-                    };
-              
-                    // retrieve existing menu data
-                    const existingDoc = await getDoc(doc(db, "menu", generateDocumentName()));
-              
-                    if (existingDoc.exists()) {
-                      const existingData = existingDoc.data();
-              
-                      // compare and update only the fields that have changed
-                      Object.keys(menuData).forEach((key) => {
-                        if (menuData[key] !== existingData[key]) {
-                          existingData[key] = menuData[key];
+                    event.preventDefault();
+                    const email = document.getElementById('emailINPUT').value;
+                    const password = document.getElementById('passwordINPUT').value;
+
+                    try {
+                        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+
+                        // Initialize menuData object
+                        const menuData = {};
+
+                        // Update menuData only if the input fields are not empty
+                        function updateMenuData(day, postfix) {
+                        const date = document.getElementById(`dateINPUT${postfix}`).value.trim();
+                        const entree = document.getElementById(`entreeINPUT${postfix}`).value.trim();
+                        const soup = document.getElementById(`soupINPUT${postfix}`).value.trim();
+                        const salad = document.getElementById(`saladINPUT${postfix}`).value.trim();
+                        const side = document.getElementById(`sideINPUT${postfix}`).value.trim();
+                        const dessert = document.getElementById(`dessertINPUT${postfix}`).value.trim();
+                        const closedCheckbox = document.getElementById(`closedCHECKBOX${postfix}`);
+                        const closed = closedCheckbox.checked ? 'closed' : '';
+
+                        if (date || entree || soup || salad || side || dessert || closed) {
+                            menuData[`${day}_date`] = date;
+                            menuData[`${day}_entree`] = entree;
+                            menuData[`${day}_soup`] = soup;
+                            menuData[`${day}_salad`] = salad;
+                            menuData[`${day}_side`] = side;
+                            menuData[`${day}_dessert`] = dessert;
+                            menuData[`${day}_closed`] = closed;
                         }
-                      });
-              
-                      // update the document
-                      await setDoc(doc(db, "menu", generateDocumentName()), existingData);
-                      console.log("Menu updated successfully!");
-                      alert("Menu updated successfully!");
-                    } else {
-                      // if the document doesn't exist, create a new one
-                      await setDoc(doc(db, "menu", generateDocumentName()), {
-                        ...menuData,
-                        timestamp: serverTimestamp()
-                      });
-                      console.log("Menu published successfully!");
-                      alert("Menu published successfully!");
+                        }
+
+                        // Update menuData for each day
+                        updateMenuData('tuesday', '1');
+                        updateMenuData('wednesday', '2');
+                        updateMenuData('thursday', '3');
+
+                        // retrieve existing menu data
+                        const existingDoc = await getDoc(doc(db, 'menu', generateDocumentName()));
+
+                        if (existingDoc.exists()) {
+                        const existingData = existingDoc.data();
+
+                        // compare and update only the fields that have changed
+                        Object.keys(menuData).forEach((key) => {
+                            if (menuData[key] !== undefined && menuData[key] !== existingData[key]) {
+                            existingData[key] = menuData[key];
+                            }
+                        });
+
+                        // update the document
+                        await setDoc(doc(db, 'menu', generateDocumentName()), existingData);
+                        console.log('Menu updated successfully!');
+                        alert('Menu updated successfully!');
+                        } else {
+                        // if the document doesn't exist, create a new one
+                        await setDoc(doc(db, 'menu', generateDocumentName()), {
+                            ...menuData,
+                            timestamp: serverTimestamp(),
+                        });
+                        console.log('Menu published successfully!');
+                        alert('Menu published successfully!');
+                        }
+                    } catch (error) {
+                        console.error('Error updating/publishing menu: ', error);
+                        alert('Error updating/publishing menu.');
                     }
-                  } catch (error) {
-                    console.error("Error updating/publishing menu: ", error);
-                    alert("Error updating/publishing menu.");
-                  }
-                }
-              
-                const submitBTN = document.getElementById("submitBTN");
-                submitBTN.addEventListener("click", submitForm);
+                    }
+
+                    const submitBTN = document.getElementById('submitBTN');
+                    submitBTN.addEventListener('click', submitForm);
               </script>
               
             </head>
