@@ -28,7 +28,7 @@
     display: flex;
     justify-content: space-between;
     background: #ADD8E6;
-    height: 125px;
+    height: 155px;
   }
   nav ul {
     display: flex;
@@ -41,17 +41,18 @@
     padding-left: 4em;
     display: grid;
     align-items: center;
-    height: 125px;
+    height: 155px;
   }
   .nav-on-the-right {
     padding-right: 4em;
     display: grid;
     align-items: center;
-    height: 125px;
+    height: 155px;
   }
   .nav-upload-middle {
     display: inline-block;
     margin: 0 auto;
+    padding-top: 15px;
   }
   #logo-upload-middle {
     height: 125px;
@@ -386,7 +387,7 @@
     display: flex;
     justify-content: space-between;
     background: #ADD8E6;
-    height: 100px;
+    height: 130px;
   }
   nav ul {
     display: flex;
@@ -397,6 +398,7 @@
     padding-left: .75em;
   }
   .nav-on-the-left {
+    padding-top: 15px;
     padding-left: 4em;
     display: grid;
     align-items: center;
@@ -406,10 +408,11 @@
     padding-right: 4em;
     display: grid;
     align-items: center;
-    height: 100px;
+    height: 130px;
   }
   .nav-upload-middle {
     display: inline-block;
+    padding-top: 15px;
     margin: 0 auto;
   }
   #logo-upload-middle {
