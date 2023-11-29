@@ -44,7 +44,6 @@
                         const saladINPUT2 = document.getElementById('saladINPUT2').value;
                         const sideINPUT2 = document.getElementById('sideINPUT2').value;
                         const dessertINPUT2 = document.getElementById('dessertINPUT2').value;
-                
                         const dateINPUT3 = document.getElementById('dateINPUT3').value;
                         const entreeINPUT3 = document.getElementById('entreeINPUT3').value;
                         const soupINPUT3 = document.getElementById('soupINPUT3').value;
@@ -87,7 +86,8 @@
                       const documentName = `menu_${timestamp}`;
                       //push up new data with dynamic document name
                       setDoc(doc(db, "menu", documentName), {
-                        ...menuData
+                        ...menuData,
+                        timestamp: serverTimestamp(),
                       })
                         .then(() => {
                           console.log("Menu published successfully!");
