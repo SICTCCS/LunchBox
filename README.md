@@ -27,24 +27,24 @@ The following code is located at the top of 'index.html' in the head section. <b
 The firebase is imported, configurated, and initialized - This data can be found in the project settings of the firebase console site. <br> 
 ```
 <script type="module">
-                    //imports and configs
-                    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-                    import { getFirestore, collection, query, orderBy, limit, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
-                    document.addEventListener("DOMContentLoaded", function () {
-                        const firebaseConfig = {
-                            apiKey: "AIzaSyCH0Zyzj5tukPUZacOM_xJZk3wFLQIvgNw",
-                            authDomain: "lunchbox-60fb5.firebaseapp.com",
-                            databaseURL: "https://lunchbox-60fb5-default-rtdb.firebaseio.com",
-                            projectId: "lunchbox-60fb5",
-                            storageBucket: "lunchbox-60fb5.appspot.com",
-                            messagingSenderId: "534903316915",
-                            appId: "1:534903316915:web:e7b8e503540d234632ebc6",
-                            measurementId: "G-TD5GSSYSSY"
-                        };
-                        //initialize firebase
-                        const app = initializeApp(firebaseConfig);
-                        const db = getFirestore(app);
-                        const menuCollectionRef = collection(db, 'menu');
+//imports and configs
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+import { getFirestore, collection, query, orderBy, limit, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+document.addEventListener("DOMContentLoaded", function () {
+const firebaseConfig = {
+    apiKey: "AIzaSyCH0Zyzj5tukPUZacOM_xJZk3wFLQIvgNw",
+    authDomain: "lunchbox-60fb5.firebaseapp.com",
+    databaseURL: "https://lunchbox-60fb5-default-rtdb.firebaseio.com",
+    projectId: "lunchbox-60fb5",
+    storageBucket: "lunchbox-60fb5.appspot.com",
+    messagingSenderId: "534903316915",
+    appId: "1:534903316915:web:e7b8e503540d234632ebc6",
+    measurementId: "G-TD5GSSYSSY"
+};
+//initialize firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const menuCollectionRef = collection(db, 'menu');
 ```
 
 <br>
@@ -52,9 +52,9 @@ The firebase is imported, configurated, and initialized - This data can be found
 The query is initialized and finds the most recent collection in the database. <br> 
 ```
 //create a query to get the most recent menu document
-                        const queryRef = query(menuCollectionRef, orderBy('timestamp', 'desc'), limit(1));
-                        //set up the snapshot listener
-                        onSnapshot(queryRef, updateMenu);
+const queryRef = query(menuCollectionRef, orderBy('timestamp', 'desc'), limit(1));
+//set up the snapshot listener
+onSnapshot(queryRef, updateMenu);
 
 ```
 
@@ -64,32 +64,32 @@ The function 'updateMenu(snapshot)' is called to update the menu data. The funct
 updateMenuItem('{elementId}','{dataKey - found in the 'construct menu data' section in uploadMenu.html}') <br>
 ```
 //function to update the menu
-                        function updateMenu(snapshot) {
-                            if (!snapshot.empty) {
-                                const mostRecentDocument = snapshot.docs[0];
-                                const menuDocument = mostRecentDocument.data();
-                                //update the HTML 
-                                updateMenuItem('date1', 'tuesday_date');
-                                updateMenuItem('entree1', 'tuesday_entree');
-                                updateMenuItem('soup1', 'tuesday_soup');
-                                updateMenuItem('salad1', 'tuesday_salad');
-                                updateMenuItem('side1', 'tuesday_side');
-                                updateMenuItem('dessert1', 'tuesday_dessert');
-                                updateMenuItem('closed1', 'tuesday_closed');
-                                updateMenuItem('date2', 'wednesday_date');
-                                updateMenuItem('entree2', 'wednesday_entree');
-                                updateMenuItem('soup2', 'wednesday_soup');
-                                updateMenuItem('salad2', 'wednesday_salad');
-                                updateMenuItem('side2', 'wednesday_side');
-                                updateMenuItem('dessert2', 'wednesday_dessert');
-                                updateMenuItem('closed2', 'wednesday_closed');
-                                updateMenuItem('date3', 'thursday_date');
-                                updateMenuItem('entree3', 'thursday_entree');
-                                updateMenuItem('soup3', 'thursday_soup');
-                                updateMenuItem('salad3', 'thursday_salad');
-                                updateMenuItem('side3', 'thursday_side');
-                                updateMenuItem('dessert3', 'thursday_dessert');
-                                updateMenuItem('closed3', 'thursday_closed');
+function updateMenu(snapshot) {
+    if (!snapshot.empty) {
+        const mostRecentDocument = snapshot.docs[0];
+        const menuDocument = mostRecentDocument.data();
+        //update the HTML 
+        updateMenuItem('date1', 'tuesday_date');
+        updateMenuItem('entree1', 'tuesday_entree');
+        updateMenuItem('soup1', 'tuesday_soup');
+        updateMenuItem('salad1', 'tuesday_salad');
+        updateMenuItem('side1', 'tuesday_side');
+        updateMenuItem('dessert1', 'tuesday_dessert');
+        updateMenuItem('closed1', 'tuesday_closed');
+        updateMenuItem('date2', 'wednesday_date');
+        updateMenuItem('entree2', 'wednesday_entree');
+        updateMenuItem('soup2', 'wednesday_soup');
+        updateMenuItem('salad2', 'wednesday_salad');
+        updateMenuItem('side2', 'wednesday_side');
+        updateMenuItem('dessert2', 'wednesday_dessert');
+        updateMenuItem('closed2', 'wednesday_closed');
+        updateMenuItem('date3', 'thursday_date');
+        updateMenuItem('entree3', 'thursday_entree');
+        updateMenuItem('soup3', 'thursday_soup');
+        updateMenuItem('salad3', 'thursday_salad');
+        updateMenuItem('side3', 'thursday_side');
+        updateMenuItem('dessert3', 'thursday_dessert');
+        updateMenuItem('closed3', 'thursday_closed');
 ```
 
 <br>
@@ -98,20 +98,20 @@ updateMenuItem('{elementId}','{dataKey - found in the 'construct menu data' sect
 This function 'updateMenuItem' checks that the data key is valid and updates the data. The snapshot listener looks for new data to load. <br>
 ```
 function updateMenuItem(elementId, dataKey) {
-                                    if (menuDocument[dataKey] !== undefined) {
-                                        document.getElementById(elementId).innerText = menuDocument[dataKey];
-                                    } 
-                                    else {
-                                        console.error(`${dataKey} is undefined in menuDocument`);
-                                    }
-                                }
-                            } 
-                            else {
-                                console.log('No documents found in the "menu" collection.');
-                            }
-                        }
-                    });
-                </script>
+    if (menuDocument[dataKey] !== undefined) {
+        document.getElementById(elementId).innerText = menuDocument[dataKey];
+    } 
+    else {
+        console.error(`${dataKey} is undefined in menuDocument`);
+            }
+        }
+    } 
+        else {
+        console.log('No documents found in the "menu" collection.');
+        }
+    }
+    });
+</script>
 ```
 
 <br>
@@ -121,6 +121,8 @@ function updateMenuItem(elementId, dataKey) {
 The following code is located near the bottom of contact.html. This page does not have firebase script. <br>
 
 The 'sumbitForm' function is called when the 'submit' button is clicked in the 'CONNECT WITH US' card.<br>
+
+This script opens the default mail application and preloads the data that is entered into the form. <br>
 ```
 <script>
     function submitForm() {
@@ -163,23 +165,23 @@ The following code is located at the top of 'uploadMenu.html' in the head sectio
 The firebase imports are made and the firebase is configurated (similar to index.html). The 'auth' import allows for only authorized users to publish menu data. <br>
 ```
 <script type="module">
-                //imports and configs
-                import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-                import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
-                import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
-                const firebaseConfig = {
-                    apiKey: "AIzaSyCH0Zyzj5tukPUZacOM_xJZk3wFLQIvgNw",
-                    authDomain: "lunchbox-60fb5.firebaseapp.com",
-                    databaseURL: "https://lunchbox-60fb5-default-rtdb.firebaseio.com",
-                    projectId: "lunchbox-60fb5",
-                    storageBucket: "lunchbox-60fb5.appspot.com",
-                    messagingSenderId: "534903316915",
-                    appId: "1:534903316915:web:e7b8e503540d234632ebc6",
-                    measurementId: "G-TD5GSSYSSY"
-                };
-                const app = initializeApp(firebaseConfig);
-                const db = getFirestore(app);
-                const auth = getAuth();
+    //imports and configs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+    import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+    const firebaseConfig = {
+        apiKey: "AIzaSyCH0Zyzj5tukPUZacOM_xJZk3wFLQIvgNw",
+        authDomain: "lunchbox-60fb5.firebaseapp.com",
+        databaseURL: "https://lunchbox-60fb5-default-rtdb.firebaseio.com",
+        projectId: "lunchbox-60fb5",
+        storageBucket: "lunchbox-60fb5.appspot.com",
+        messagingSenderId: "534903316915",
+        appId: "1:534903316915:web:e7b8e503540d234632ebc6",
+        measurementId: "G-TD5GSSYSSY"
+    };
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth();
 ```
 
 <br>
