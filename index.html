@@ -29,6 +29,7 @@
                         const queryRef = query(menuCollectionRef, orderBy('timestamp', 'desc'), limit(1));
                         //set up the snapshot listener
                         onSnapshot(queryRef, updateMenu);
+                        //function to update the menu
                         function updateMenu(snapshot) {
                             if (!snapshot.empty) {
                                 const mostRecentDocument = snapshot.docs[0];
