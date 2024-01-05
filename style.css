@@ -1,7 +1,7 @@
 /* desktop view */
 @media (min-width: 1024px) {
   html {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     overflow-x: hidden;
   }
   body {
@@ -47,7 +47,7 @@
     display: flex;
   }
   nav a {
-    font-size: 25px;
+    font-size: 30px;
     font-weight: bold;
     color: white;
     text-decoration: none;
@@ -155,12 +155,38 @@
     color: white;
     width: 300px;
   }
-  #menuCard {
+  #menuCard1 {
     color: #335879;
     font-size: 50px;
     -webkit-text-stroke: 2.5px white;
     padding: 0;
     margin: 0;
+  }
+  #menuCard2 {
+    color: #335879;
+    font-size: 50px;
+    -webkit-text-stroke: 2.5px white;
+    padding: 0;
+    margin: 0;
+  }
+  #menuCard3 {
+    color: #335879;
+    font-size: 50px;
+    -webkit-text-stroke: 2.5px white;
+    padding: 0;
+    margin: 0;
+  }
+  #closed1{
+    font-size: 40px;
+    text-align: center;
+  }
+  #closed2{
+    font-size: 40px;
+    text-align: center;
+  }
+  #closed3{
+    font-size: 40px;
+    text-align: center;
   }
   .menu-items-spaced-over {
     margin-left: 1.5em;
@@ -198,14 +224,14 @@
     margin-top: 3em;
     margin-bottom: 6em;
   }
-  .thank-you{
+  .join{
     color: #323031;
     display: flex;
     width: 100%;
     height: 10vh;
     justify-content: center;
     align-items: center;
-    padding-bottom: 2em;
+    padding-bottom: 0.5em;
     padding-top: 1em;
   }
   /* For COMMON INFO */
@@ -222,12 +248,12 @@
     font-weight: 700;
   }
   .card-COMMON h2 {
-    color: #707f42;
-    font-size: 24px;
+    color: #f3f1df;
+    font-size: 29px;
     margin-bottom: 10px;
   }
   .card-COMMON p {
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom: 10px;
   }
   .card-COMMON .info-label {
@@ -259,7 +285,7 @@
     margin-bottom: 10px;
   }
   .card-WHATSINCLUDED p {
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom: 10px;
   }
   .card-WHATSINCLUDED .info-label {
@@ -393,7 +419,7 @@
 .form-EMAIL > button:hover {
   background: #335879;
 }
-.form-home-center{
+.form-container{
   display: flex;
   width: 100%;
   height: 10vh;
@@ -413,7 +439,7 @@
 /* mobile view and half-desktop */
 @media (max-width: 750px), (max-width: 1023px) {
   html {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     overflow-x: hidden;
   }
   body {
@@ -421,7 +447,7 @@
     padding: 0;
     display: grid;
     place-items: center;
-    background-color: white;
+    background-color: #f3f1df;
   }
   footer {
     background-color: #323031;
@@ -451,6 +477,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 2em; 
+    margin-bottom: 2em;
   }
   #logo-container {
     text-align: center;
@@ -459,7 +486,7 @@
     display: flex;
   }
   nav a {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
     color: white;
     text-decoration: none;
@@ -470,7 +497,7 @@
     color: #707f42;
   }
   #logo-horiz {
-    height: 60px;
+    height: 50px;
     width: 240px; 
   }
   /* Upload card */
@@ -541,7 +568,6 @@
   .menu-container {
     display: flex;
     flex-direction: column;
-    margin-bottom: 4em;
   }
   .menu {
     border: 1px solid #ccc;
@@ -563,12 +589,38 @@
     padding: 0;
     margin: 0;
   }
-  #menuCard {
+  #menuCard1 {
     color: #335879;
     font-size: 50px;
     -webkit-text-stroke: 2.5px white;
     padding: 0;
     margin: 0;
+  }
+  #menuCard2 {
+    color: #335879;
+    font-size: 50px;
+    -webkit-text-stroke: 2.5px white;
+    padding: 0;
+    margin: 0;
+  }
+  #menuCard3 {
+    color: #335879;
+    font-size: 50px;
+    -webkit-text-stroke: 2.5px white;
+    padding: 0;
+    margin: 0;
+  }
+  #closed1{
+    font-size: 40px;
+    text-align: center;
+  }
+  #closed2{
+    font-size: 40px;
+    text-align: center;
+  }
+  #closed3{
+    font-size: 40px;
+    text-align: center;
   }
   .menu-items-spaced-over {
     margin-left: 1.5em;
@@ -608,14 +660,14 @@
     max-width: 300px;
     max-height: 200px;
   }
-  .thank-you{
+  .join{
     display: flex;
     width: 100%;
     height: 10vh;
     justify-content: center;
     align-items: center;
-    padding-top: 4em;
-    padding-bottom: 4em;
+    padding-top: 0em;
+    padding-bottom: 1em;
     flex-direction: column;
     text-align: center;
     color: #323031;
@@ -636,12 +688,12 @@
     margin-bottom: 6em;
   }
   .card-COMMON h2 {
-    color: #707f42;
+    color: #f3f1df;
     font-size: 24px;
     margin-bottom: 10px;
   }
   .card-COMMON p {
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom: 10px;
   }
   .card-COMMON .info-label {
@@ -670,11 +722,11 @@
     }
   .card-WHATSINCLUDED h2 {
       color: #335879;
-      font-size: 40px;
+      font-size: 35px;
       margin-bottom: 10px;
     }
   .card-WHATSINCLUDED p {
-      font-size: 16px;
+      font-size: 20px;
       margin-bottom: 10px;
     }
   .card-WHATSINCLUDED .info-label {
@@ -759,14 +811,14 @@
 }
 /* email input at the bottom of home page */
 .form-EMAIL {
-  width: 23em;
+  width: 20em;
 }
 .form-EMAIL > input {
-  width: 13em;
+  width: 10em;
   height: 50px;
 }
 .form-EMAIL > input {
-  width: 13em;
+  width: 10em;
   height: 50px;
   border: 2px solid #707f42;
   font-size: 15px;
@@ -796,7 +848,7 @@
 .form-EMAIL > button:hover {
   background: #335879;
 }
-.form-home-center{
+.form-container{
   display: flex;
   width: 100%;
   height: 10vh;
