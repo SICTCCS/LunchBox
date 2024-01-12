@@ -382,17 +382,17 @@
 }
 /* email input at the bottom of home page */
 .form-EMAIL {
-  width: 30em;
+  width: 10em;
 }
 .form-EMAIL > input {
   width: 20em;
   height: 50px;
 }
 .form-EMAIL > input {
-  width: 20em;
+  /* width: 20em; */
   height: 50px;
   border: 2px solid #707f42;
-  font-size: 15px;
+  font-size: 35px;
   padding: 0 16px;
   border-radius: 1.25rem;
   transition: all 0.375s;
@@ -403,30 +403,32 @@
 }
 .form-EMAIL > button {
   cursor: pointer;
-  width: 125px;
-  height: 50px;
+  /* width: 150px; */
+  height: 75px;
   border-radius: 1.25rem;
   background: #707f42;
   color: white;
   border: 0;
-  font-size: 15px;
+  font-size: 20px;
   text-align: center;
   transition: all 0.375s;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: 1em;
   font-weight: bold;
+  padding:1em;
+  float:right;
 }
 .form-EMAIL > button:hover {
   background: #335879;
 }
 .form-container{
-  display: flex;
+  /* display: flex; */
   width: 100%;
   height: 2em;
   justify-content: center;
   align-items: center;
-  padding-bottom: 2em;
-  padding-top: 1em;
+  /* padding-bottom: 2em;
+  padding-top: 2em; */
 }
 }
 
