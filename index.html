@@ -100,29 +100,37 @@
             //    emailContent += `I do not want to be part of the mailing list.\n`;
             //}
             ////open email client with preloaded content
-            emailContent="Hello!  I would like to join your weekly newsletters and updates!"
-            window.location.href = 'mailto:samuel.wagoner@evsck12.com?subject=Contact Form Submission&body=' + encodeURIComponent(emailContent);
+            //emailContent="Hello!  I would like to join your weekly newsletters and updates!"
+            //window.location.href = 'mailto:samuel.wagoner@evsck12.com?subject=Contact Form Submission&body=' + encodeURIComponent(emailContent);
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyFvmvd8SDnQMeCcoFO5VDtgvo5Ng4N4tquWaCETP5nVCtJnp5qm9DwFXTR7SXnlJTF/exec'
+            const form = document.forms['submit-to-google-sheet']
+            form.addEventListener('submit', e => {
+                e.preventDefault()
+                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                  .then(response => alert('Success!', response))
+                  .catch(error => alert('Error!', error.message))
+              })
         }
     </script>
 </head>
 <body>
-    <nav>
-        <div id="logo-container">
-            <a href="index.html"><img id="logo-horiz" src="content/lunchBoxLogoHorizontalAllGreen.png" alt="lunchboxLogoHorizontal"></a>
-        </div>
-        <div id="links-container">
-            <!-- <a href="index.html">MENU</a> -->
-        </div>
-        <form class="form-EMAIL" style="width:50%;">
-            <!-- <input id="email" type="text" placeholder="email" style="background-color:white"> -->
-            <button type="button" onclick="submitForm()">Get Weekly Email!</button>
-        </form>
-    </nav>
+<nav>
+    <div id="logo-container">
+        <a href="index.html"><img id="logo-horiz" src="content/lunchBoxLogoHorizontalAllGreen.png" alt="lunchboxLogoHorizontal"></a>
+    </div>
+    <div id="links-container">
+        <!-- <a href="index.html">MENU</a> -->
+    </div>
+    <form name='submit-to-google-sheet' class="form-EMAIL" style="width:40%;">
+        <button type="submit" onclick="submitForm()">Get Weekly Email!</button>
+        <input id="email" name="email" type="text" placeholder="email" style="background-color:white;margin:8px">
+    </form>
+</nav>
 <main>
     <div class="menu-container">
             <div class="menu">
                 <h1 id="menuCard1" style="text-align:center;">TUESDAY</h1>
-                <h1 id="closed1" style="color:red;background-color:white"></h1>
+                <h1 id="closed1" style="color:#be4d25;background-color:white;"></h1>
                 <h3 id="date1" style="text-align:center;"></h3>
                 <h1 style="color:#335879">ENTREE</h1> 
                 <h3 id="entree1" class="menu-items-spaced-over"></h3>
@@ -142,7 +150,7 @@
             </div>
             <div class="menu">
                 <h1 id="menuCard2" style="text-align:center;">WEDNESDAY</h1>
-                <h1 id="closed2" style="color:red;background-color:white"></h1>
+                <h1 id="closed2" style="color:#be4d25;background-color:white;"></h1>
                 <h3 id="date2" style="text-align:center;"></h3>
                 <h1 style="color:#335879">ENTREE</h1> 
                 <h3 id="entree2" class="menu-items-spaced-over"></h3>
@@ -162,7 +170,7 @@
             </div>
             <div class="menu">
                 <h1 id="menuCard3" style="text-align:center;">THURSDAY</h1>
-                <h1 id="closed3" style="color:red;background-color:white"></h1>
+                <h1 id="closed3" style="color:#be4d25;background-color:white;"></h1>
                 <h3 id="date3" style="text-align:center;"></h3>
                 <h1 style="color:#335879">ENTREE</h1> 
                 <h3 id="entree3" class="menu-items-spaced-over"></h3>
@@ -221,3 +229,4 @@
 </footer>
 </body>
 </html>
+
