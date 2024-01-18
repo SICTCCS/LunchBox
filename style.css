@@ -143,7 +143,6 @@
     padding: 20px;
     flex: 1;
     width: 325px;
-    height: 775px;
     color: white;
     border-radius: 1.25rem;
     background-color: #707f42;
@@ -154,13 +153,6 @@
     height: 0.05px;
     color: white;
     width: 300px;
-  }
-  
-  .menu-items-spaced-over {
-    margin-left: 1.5em;
-    color: white;
-    padding:0;
-    margin:0;
   }
   #dateTXT{
     padding: 0;
@@ -397,7 +389,7 @@
 }
 
 /* mobile view and half-desktop */
-@media (max-width: 750px), (max-width: 1023px) {
+@media (max-width: 1023px) {
   html {
     font-family: 'Source Sans Pro', sans-serif;
     overflow-x: hidden;
@@ -535,8 +527,8 @@
     padding: 20px;
     flex: 1;
     max-width: 500px;
-    height: 1000px;
-    /* color: white; */
+    /* height: 1000px; */
+    color: white;
     border-radius: 1.25rem;
     background-color: #707f42;
     margin: 3em;
@@ -546,12 +538,6 @@
     height: 0.05px;
     color: white;
     width: 300px;
-    padding: 0;
-    margin: 0;
-  }
-  .menu-items-spaced-over {
-    margin-left: 1.5em;
-    color: white;
     padding: 0;
     margin: 0;
   }
@@ -666,10 +652,10 @@
     }
   /* about page */
   .about-container {
-  flex-direction: column;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .card-ABOUT-LARGE-TOP,
   .card-ABOUT {
@@ -792,11 +778,19 @@
   margin: 0;
 }
 .menuSectionTitle {
-  color:#335879;
-  -webkit-text-stroke: .5px #F3F1DF;
+  /* color:#335879; */
+  color:#F3F1DF;
+  /* -webkit-text-stroke: .5px #F3F1DF; */
+  -webkit-text-stroke: 2.5px #335879;
 }
-
 .closed{
   font-size: 40px;
   text-align: center;
 }
+.menu-items-spaced-over {
+  margin-left: 2.5em;
+  color: white;
+  padding:0;
+}
+
+/*  (max-width: 750px), */
