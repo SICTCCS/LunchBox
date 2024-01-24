@@ -80,18 +80,23 @@
             const scriptURL = 'https://script.google.com/macros/s/AKfycbyFvmvd8SDnQMeCcoFO5VDtgvo5Ng4N4tquWaCETP5nVCtJnp5qm9DwFXTR7SXnlJTF/exec'
             const form = document.forms['submit-to-google-sheet']
             form.addEventListener('submit', e => {
-                document.getElementById('email').value="submitting now";
-                e.preventDefault()
-                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => {
-                    customAlert.alert('Thank you for signing up for the weekly email!','You\'re All Set!')
-                    //alert('Success!', response)
-                    document.getElementById('email').value="";
-                })    
-                .catch(error => {
-                    alert('Error!', error.message)
-                    document.getElementById('email').value="";
-                })
+                console.log(document.getElementById('email').value.length)
+                if (document.getElementById('email').value.length!=0){
+                    e.preventDefault()
+                    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                    .then(response => {
+                        customAlert.alert('Thank you for signing up for the weekly email!','You\'re All Set!')
+                        //alert('Success!', response)
+                        document.getElementById('email').value="";
+                    })    
+                    .catch(error => {
+                        alert('Error!', error.message)
+                        document.getElementById('email').value="";
+                    })
+                }
+                else{
+                    customAlert.alert('Please be sure to add your email!','Sign Up Error')
+                }
             })
           }
     </script>

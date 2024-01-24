@@ -724,7 +724,7 @@
   }
   /* email input at the bottom of home page */
   .form-EMAIL {
-    /* width: 5%; */
+    display: none;
   }
   .form-EMAIL > input {
     /* width: 10em; */
