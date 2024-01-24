@@ -342,7 +342,7 @@
   }
   /* email input at the bottom of home page */
   .form-EMAIL > input {
-    width: 20em;
+    /* width: 20em; */
     height: 50px;
     border: 2px solid #707f42;
     font-size: 20px;
@@ -380,7 +380,7 @@
   .form-container{
     /* display: flex; */
     width: 25%;
-    height: 2em;
+    /* height: 2em; */
     /* justify-content: center; */
     /* align-items: center; */
     /* padding-bottom: 2em;
@@ -723,9 +723,6 @@
     font-size: 40px;
   }
   /* email input at the bottom of home page */
-  .form-EMAIL {
-    display: none;
-  }
   .form-EMAIL > input {
     /* width: 10em; */
     height: 50px;
@@ -758,8 +755,11 @@
   .form-EMAIL > button:hover {
     background: #335879;
   }
+  .form-EMAIL{
+    display: none;
+  }
   .form-container{
-    /* display: flex; */
+    /* display: none; */
     /* width: 100%; */
     height: 2em;
     float: right;
@@ -769,6 +769,7 @@
     padding-top: 1em; */
   }
 }
+
 
 .menuCard {
   color: #335879;
@@ -792,6 +793,4 @@
   color: white;
   padding:0;
 }
-
-/*  (max-width: 750px), */
 
