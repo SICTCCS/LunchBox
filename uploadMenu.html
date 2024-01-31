@@ -6,7 +6,8 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="style.css">
             <link rel="icon" type="image/x-icon" href="content/favicon.png">
-            <script type="module">
+            <script src="emailScript.js"></script>
+            <script type="module" name="upload process">
                 //imports and configs
                 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
                 import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
@@ -126,6 +127,7 @@
                             console.error("Error publishing menu: ", error);
                             alert("Error publishing menu.");
                         });
+                        emailResults()
                     })
                     .catch((error) => {
                         console.error("Authentication failed: ", error);
@@ -136,10 +138,11 @@
                 const submitBTN = document.getElementById("submitBTN");
                 submitBTN.addEventListener("click", submitForm);
               </script>
+            
             </head>
             <nav>
                 <div class="nav-upload-middle">
-                    <a href="index.html"><img id="logo-upload-middle" src="content/lunchBoxLogoHorizontalAllGreen.png" alt="lunchboxLogoAllGreen"></a>
+                    <a href="index.html"><img id="logo-upload-middle" src="content/lunchBoxLogoHorizontalAllGreen2.png" alt="lunchboxLogoAllGreen"></a>
                 </div>
             </nav>
             <main>
