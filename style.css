@@ -142,7 +142,7 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
     flex: 1;
-    width: 325px;
+    width: 33%;
     color: white;
     border-radius: 1.25rem;
     background-color: #707f42;
@@ -152,7 +152,7 @@
   .divider {
     height: 0.05px;
     color: white;
-    width: 300px;
+    /* width: 300px; */
   }
   #dateTXT{
     padding: 0;
@@ -200,7 +200,7 @@
     padding: 20px;
     border-radius: 1.25rem;
     margin: 3em;
-    width: 325px;
+    width: 33%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #335879;
     color: white;
