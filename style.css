@@ -386,6 +386,15 @@
     /* padding-bottom: 2em;
     padding-top: 2em; */
   }
+  #summerhero{
+    background-image: url(content/ClosedForSummer.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    height: 300px;
+    padding-bottom: 1em;
+    margin-top:2em;
+  }
 }
 
 /* mobile view and half-desktop */
@@ -767,6 +776,15 @@
     align-items: center;
     /* padding-bottom: 2em;
     padding-top: 1em; */
+  }
+  #summerhero{
+      background-image: url(content/ClosedForSummer.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: block;
+      height: 300px;
+      padding-bottom: 1em;
+      margin-top:1em;
   }
 }
 
