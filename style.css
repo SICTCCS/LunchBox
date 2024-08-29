@@ -386,6 +386,7 @@
     /* padding-bottom: 2em;
     padding-top: 2em; */
   }
+
   #summerhero{
     background-image: url(content/ClosedForSummer.png);
     background-repeat: no-repeat;
@@ -394,6 +395,18 @@
     height: 300px;
     padding-bottom: 1em;
     margin-top:2em;
+    
+  }
+
+  /* Edited by Morgan */
+  #summerhero h1 {
+    max-width: 40%;
+    text-size-adjust: 100px;
+    color: #707f42;
+    -webkit-text-stroke: .3px #F3F1DF;
+    padding-top: 1.25em;
+    padding-left: 65%;
+    font-size: 200%;
   }
 }
 
