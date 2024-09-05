@@ -8,6 +8,30 @@
                 <link rel="icon" type="image/x-icon" href="content/favicon.png">
             </head>
             <body>
+              <script type="module">
+                // Import the functions you need from the SDKs you need
+                import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+                import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+                // TODO: Add SDKs for Firebase products that you want to use
+                // https://firebase.google.com/docs/web/setup#available-libraries
+              
+                // Your web app's Firebase configuration
+                // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+                const firebaseConfig = {
+                  apiKey: "AIzaSyD7_38u-RpwfX2cETR-y3GuKSGOadlJevM",
+                  authDomain: "lunchbox-e758f.firebaseapp.com",
+                  databaseURL: "https://lunchbox-e758f-default-rtdb.firebaseio.com",
+                  projectId: "lunchbox-e758f",
+                  storageBucket: "lunchbox-e758f.appspot.com",
+                  messagingSenderId: "436242448558",
+                  appId: "1:436242448558:web:e68ecb0b26b6c7252b6d3f",
+                  measurementId: "G-28V5VBRP6P"
+                };
+              
+                // Initialize Firebase
+                const app = initializeApp(firebaseConfig);
+                const analytics = getAnalytics(app);
+              </script>
               <nav>
                 <div id="logo-container">
                     <a href="index.html"><img id="logo-horiz" src="content/lunchBoxLogoHorizontalAllGreen.png" alt="lunchboxLogoHorizontal"></a>
