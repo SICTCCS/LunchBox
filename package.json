@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "lunchbox-2815d",
+=======
+  "name": "lunchbox-e758f",
+>>>>>>> bb3a2b8e7bc5e0b6f0d1e1c27af5678f6e5abbb8
   "version": "1.0.0",
   "description": "LunchBox for SICTC",
   "main": "index.js",

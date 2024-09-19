@@ -64,6 +64,9 @@ node_modules/
 
 # dotenv environment variables file
 .env
+<<<<<<< HEAD
 
 # dsstore
 .DS_Store
+=======
+>>>>>>> bb3a2b8e7bc5e0b6f0d1e1c27af5678f6e5abbb8

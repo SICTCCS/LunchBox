@@ -1,6 +1,42 @@
 {
   "hosting": {
+<<<<<<< HEAD
     "public": ".",
     "rules": "database.rules.json"
+=======
+    "public": "public",
+    "rules": "database.rules.json"
+  },
+  "database": {
+    "rules": "database.rules.json",
+    "data": {
+      "menu": {
+        "tuesday": {
+          "entree": "Grilled Chicken Parmesan",
+          "date": "NOV 14",
+          "soups": ["Tomato Basil Bisque"],
+          "salads": ["Garden Salad w/ Asst. Dressings", "Italian Pasta Salad"],
+          "sides": ["Roasted Red Potatoes", "Mixed Vegetables"],
+          "desserts": ["Apple Cobbler", "Peanut Butter Cookie", "Chocolate Cream Pie"]
+        },
+        "wednesday": {
+          "entree": "Sliced Turkey Breast",
+          "date": "NOV 15",
+          "soups": ["Roasted Sweet Potato Bisque"],
+          "salads": ["Garden Salad w/ Asst. Dressings", "Cranberry Relish"],
+          "sides": ["Mashed Potatoes & Turkey Gravy", "Green Bean Casserole"],
+          "desserts": ["Cherry Cobbler", "Chocolate Chip Cookie", "Pumpkin Pie"]
+        },
+        "thursday": {
+          "entree": "Rosemary & Garlic Crusted Pork Loin",
+          "date": "NOV 16",
+          "soups": ["Cream of Spinach"],
+          "salads": ["Garden Salad w/ Asst. Dressings", "Potato Salad"],
+          "sides": ["Twice Baked Potato Casserole", "Buttered Corn"],
+          "desserts": ["Bread Pudding w/Caramel Sauce", "Cookie of the Day", "Assorted Pies"]
+        }
+      }
+    }
+>>>>>>> bb3a2b8e7bc5e0b6f0d1e1c27af5678f6e5abbb8
   }
 }

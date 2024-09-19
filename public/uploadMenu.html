@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <title>The Lunchbox - Menu Upload</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="style.css">
+            <link rel="icon" type="image/x-icon" href="content/favicon.png">
+            <script type="module" name="upload process">
+                    // Import the functions you need from the SDKs you need
+                    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+                    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+                    // TODO: Add SDKs for Firebase products that you want to use
+                    // https://firebase.google.com/docs/web/setup#available-libraries
+
+                    // Your web app's Firebase configuration
+                    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+                    const firebaseConfig = {
+                        apiKey: "AIzaSyD7_38u-RpwfX2cETR-y3GuKSGOadlJevM",
+                        authDomain: "lunchbox-e758f.firebaseapp.com",
+                        databaseURL: "https://lunchbox-e758f-default-rtdb.firebaseio.com",
+                        projectId: "lunchbox-e758f",
+                        storageBucket: "lunchbox-e758f.appspot.com",
+                        messagingSenderId: "436242448558",
+                        appId: "1:436242448558:web:e68ecb0b26b6c7252b6d3f",
+                        measurementId: "G-28V5VBRP6P"
+                    };
+
+                    // Initialize Firebase
+                    const app = initializeApp(firebaseConfig);
+                    const analytics = getAnalytics(app);
+                const db = getFirestore(app);
+                const auth = getAuth();
+                //handle form submission
+                function submitForm(event) {
+                    console.log("form submitting")
+                    event.preventDefault();
+                    const email = document.getElementById('emailINPUT').value;
+                    const password = document.getElementById('passwordINPUT').value;
+                    signInWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        //checkbox initializations
+                        const closedCHECKBOX1 = document.getElementById('closedCHECKBOX1');
+                        const closedINPUT1 = closedCHECKBOX1.checked ? "CLOSED" : " ";
+                        const closedCHECKBOX2 = document.getElementById('closedCHECKBOX2');
+                        const closedINPUT2 = closedCHECKBOX2.checked ? "CLOSED" : " ";
+                        const closedCHECKBOX3 = document.getElementById('closedCHECKBOX3');
+                        const closedINPUT3 = closedCHECKBOX3.checked ? "CLOSED" : " ";
+                        //get values from input fields if closed not checked
+                        console.log(closedINPUT1)
+                        console.log(closedINPUT2)
+                        console.log(closedINPUT3)
+                        if (closedINPUT1=="CLOSED"){
+                            console.log("day 1 closed")
+                            document.getElementById('entreeINPUT1').value="";
+                            document.getElementById('soupINPUT1').value="";
+                            document.getElementById('saladINPUT1').value="";
+                            document.getElementById('sideINPUT1').value="";
+                            document.getElementById('dessertINPUT1').value="";
+                        }
+                        if (closedINPUT2=="CLOSED"){
+                            console.log("day 2 closed")
+                            document.getElementById('entreeINPUT2').value="";
+                            document.getElementById('soupINPUT2').value="";
+                            document.getElementById('saladINPUT2').value="";
+                            document.getElementById('sideINPUT2').value="";
+                            document.getElementById('dessertINPUT2').value="";
+                        }
+                        if (closedINPUT3=="CLOSED"){
+                            console.log("day 3 closed")
+                            document.getElementById('entreeINPUT3').value="";
+                            document.getElementById('soupINPUT3').value="";
+                            document.getElementById('saladINPUT3').value="";
+                            document.getElementById('sideINPUT3').value="";
+                            document.getElementById('dessertINPUT3').value="";
+                        }
+                        const dateINPUT1 =      document.getElementById('dateINPUT1').value;
+                        const entreeINPUT1 =    document.getElementById('entreeINPUT1').value;
+                        const soupINPUT1 =      document.getElementById('soupINPUT1').value;
+                        const saladINPUT1 =     document.getElementById('saladINPUT1').value;
+                        const sideINPUT1 =      document.getElementById('sideINPUT1').value;
+                        const dessertINPUT1 =   document.getElementById('dessertINPUT1').value;
+
+                        const dateINPUT2 =      document.getElementById('dateINPUT2').value;
+                        const entreeINPUT2 =    document.getElementById('entreeINPUT2').value;
+                        const soupINPUT2 =      document.getElementById('soupINPUT2').value;
+                        const saladINPUT2 =     document.getElementById('saladINPUT2').value;
+                        const sideINPUT2 =      document.getElementById('sideINPUT2').value;
+                        const dessertINPUT2 =   document.getElementById('dessertINPUT2').value;
+                        
+                        const dateINPUT3 =      document.getElementById('dateINPUT3').value;
+                        const entreeINPUT3 =    document.getElementById('entreeINPUT3').value;
+                        const soupINPUT3 =      document.getElementById('soupINPUT3').value;
+                        const saladINPUT3 =     document.getElementById('saladINPUT3').value;
+                        const sideINPUT3 =      document.getElementById('sideINPUT3').value;
+                        const dessertINPUT3 =   document.getElementById('dessertINPUT3').value;
+                        //construct menu data object
+                        const menuData = {
+                            tuesday_date: dateINPUT1,
+                            tuesday_entree: entreeINPUT1,
+                            tuesday_soup: soupINPUT1,
+                            tuesday_salad: saladINPUT1,
+                            tuesday_side: sideINPUT1,
+                            tuesday_dessert: dessertINPUT1,
+                            tuesday_closed: closedINPUT1,
+                            wednesday_date: dateINPUT2,
+                            wednesday_entree: entreeINPUT2,
+                            wednesday_soup: soupINPUT2,
+                            wednesday_salad: saladINPUT2,
+                            wednesday_side: sideINPUT2,
+                            wednesday_dessert: dessertINPUT2,
+                            wednesday_closed: closedINPUT2,
+                            thursday_date: dateINPUT3,
+                            thursday_entree: entreeINPUT3,
+                            thursday_soup: soupINPUT3,
+                            thursday_salad: saladINPUT3,
+                            thursday_side: sideINPUT3,
+                            thursday_dessert: dessertINPUT3,
+                            thursday_closed: closedINPUT3,
+                        };
+                        //generate a timestamp document name
+                        const timestamp = new Date().toISOString();
+                        const documentName = `menu_${timestamp}`;
+                        //push up new data with dynamic document name
+                        setDoc(doc(db, "menu", documentName), {
+                        ...menuData,
+                        timestamp: serverTimestamp(),
+                        })
+                        .then(() => {
+                            console.log("Menu published successfully!");
+                            alert("Menu published successfully!");
+                        })
+                        .catch((error) => {
+                            console.error("Error publishing menu: ", error);
+                            alert("Error publishing menu.");
+                        });
+                        emailResults()
+                    })
+                    .catch((error) => {
+                        console.error("Authentication failed: ", error);
+                        alert("Authentication failed.", error);
+                    });
+                    document.getElementById('passwordINPUT').value="";
+                }
+                const submitBTN = document.getElementById("submitBTN");
+                submitBTN.addEventListener("click", submitForm);
+              </script>        </head>
+            <nav>
+                <div class="nav-upload-middle">
+                    <img id="logo-upload-middle" src="content/lunchboxWithText.png" alt="lunchboxLogoWithText">
+                </div>
+            </nav>
+            <main>
+                <div class="upload-container">
+                    <div class="upload-card">
+                        <form class="upload-form">
+                            <input id="dateINPUT1" type="text" placeholder="Tuesday - Date (JAN 1)" style="background-color:silver">
+                            <input id="entreeINPUT1" type="text" placeholder="Tuesday - Entree" style="background-color:silver">
+                            <input id="soupINPUT1" type="text" placeholder="Tuesday - Soups" style="background-color:silver">
+                            <input id="saladINPUT1" type="text" placeholder="Tuesday - Salads" style="background-color:silver">
+                            <input id="sideINPUT1" type="text" placeholder="Tuesday - Sides" style="background-color:silver">
+                            <input id="dessertINPUT1" type="text" placeholder="Tuesday - Desserts" style="background-color:silver">
+                            <label class="checkbox-label">
+                                <input id="closedCHECKBOX1" type="checkbox" class="custom-checkbox">
+                                <span class="checkbox-text">closed</span>
+                            </label>
+                        </form>
+                    </div>
+                    <div class="upload-card">
+                        <form class="upload-form">
+                            <input id="dateINPUT2" type="text" placeholder="Wednesday - Date (JAN 1)" style="background-color:silver">
+                            <input id="entreeINPUT2" type="text" placeholder="Wednesday - Entree" style="background-color:silver">
+                            <input id="soupINPUT2" type="text" placeholder="Wednesday - Soups" style="background-color:silver">
+                            <input id="saladINPUT2" type="text" placeholder="Wednesday - Salads" style="background-color:silver">
+                            <input id="sideINPUT2" type="text" placeholder="Wednesday - Sides" style="background-color:silver">
+                            <input id="dessertINPUT2" type="text" placeholder="Wednesday - Desserts" style="background-color:silver">
+                            <label class="checkbox-label">
+                                <input id="closedCHECKBOX2" type="checkbox" class="custom-checkbox">
+                                <span class="checkbox-text">closed</span>
+                            </label>
+                        </form>
+                    </div>
+                    <div class="upload-card">
+                        <form class="upload-form">
+                            <input id="dateINPUT3" type="text" placeholder="Thursday - Date (JAN 1)" style="background-color:silver">
+                            <input id="entreeINPUT3" type="text" placeholder="Thursday - Entree" style="background-color:silver">
+                            <input id="soupINPUT3" type="text" placeholder="Thursday - Soups" style="background-color:silver">
+                            <input id="saladINPUT3" type="text" placeholder="Thursday - Salads" style="background-color:silver">
+                            <input id="sideINPUT3" type="text" placeholder="Thursday - Sides" style="background-color:silver">
+                            <input id="dessertINPUT3" type="text" placeholder="Thursday - Desserts" style="background-color:silver">
+                            <label class="checkbox-label">
+                                <input id="closedCHECKBOX3" type="checkbox" class="custom-checkbox">
+                                <span class="checkbox-text">closed</span>
+                            </label>
+                        </form>
+                    </div>   
+                    <div class="upload-card">
+                        <form class="upload-form">
+                        <h2 class="current-site-text"></h2><a href="https://sictccs.github.io/LunchBox/index.html" target="_blank">current menu &#x2197;</a></h2>
+                        <input id="emailINPUT" type="text" placeholder="email" style="background-color:#e56b6f">
+                        <input id="passwordINPUT" type="password" placeholder="password" style="background-color:#e56b6f">
+                            <button id="submitBTN" type="submit" >publish</button>
+                            * publishing replaces all current menu details
+                        </form>
+                    </div>   
+                </div>
+            </main>
+            <footer>
+                &copy; <a class="no-style-link" href="https://github.com/maekyngrigs10">Maekyn Grigsby</a> & <a class="no-style-link" href="https://github.com/tytichenor">Ty Tichenor</a><br>
+                The Lunchbox <br>
+                1901 Lynch Rd, Evansville, IN 47711 <br>
+                <a href="https://sictc.evscschools.com/"><img src="content/footerSICTC.png" style="width:150px;height:75px;" alt="footerSICTC"></a>
+            </footer>
+        </body>
+</html>
