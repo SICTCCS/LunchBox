@@ -1,11 +1,7 @@
 {
   "projects": {
     "default": "lunchbox-e758f",
-<<<<<<< HEAD
-    "staging": "lunchbox-60fb5"
-=======
     "staging": "lunchbox-e758f"
->>>>>>> bb3a2b8e7bc5e0b6f0d1e1c27af5678f6e5abbb8
   },
   "targets": {},
   "etags": {}

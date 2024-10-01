@@ -127,12 +127,10 @@
   .current-site-text{
     margin-top: 2em;
   }
-<<<<<<< HEAD:style.css
   .current-site-text a {
     text-decoration: none;
     color: white; 
   }
-=======
   /* Contact page cards */
   .card-container {
     display: flex;
@@ -206,7 +204,6 @@
 .contact-form > button:hover {
     background: black;
 }
->>>>>>> bb3a2b8e7bc5e0b6f0d1e1c27af5678f6e5abbb8:public/style.css
   /* Menu page cards */
   .menu-container {
     display: flex;
@@ -234,8 +231,6 @@
     padding: 0;
     margin: 0;
   }
-<<<<<<< HEAD:style.css
-=======
   #homePageLunchboxLogo {
     height: 60vh;
     width: 50vw;
@@ -249,7 +244,6 @@
     align-items: center;
     margin: 0;
   }
->>>>>>> bb3a2b8e7bc5e0b6f0d1e1c27af5678f6e5abbb8:public/style.css
   /* For checkbox */
   .checkbox-label {
     align-items: center;
@@ -478,6 +472,9 @@
     /* padding-bottom: 2em;
     padding-top: 2em; */
   }
+  
+
+
   #summerhero{
     background-image: url(content/ClosedForSummer.png);
     background-repeat: no-repeat;
@@ -489,14 +486,32 @@
   }
 }
 
-<<<<<<< HEAD:style.css
-/* mobile view and half-desktop */
-@media (max-width: 1023px) {
-=======
+  .menuDownload{
+    height: auto;
+    border: 10px solid #707f42;
+    
+    font-size: 20px;
+    border-radius: 1.25rem;
+    transition: all 0.375s;
+    color: #f3f1df;
+    background-color: #707f42;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    align-content:end;
+
+
+  }
+  .form-EMAIL > button:hover {
+    background-color: #335879;
+  }
+
+
 
 /* Mobile view and Half-Desktop */
 @media (max-width: 750px), (max-width: 1023px) {
->>>>>>> bb3a2b8e7bc5e0b6f0d1e1c27af5678f6e5abbb8:public/style.css
   html {
     font-family: 'Source Sans Pro', sans-serif;
     overflow-x: hidden;
@@ -619,80 +634,9 @@
   .current-site-text{
     margin-top: 2em;
   }
-<<<<<<< HEAD:style.css
   .current-site-text a {
     text-decoration: none;
     color: white; 
-=======
-  .card {
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    flex: 1;
-    max-width: 500px;
-    height: 500px;
-    border-radius: 1.25rem;
-    background-color: #ffc857;
-    margin: 1.9em;
-    text-align: center;
-    margin-top: 5em;
-  }
-  .contact-form {
-    width: 100%;
-    margin: 0;
-    display: grid;
-    gap: 16px;
-  }
-  .contact-form > input,
-  .contact-form > textarea,
-  .contact-form > button {
-    width: 75%;
-    height: 50px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .contact-form > input,
-  .contact-form > textarea {
-    border: 2px solid #ebebeb;
-    font-size: 15px;
-    padding: 0 16px;
-    border-radius: 1.25rem;
-    transition: all 0.375s;
-  }
-  .contact-form > input:hover,
-  .contact-form > textarea:hover {
-    border: 2px solid #084c61;
-  }
-  .contact-form > textarea {
-    height: 10em;
-    resize: none; 
-    border: 2px solid #ebebeb;
-    font-size: 15px;
-    padding: 0 16px;
-    border-radius: 1.25rem;
-    transition: all 0.375s;
-}
-  .contact-form > button {
-    cursor: pointer;
-    width: 125px;
-    border-radius: 1.25rem;
-    background: #084c61;
-    color: white;
-    border: 0;
-    font-size: 15px;
-    font-weight: 600;
-    text-align: center;
-    letter-spacing: 2px;
-    transition: all 0.375s;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 400;
-    margin-bottom: 1em;
-  }
-  .contact-form > button:hover {
-    background: black;
->>>>>>> bb3a2b8e7bc5e0b6f0d1e1c27af5678f6e5abbb8:public/style.css
   }
   /* Menu page cards */
   .menu-container {
@@ -723,23 +667,6 @@
     padding: 0;
     margin: 0;
   }
-<<<<<<< HEAD:style.css
-=======
-  #homePageLunchboxLogo {
-    height: 100%;
-    width: 100%;
-    margin-top: 8em;
-    margin-bottom: 5em;
-
-  }
-  /* For the big logo on the home page */
-  .bigLogo-container {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
->>>>>>> bb3a2b8e7bc5e0b6f0d1e1c27af5678f6e5abbb8:public/style.css
   /* For checkbox */
   .checkbox-label {
     align-items: center;
