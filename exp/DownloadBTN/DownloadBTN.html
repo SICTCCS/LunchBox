@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The LunchBox - Menu</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="alertStyle.css">
+    <script src="alertScript.js" defer></script>
+    <script src="https://kit.fontawesome.com/2bb903859e.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="content/favicon.png">
+    <script type="module">
+        //imports and configs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+        import { getFirestore, collection, query, orderBy, limit, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+        document.addEventListener("DOMContentLoaded", function () {
+            const firebaseConfig = {
+            apiKey: "AIzaSyD7_38u-RpwfX2cETR-y3GuKSGOadlJevM",
+            authDomain: "lunchbox-e758f.firebaseapp.com",
+            databaseURL: "https://lunchbox-e758f-default-rtdb.firebaseio.com",
+            projectId: "lunchbox-e758f",
+            storageBucket: "lunchbox-e758f.appspot.com",
+            messagingSenderId: "436242448558",
+            appId: "1:436242448558:web:e68ecb0b26b6c7252b6d3f",
+            measurementId: "G-28V5VBRP6P"
+            };
+
+            //initialize firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+            const menuCollectionRef = collection(db, 'menu');
+            //create a query to get the most recent menu document
+            const queryRef = query(menuCollectionRef, orderBy('timestamp', 'desc'), limit(1));
+            //set up the snapshot listener
+            onSnapshot(queryRef, updateMenu);
+            //function to update the menu
+            function updateMenu(snapshot) {
+                if (!snapshot.empty) {
+                    const mostRecentDocument = snapshot.docs[0];
+                    const menuDocument = mostRecentDocument.data();
+                    //update the HTML 
+                    updateMenuItem('date1', 'tuesday_date');
+                    updateMenuItem('entree1', 'tuesday_entree');
+                    updateMenuItem('soup1', 'tuesday_soup');
+                    updateMenuItem('salad1', 'tuesday_salad');
+                    updateMenuItem('side1', 'tuesday_side');
+                    updateMenuItem('dessert1', 'tuesday_dessert');
+                    updateMenuItem('closed1', 'tuesday_closed');
+                    updateMenuItem('date2', 'wednesday_date');
+                    updateMenuItem('entree2', 'wednesday_entree');
+                    updateMenuItem('soup2', 'wednesday_soup');
+                    updateMenuItem('salad2', 'wednesday_salad');
+                    updateMenuItem('side2', 'wednesday_side');
+                    updateMenuItem('dessert2', 'wednesday_dessert');
+                    updateMenuItem('closed2', 'wednesday_closed');
+                    updateMenuItem('date3', 'thursday_date');
+                    updateMenuItem('entree3', 'thursday_entree');
+                    updateMenuItem('soup3', 'thursday_soup');
+                    updateMenuItem('salad3', 'thursday_salad');
+                    updateMenuItem('side3', 'thursday_side');
+                    updateMenuItem('dessert3', 'thursday_dessert');
+                    updateMenuItem('closed3', 'thursday_closed');
+
+                    //update all items
+                    function updateMenuItem(elementId, dataKey) {
+                        if (menuDocument[dataKey] !== undefined) {
+                            document.getElementById(elementId).innerText = menuDocument[dataKey];
+                        } 
+                        else {
+                            console.error(`${dataKey} is undefined in menuDocument`);
+                        }
+                    }
+                } 
+                else {
+                    console.log('No documents found in the "menu" collection.');
+                }
+            }
+        });
+    </script>
+    <script>
+        function submitForm() {
+            document.getElementById('emailBTN').innerHTML='Upload In Progress'
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyFvmvd8SDnQMeCcoFO5VDtgvo5Ng4N4tquWaCETP5nVCtJnp5qm9DwFXTR7SXnlJTF/exec'
+            const form = document.forms['submit-to-google-sheet']
+            form.addEventListener('submit', e => {
+                console.log(document.getElementById('email').value.length)
+                if (document.getElementById('email').value.length!=0){
+                    e.preventDefault()
+                    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                    .then(response => {
+                        customAlert.alert('Thank you for signing up for the weekly email!','You\'re All Set!')
+                        //alert('Success!', response)
+                        document.getElementById('email').value="";
+                        document.getElementById('emailBTN').innerHTML='Get Weekly Email!'
+                    })    
+                    .catch(error => {
+                        alert('Error!', error.message)
+                        document.getElementById('email').value="";
+                        document.getElementById('emailBTN').innerHTML='Get Weekly Email!'
+                    })
+                }
+                else{
+                    customAlert.alert('Please be sure to add your email!','Sign Up Error')
+                    document.getElementById('emailBTN').innerHTML='Get Weekly Email!'
+                }
+            })
+          }
+    </script>
+</head>
+<body>
+<nav>
+    <div id="logo-container">
+        <a href="index.html"><img id="logo-horiz" src="content/lunchBoxLogoHorizontalAllGreen2.png" alt="lunchboxLogoHorizontal"></a>
+    </div>
+    <!-- <div id="links-container">
+        <a href="index.html">MENU</a> 
+    </div>-->
+    <form name='submit-to-google-sheet' class="form-EMAIL" id="signUpForm">
+        <input id="email" name="email" type="email" placeholder="enter email here" style="background-color:white;margin-left:4em">
+        <button id="emailBTN" type="submit" onclick="submitForm()">Get Weekly Email!</button>
+    </form>
+</nav>
+<main>
+    <div class="menu-container">
+            <div class="menu">
+                <h1 class="menuCard" style="text-align:center;">TUESDAY</h1>
+                <h1 id="closed1" class="closed" style="color:#be4d25;background-color:white;"></h1>
+                <h3 id="date1" style="text-align:center;"></h3>
+                <h1 class="menuSectionTitle">ENTREE</h1> 
+                <h3 id="entree1" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">SOUPS</h1> 
+                <h3 id="soup1" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">SALADS</h1> 
+                <h3 id="salad1" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">SIDES</h1> 
+                <h3 id="side1" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div> 
+                <h1 class="menuSectionTitle">DESSERTS</h1> 
+                <h3 id="dessert1" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+            </div>
+            <div class="menu">
+                <h1 class="menuCard" style="text-align:center;">WEDNESDAY</h1>
+                <h1 id="closed2" class="closed" style="color:#be4d25;background-color:white;"></h1>
+                <h3 id="date2" style="text-align:center;"></h3>
+                <h1 class="menuSectionTitle">ENTREE</h1> 
+                <h3 id="entree2" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">SOUPS</h1> 
+                <h3 id="soup2" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">SALADS</h1> 
+                <h3 id="salad2" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">SIDES</h1> 
+                <h3 id="side2" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">DESSERTS</h1> 
+                <h3 id="dessert2" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+            </div>
+            <div class="menu">
+                <h1 class="menuCard" style="text-align:center;">THURSDAY</h1>
+                <h1 id="closed3" class="closed" style="color:#be4d25;background-color:white;"></h1>
+                <h3 id="date3" style="text-align:center;"></h3>
+                <h1 class="menuSectionTitle">ENTREE</h1> 
+                <h3 id="entree3" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">SOUPS</h1> 
+                <h3 id="soup3" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">SALADS</h1> 
+                <h3 id="salad3" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">SIDES</h1> 
+                <h3 id="side3" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+                <h1 class="menuSectionTitle">DESSERTS</h1> 
+                <h3 id="dessert3" class="menu-items-spaced-over"></h3>
+                <div class="divider"></div>
+            </div>
+        </div>
+        <a style="text-decoration:none;"href="9.24.24LunchBoxMenu.pdf" download="" class="menuDownload">Download Our Menu!</a>
+    <div class="card-container-WHATSINCLUDED">
+        <div class="card-WHATSINCLUDED">
+            <h2>What's Included In An $8 Meal?</h2>
+            <p><span class="info-label-WHATSINCLUDED">Entree (1 portion)</span></p>
+            <p><span class="info-label-WHATSINCLUDED">Sides (Choose 2) (Soups & Salads are considered a side)</span></p>
+            <p><span class="info-label-WHATSINCLUDED">Dessert (Your choice of 1)</span></p>
+            <p><span class="info-label-WHATSINCLUDED">Dinner Roll (1 roll)</span></p>
+            <p><span class="info-label-WHATSINCLUDED">Drink (Unsweetened Tea, Lemonade, or Water)</span></p>
+        </div>
+    </div>
+    <div class="card-container-COMMON">
+        <div class="card-COMMON">
+            <h2>About</h2>
+            <p><span class="info-label-COMMON">Opening Hours:</span> 10:15 AM - 1:00 PM</p>
+            <p><span class="info-label-COMMON">Availability:</span> Open to the public</p>
+            <p><span class="info-label-COMMON">Location:</span> Please enter through the main entrance at SICTC, and the restaurant is located at the third door on the left.</p>
+            <p><span class="info-label-COMMON">Reservations:</span> Requested for groups of 6 and larger</p>
+        </div>
+        <div class="card-COMMON">
+            <h2>Accepted Payments</h2>
+            <p><span class="info-label-COMMON">Accepted Payments:</span> CASH ONLY </p>
+            <p>
+                <img style="width:40%;height:150px;float:left;border-radius:5%;" src="content/cashAlt.png" alt="noCard">
+                <img style="width:40%;height:150px;float:right" src="content/noCardAlt.png" alt="noCard">
+            </p>
+        </div>
+        <div class="card-COMMON">
+            <h2>A La Carte Prices</h2>
+            <p><span class="info-label-COMMON">Entree:</span> $3.00</p>
+            <p><span class="info-label-COMMON">Sides and Desserts:</span> *$2.00</p>
+            <p><span class="info-label-COMMON">Cookie:</span> $1.00</p>
+            <p><span class="info-label-COMMON">Dinner Roll:</span> $.50</p>
+            <p><span class="info-label-COMMON">*Dessert Prices Subject to Change</span></p>
+        </div>
+    </div>
+</main>
+<footer>
+    Maintained & Built by SICTC Computer Science Software Development <br>
+    The LunchBox <br>
+    1901 Lynch Rd, Evansville, IN 47711 <br>
+    <a href="https://sictc.evscschools.com/"><img src="content/footerSICTC.png" style="width:150px;height:85px;" alt="footerSICTC"></a>
+</footer>
+</body>
+</html>
