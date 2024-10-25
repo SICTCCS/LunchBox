@@ -9,25 +9,29 @@
     <script src="https://kit.fontawesome.com/2bb903859e.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="content/favicon.png">
-    <script type="module">
-        //imports and configs
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-        import { getFirestore, collection, query, orderBy, limit, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
-        document.addEventListener("DOMContentLoaded", function () {
-            const firebaseConfig = {
-            apiKey: "AIzaSyD7_38u-RpwfX2cETR-y3GuKSGOadlJevM",
-            authDomain: "lunchbox-e758f.firebaseapp.com",
-            databaseURL: "https://lunchbox-e758f-default-rtdb.firebaseio.com",
-            projectId: "lunchbox-e758f",
-            storageBucket: "lunchbox-e758f.appspot.com",
-            messagingSenderId: "436242448558",
-            appId: "1:436242448558:web:e68ecb0b26b6c7252b6d3f",
-            measurementId: "G-28V5VBRP6P"
-            };
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-            //initialize firebase
-            const app = initializeApp(firebaseConfig);
-            const db = getFirestore(app);
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyA_sHDzmqdGU5VknIGS_uj1NtgZ4JObZrQ",
+    authDomain: "lunchsample-31ca1.firebaseapp.com",
+    projectId: "lunchsample-31ca1",
+    storageBucket: "lunchsample-31ca1.appspot.com",
+    messagingSenderId: "488297031196",
+    appId: "1:488297031196:web:0c959d839a844075a161d9",
+    measurementId: "G-XDT47RLS05"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
             const menuCollectionRef = collection(db, 'menu');
             //create a query to get the most recent menu document
             const queryRef = query(menuCollectionRef, orderBy('timestamp', 'desc'), limit(1));
@@ -75,9 +79,7 @@
                     console.log('No documents found in the "menu" collection.');
                 }
             }
-        });
-    </script>
-    <script>
+    
         function submitForm() {
             document.getElementById('emailBTN').innerHTML='Upload In Progress'
             const scriptURL = 'https://script.google.com/macros/s/AKfycbyFvmvd8SDnQMeCcoFO5VDtgvo5Ng4N4tquWaCETP5nVCtJnp5qm9DwFXTR7SXnlJTF/exec'
@@ -183,7 +185,7 @@
                 <div class="divider"></div>
             </div>
         </div>
-        <a style="text-decoration:none;"href="9.24.24LunchBoxMenu.pdf" download="" class="menuDownload">Download Our Menu!</a>
+        <a style="text-decoration:none;"href="https://mail.google.com/mail/u/2?ui=2&ik=b3b53498f6&attid=0.1&permmsgid=msg-f:1810746815004267575&th=192110a26e7fd437&view=att&disp=safe&realattid=f_m1b5h3fo0" download="" class="menuDownload">Download Our Menu!</a>
     <div class="card-container-WHATSINCLUDED">
         <div class="card-WHATSINCLUDED">
             <h2>What's Included In An $8 Meal?</h2>

@@ -7,6 +7,7 @@ function emailResults() {
    const closedINPUT3 = closedCHECKBOX3.checked ? "CLOSED" : " ";
 
    const email = document.getElementById('emailINPUT').value;
+   const emailMessage = document.getElementById('emailUploader').value;
    const tuesDate = document.getElementById('dateINPUT1').value;
    const tuesEntree = document.getElementById('entreeINPUT1').value;
    const tuesSoup = document.getElementById('soupINPUT1').value;
@@ -69,9 +70,9 @@ Thursday ${thursDate}
          Desserts - ${thursDesserts}`;
    }
 
-   var emailContent = 
-`Hello,
-Below is our menu for this upcoming week. Be sure to stay up-to-date with our menu at https://sictccs.github.io/LunchBox/
+   var emailContent = emailMessage + `
+
+Below is our menu for this upcoming week. Be sure to stay up-to-date with our menu at https://sictccs.github.io/LunchBox/ '
 ${tuesEmail}
 ${wedEmail}
 ${thursEmail}

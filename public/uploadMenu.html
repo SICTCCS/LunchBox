@@ -6,29 +6,28 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="style.css">
             <link rel="icon" type="image/x-icon" href="content/favicon.png">
-            <script type="module" name="upload process">
-                    // Import the functions you need from the SDKs you need
-                    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-                    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
-                    // TODO: Add SDKs for Firebase products that you want to use
-                    // https://firebase.google.com/docs/web/setup#available-libraries
-
-                    // Your web app's Firebase configuration
-                    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-                    const firebaseConfig = {
-                        apiKey: "AIzaSyD7_38u-RpwfX2cETR-y3GuKSGOadlJevM",
-                        authDomain: "lunchbox-e758f.firebaseapp.com",
-                        databaseURL: "https://lunchbox-e758f-default-rtdb.firebaseio.com",
-                        projectId: "lunchbox-e758f",
-                        storageBucket: "lunchbox-e758f.appspot.com",
-                        messagingSenderId: "436242448558",
-                        appId: "1:436242448558:web:e68ecb0b26b6c7252b6d3f",
-                        measurementId: "G-28V5VBRP6P"
-                    };
-
-                    // Initialize Firebase
-                    const app = initializeApp(firebaseConfig);
-                    const analytics = getAnalytics(app);
+            <script type="module">
+                // Import the functions you need from the SDKs you need
+                import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+                import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+                // TODO: Add SDKs for Firebase products that you want to use
+                // https://firebase.google.com/docs/web/setup#available-libraries
+              
+                // Your web app's Firebase configuration
+                // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+                const firebaseConfig = {
+                  apiKey: "AIzaSyA_sHDzmqdGU5VknIGS_uj1NtgZ4JObZrQ",
+                  authDomain: "lunchsample-31ca1.firebaseapp.com",
+                  projectId: "lunchsample-31ca1",
+                  storageBucket: "lunchsample-31ca1.appspot.com",
+                  messagingSenderId: "488297031196",
+                  appId: "1:488297031196:web:0c959d839a844075a161d9",
+                  measurementId: "G-XDT47RLS05"
+                };
+              
+                // Initialize Firebase
+                const app = initializeApp(firebaseConfig);
+                const analytics = getAnalytics(app);
                 const db = getFirestore(app);
                 const auth = getAuth();
                 //handle form submission
@@ -37,6 +36,7 @@
                     event.preventDefault();
                     const email = document.getElementById('emailINPUT').value;
                     const password = document.getElementById('passwordINPUT').value;
+                    const emailMessage = document.getElementById('emailUploader').value;
                     signInWithEmailAndPassword(auth, email, password)
                     .then((userCredential) => {
                         //checkbox initializations
@@ -204,8 +204,8 @@
                         </form>
                     </div>   
                 </div>
-                <a class="emailHinter">Input Email Message Below</a>
-                <textarea class="uploader">
+                <a class="emailHinter">Email</a>
+                <textarea class="emailUploader">
                 </textarea>
             </main>
             <footer>

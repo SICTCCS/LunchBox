@@ -489,18 +489,20 @@
   .menuDownload{
     height: auto;
     border: 10px solid #707f42;
+    text-align:right;
     
     font-size: 20px;
     border-radius: 1.25rem;
     transition: all 0.375s;
     color: #f3f1df;
     background-color: #707f42;
-    margin-left: 2.5em;
+    margin-left: 85%;
     margin-right: 2.5em;
     font-weight: bold;
     text-align: center;
     display: block;
     align-content:end;
+    
 
 
   }
@@ -513,10 +515,12 @@
   textarea {
     width: 100%;
     height: 5rem;
+    margin-top: 2rem;
   }
   .emailHinter{
     width: auto;
     text-align: center;
+    padding-left: 50%;
   }
 
 
