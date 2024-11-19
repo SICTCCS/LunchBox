@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-
-=======
 {
   "rules": {
-    ".read": "auth != null",
+    ".read": true,
     ".write": "auth != null"
   }
 }
->>>>>>> bb3a2b8e7bc5e0b6f0d1e1c27af5678f6e5abbb8

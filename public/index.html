@@ -10,104 +10,60 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="content/favicon.png">
 <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyA_sHDzmqdGU5VknIGS_uj1NtgZ4JObZrQ",
-    authDomain: "lunchsample-31ca1.firebaseapp.com",
-    projectId: "lunchsample-31ca1",
-    storageBucket: "lunchsample-31ca1.appspot.com",
-    messagingSenderId: "488297031196",
-    appId: "1:488297031196:web:0c959d839a844075a161d9",
-    measurementId: "G-XDT47RLS05"
-  };
+    const firebaseConfig = {
+        apiKey: "AIzaSyCB5LWzxJOn9KmNtF5kgNdZUuzKyFzvQuA",
+        authDomain: "lunchbox-16e19.firebaseapp.com",
+        projectId: "lunchbox-16e19",
+        storageBucket: "lunchbox-16e19.firebasestorage.app",
+        messagingSenderId: "183226656948",
+        appId: "1:183226656948:web:a4a7cc97534be3eb714fe1"
+    };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-            const menuCollectionRef = collection(db, 'menu');
-            //create a query to get the most recent menu document
-            const queryRef = query(menuCollectionRef, orderBy('timestamp', 'desc'), limit(1));
-            //set up the snapshot listener
-            onSnapshot(queryRef, updateMenu);
-            //function to update the menu
-            function updateMenu(snapshot) {
-                if (!snapshot.empty) {
-                    const mostRecentDocument = snapshot.docs[0];
-                    const menuDocument = mostRecentDocument.data();
-                    //update the HTML 
-                    updateMenuItem('date1', 'tuesday_date');
-                    updateMenuItem('entree1', 'tuesday_entree');
-                    updateMenuItem('soup1', 'tuesday_soup');
-                    updateMenuItem('salad1', 'tuesday_salad');
-                    updateMenuItem('side1', 'tuesday_side');
-                    updateMenuItem('dessert1', 'tuesday_dessert');
-                    updateMenuItem('closed1', 'tuesday_closed');
-                    updateMenuItem('date2', 'wednesday_date');
-                    updateMenuItem('entree2', 'wednesday_entree');
-                    updateMenuItem('soup2', 'wednesday_soup');
-                    updateMenuItem('salad2', 'wednesday_salad');
-                    updateMenuItem('side2', 'wednesday_side');
-                    updateMenuItem('dessert2', 'wednesday_dessert');
-                    updateMenuItem('closed2', 'wednesday_closed');
-                    updateMenuItem('date3', 'thursday_date');
-                    updateMenuItem('entree3', 'thursday_entree');
-                    updateMenuItem('soup3', 'thursday_soup');
-                    updateMenuItem('salad3', 'thursday_salad');
-                    updateMenuItem('side3', 'thursday_side');
-                    updateMenuItem('dessert3', 'thursday_dessert');
-                    updateMenuItem('closed3', 'thursday_closed');
+    // Load menu data
+    async function loadMenu() {
+        try {
+            const docRef = doc(db, "menu", "current");
+            const docSnap = await getDoc(docRef);
 
-                    //update all items
-                    function updateMenuItem(elementId, dataKey) {
-                        if (menuDocument[dataKey] !== undefined) {
-                            document.getElementById(elementId).innerText = menuDocument[dataKey];
-                        } 
-                        else {
-                            console.error(`${dataKey} is undefined in menuDocument`);
-                        }
-                    }
-                } 
-                else {
-                    console.log('No documents found in the "menu" collection.');
-                }
+            if (docSnap.exists()) {
+                const menuData = docSnap.data();
+                console.log("Menu data:", menuData); // Debug log
+                
+                // Update each day's menu
+                updateDayMenu('1', menuData.tuesday);
+                updateDayMenu('2', menuData.wednesday);
+                updateDayMenu('3', menuData.thursday);
+            } else {
+                console.log("No menu data found");
             }
-    
-        function submitForm() {
-            document.getElementById('emailBTN').innerHTML='Upload In Progress'
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbyFvmvd8SDnQMeCcoFO5VDtgvo5Ng4N4tquWaCETP5nVCtJnp5qm9DwFXTR7SXnlJTF/exec'
-            const form = document.forms['submit-to-google-sheet']
-            form.addEventListener('submit', e => {
-                console.log(document.getElementById('email').value.length)
-                if (document.getElementById('email').value.length!=0){
-                    e.preventDefault()
-                    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                    .then(response => {
-                        customAlert.alert('Thank you for signing up for the weekly email!','You\'re All Set!')
-                        //alert('Success!', response)
-                        document.getElementById('email').value="";
-                        document.getElementById('emailBTN').innerHTML='Get Weekly Email!'
-                    })    
-                    .catch(error => {
-                        alert('Error!', error.message)
-                        document.getElementById('email').value="";
-                        document.getElementById('emailBTN').innerHTML='Get Weekly Email!'
-                    })
-                }
-                else{
-                    customAlert.alert('Please be sure to add your email!','Sign Up Error')
-                    document.getElementById('emailBTN').innerHTML='Get Weekly Email!'
-                }
-            })
-          }
-    </script>
+        } catch (error) {
+            console.error("Error loading menu:", error);
+        }
+    }
+
+    // Helper function to update menu elements
+    function updateDayMenu(dayNum, dayData) {
+        if (dayData) {
+            document.getElementById(`date${dayNum}`).textContent = dayData.date || '';
+            document.getElementById(`entree${dayNum}`).textContent = dayData.entree || '';
+            document.getElementById(`soup${dayNum}`).textContent = dayData.soup || '';
+            document.getElementById(`salad${dayNum}`).textContent = dayData.salad || '';
+            document.getElementById(`side${dayNum}`).textContent = dayData.side || '';
+            document.getElementById(`dessert${dayNum}`).textContent = dayData.dessert || '';
+            document.getElementById(`closed${dayNum}`).textContent = dayData.closed || '';
+        }
+    }
+
+    // Load menu when page loads
+    document.addEventListener('DOMContentLoaded', loadMenu);
+</script>
 </head>
 <body>
 <nav>
