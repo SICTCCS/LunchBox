@@ -65,25 +65,25 @@
   .upload-container {
     display: flex;
     margin: 0;
-    margin-top: -1.5em;
-    margin-bottom: 3em;
+    /* margin-top: -1.5em; */
+    /* margin-bottom: 3em; */
   }
   .upload-card {
     position: relative;
     z-index: 3;
-    width: 15em;
+    /* width: 15em; */
     margin: 0 20px;
     padding: 30px 30px 44px;
     border-radius: 1.25rem;
     background: #707f42;
     text-align: center;
-    margin-bottom: 7em;
-    margin-top: 5em;
+    margin-bottom: 1em;
+    margin-top: 1em;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   }
   .upload-form {
-    width: 15em;
+    /* width: 15em; */
     margin: 0;
     display: grid;
     gap: 16px;
@@ -124,7 +124,10 @@
   .upload-form > button:hover {
     background: #323031;
   }
-  .current-site-text{
+  .upload-form > textarea{
+    background-color: #ebebeb;
+  }
+    .current-site-text{
     margin-top: 2em;
   }
   .current-site-text a {
