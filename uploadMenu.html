@@ -20,14 +20,27 @@
                     messagingSenderId: "945076737341",
                     appId: "1:945076737341:web:4466cf8cc243b71d6be154",
                     measurementId: "G-C2CCXQ3JDN"
-                    };
+                };
                 const app = initializeApp(firebaseConfig);
                 const db = getFirestore(app);
                 const auth = getAuth();
                 //handle form submission
                 function submitForm(event) {
+                    //email to it's Google Sheet
+                    const scriptURL = 'https://script.google.com/macros/s/AKfycbx8MaFTSOV5xloMRs4uNwfyEbgdk5BxPJpRNPXtgjICLpZUldTPfZlnlqTaAoL9PwhQVw/exec'
+                    const form = document.forms['submit-to-google-sheet']
+                    console.log("submit to google sheet btn triggered")
+                    
+                    form.addEventListener('submit', e => {
+                        console.log("Start of EventListener");
+                        e.preventDefault();
+                        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                        .then(response =>{ console.log('Google Sheet Success!', response)})
+                        .catch(error => console.error('Error!', error.message));
+                    })
+                    
                     console.log("form submitting")
-                    event.preventDefault();
+                    //event.preventDefault();
                     const email = document.getElementById('emailINPUT').value;
                     const password = document.getElementById('passwordINPUT').value;
                     signInWithEmailAndPassword(auth, email, password)
@@ -127,13 +140,15 @@
                             console.error("Error publishing menu: ", error);
                             alert("Error publishing menu.");
                         });
-                        emailResults()
+                        //emailResults()
                     })
                     .catch((error) => {
-                        console.error("Authentication failed: ", error);
-                        alert("Authentication failed.", error);
-                    });
+                            console.error("Authentication failed: ", error);
+                            alert("Authentication failed.", error);
+                        });
                     document.getElementById('passwordINPUT').value="";
+                    
+                    
                 }
                 const submitBTN = document.getElementById("submitBTN");
                 submitBTN.addEventListener("click", submitForm);
@@ -190,23 +205,16 @@
                         </form>
                     </div>
                 </div>
-                <div class="upload-container">
-                    <div class="upload-card" style="width:66%; color:#DDD">
-                        <h2>Write your email here:</h1>
-                        <form class="upload-form">
-                            <textarea cols="70" rows="20"></textarea>
-                        </form>
-                    </div>
-                    <div class="upload-card" style="width:33%">
-                        <form class="upload-form">
-                        <h2 class="current-site-text"><a href="https://sictccs.github.io/LunchBox/index.html" target="_blank">current menu &#x2197;</a></h2>
+                <div class="upload-card">
+                    <h2>Write your email here:</h1>
+                    <form name=submit-to-google-sheet class="upload-form">
+                        <textarea name="message"  rows="10"></textarea>
                         <input id="emailINPUT" type="text" placeholder="email" style="background-color:#335879">
                         <input id="passwordINPUT" type="password" placeholder="password" style="background-color:#335879">
-                            <button id="submitBTN" type="submit" >publish</button>
-                            * publishing replaces all current menu details
-                        </form>
-                    </div>   
-                    
+                        <button id="submitBTN" type="submit" >publish</button>
+                        * publishing replaces all current menu details
+                    </form>
+                    <h2 class="current-site-text"><a href="https://sictccs.github.io/LunchBox/index.html" target="_blank">current menu &#x2197;</a></h2>
                 </div>
             </main>
             <footer>
