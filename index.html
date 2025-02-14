@@ -78,9 +78,10 @@
     <script>
         function submitForm() {
             document.getElementById('emailBTN').innerHTML='Upload In Progress'
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbyFvmvd8SDnQMeCcoFO5VDtgvo5Ng4N4tquWaCETP5nVCtJnp5qm9DwFXTR7SXnlJTF/exec'
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxyb8Frl0Xz0HSOiKCXXRJTS3GMdKcbTESyzkcIIbz3lhWw4ZK3QqGsEVANXNYdOJc/exec'
             const form = document.forms['submit-to-google-sheet']
             form.addEventListener('submit', e => {
+                document.getElementById('emailBTN')
                 console.log(document.getElementById('email').value.length)
                 if (document.getElementById('email').value.length!=0){
                     e.preventDefault()
