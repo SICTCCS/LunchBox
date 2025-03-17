@@ -408,6 +408,16 @@
     margin-top:2em;
     margin-left:4.1em;
   }
+  #springhero{
+    background-image: url(content/);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    height: 300px;
+    padding-bottom: 1em;
+    margin-top:2em;
+    margin-left:4.1em;
+  }
 }
 
 /* mobile view and half-desktop */
