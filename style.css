@@ -409,14 +409,14 @@
     margin-left:4.1em;
   }
   #springhero{
-    background-image: url(content/);
+    background-image: url(content/ClosedForSpring.png);
     background-repeat: no-repeat;
     background-size: cover;
     display: block;
-    height: 300px;
+    height: 400px;
     padding-bottom: 1em;
     margin-top:2em;
-    margin-left:4.1em;
+    /* margin-left:4.1em; */
   }
 }
 
@@ -801,7 +801,11 @@
     padding-top: 1em; */
   }
   #summerhero{
-    display: none;
+    background-image: url(content/ClosedForSummer.png);
+    background-repeat: no-repeat;
+    background-size:contain;
+    display: block;
+    height: 300px;
   }
   #winterhero{
     background-image: url(content/ClosedForWinter.png);
@@ -809,7 +813,8 @@
     background-size:contain;
     display: block;
     height: 300px;
-  }  
+  }
+  
 }
 
 
