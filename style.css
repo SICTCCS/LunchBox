@@ -199,19 +199,21 @@
   }
   /* For COMMON INFO */
   .card-COMMON {
-    border: 1px solid #ccc;
+    border: 9px dashed #446198;
+    /* border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Ccircle cx='5' cy='5' r='3' fill='black'/%3E%3C/svg%3E"); */
     padding: 20px;
-    border-radius: 1.25rem;
-    margin: 3em;
+    /* border-radius: 1.25rem; */
+    margin: 1em;
     width: 33%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #335879;
-    color: white;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    /* background-color: #335879; */
+    color: #446198;
     flex: 1;
     font-weight: 700;
+    stroke-width: 3px;
   }
   .card-COMMON h2 {
-    color: #f3f1df;
+    color: #707F43;
     font-size: 29px;
     margin-bottom: 10px;
   }
@@ -226,6 +228,10 @@
     display: flex;
     margin-top: 3em;
     margin-bottom: 3em;
+    background-color: #FFFDE9;
+    border-radius: 9px;
+    width: 90%;
+    margin: auto;
   }
   /* For WHATSINCLUDED INFO */
   .card-WHATSINCLUDED {
