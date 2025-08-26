@@ -211,6 +211,7 @@
     flex: 1;
     font-weight: 700;
     stroke-width: 3px;
+    text-align: center;
   }
   .card-COMMON h2 {
     color: #707F43;
