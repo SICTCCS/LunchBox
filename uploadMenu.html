@@ -27,6 +27,7 @@
                 //handle form submission
                 function submitForm(event) {
                     //email to it's Google Sheet
+                    // 2025- This was made by the last guys. I don't know what it does and I am too scared to remove it.
                     const scriptURL = 'https://script.google.com/macros/s/AKfycbyszkeMxNOSgKDwxueAc7aiZcY8ZrvlJlQUnHcWkt63zymvxipmiq-pefW7E3aM1vKa/exec'
                     const form = document.forms['submit-to-google-sheet']
                     console.log("submit to google sheet btn triggered")
@@ -48,13 +49,13 @@
                         //checkbox initializations
                         const closedCHECKBOX1 = document.getElementById('closedCHECKBOX1');
                         const closedINPUT1 = closedCHECKBOX1.checked ? "CLOSED" : " ";
-                        const closedCHECKBOX2 = document.getElementById('closedCHECKBOX2');
-                        const closedINPUT2 = closedCHECKBOX2.checked ? "CLOSED" : " ";
+                        // const closedCHECKBOX2 = document.getElementById('closedCHECKBOX2');
+                        // const closedINPUT2 = closedCHECKBOX2.checked ? "CLOSED" : " ";
                         const closedCHECKBOX3 = document.getElementById('closedCHECKBOX3');
                         const closedINPUT3 = closedCHECKBOX3.checked ? "CLOSED" : " ";
                         //get values from input fields if closed not checked
                         console.log(closedINPUT1)
-                        console.log(closedINPUT2)
+                        // console.log(closedINPUT2)
                         console.log(closedINPUT3)
                         if (closedINPUT1=="CLOSED"){
                             console.log("day 1 closed")
@@ -64,14 +65,14 @@
                             document.getElementById('sideINPUT1').value="";
                             document.getElementById('dessertINPUT1').value="";
                         }
-                        if (closedINPUT2=="CLOSED"){
-                            console.log("day 2 closed")
-                            document.getElementById('entreeINPUT2').value="";
-                            document.getElementById('soupINPUT2').value="";
-                            document.getElementById('saladINPUT2').value="";
-                            document.getElementById('sideINPUT2').value="";
-                            document.getElementById('dessertINPUT2').value="";
-                        }
+                        // if (closedINPUT2=="CLOSED"){
+                        //     console.log("day 2 closed")
+                        //     document.getElementById('entreeINPUT2').value="";
+                        //     document.getElementById('soupINPUT2').value="";
+                        //     document.getElementById('saladINPUT2').value="";
+                        //     document.getElementById('sideINPUT2').value="";
+                        //     document.getElementById('dessertINPUT2').value="";
+                        // }
                         if (closedINPUT3=="CLOSED"){
                             console.log("day 3 closed")
                             document.getElementById('entreeINPUT3').value="";
@@ -87,12 +88,12 @@
                         const sideINPUT1 =      document.getElementById('sideINPUT1').value;
                         const dessertINPUT1 =   document.getElementById('dessertINPUT1').value;
 
-                        const dateINPUT2 =      document.getElementById('dateINPUT2').value;
-                        const entreeINPUT2 =    document.getElementById('entreeINPUT2').value;
-                        const soupINPUT2 =      document.getElementById('soupINPUT2').value;
-                        const saladINPUT2 =     document.getElementById('saladINPUT2').value;
-                        const sideINPUT2 =      document.getElementById('sideINPUT2').value;
-                        const dessertINPUT2 =   document.getElementById('dessertINPUT2').value;
+                        // const dateINPUT2 =      document.getElementById('dateINPUT2').value;
+                        // const entreeINPUT2 =    document.getElementById('entreeINPUT2').value;
+                        // const soupINPUT2 =      document.getElementById('soupINPUT2').value;
+                        // const saladINPUT2 =     document.getElementById('saladINPUT2').value;
+                        // const sideINPUT2 =      document.getElementById('sideINPUT2').value;
+                        // const dessertINPUT2 =   document.getElementById('dessertINPUT2').value;
                         
                         const dateINPUT3 =      document.getElementById('dateINPUT3').value;
                         const entreeINPUT3 =    document.getElementById('entreeINPUT3').value;
@@ -109,13 +110,13 @@
                             tuesday_side: sideINPUT1,
                             tuesday_dessert: dessertINPUT1,
                             tuesday_closed: closedINPUT1,
-                            wednesday_date: dateINPUT2,
-                            wednesday_entree: entreeINPUT2,
-                            wednesday_soup: soupINPUT2,
-                            wednesday_salad: saladINPUT2,
-                            wednesday_side: sideINPUT2,
-                            wednesday_dessert: dessertINPUT2,
-                            wednesday_closed: closedINPUT2,
+                            // wednesday_date: dateINPUT2,
+                            // wednesday_entree: entreeINPUT2,
+                            // wednesday_soup: soupINPUT2,
+                            // wednesday_salad: saladINPUT2,
+                            // wednesday_side: sideINPUT2,
+                            // wednesday_dessert: dessertINPUT2,
+                            // wednesday_closed: closedINPUT2,
                             thursday_date: dateINPUT3,
                             thursday_entree: entreeINPUT3,
                             thursday_soup: soupINPUT3,
