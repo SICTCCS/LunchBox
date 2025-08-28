@@ -1,4 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Kurale&family=Vina+Sans&display=swap');
+/*Adds the dash in front of ul*/
+ul{
+  list-style-type: none;
+}
+ul > li {
+  text-indent: -5px;
+}
+ul > li:before {
+  content: "-";
+  text-indent: -5px;
+  font-size: 50px;
+  margin-right: 15px;
+}
 /* desktop view */
 @media (min-width: 1024px) {
   html {
@@ -256,25 +269,28 @@
   .card-WHATSINCLUDED {
     border: 1px solid #ccc;
     padding: 20px;
-    border-radius: 1.25rem;
+    border-radius: 74px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: white;
     color: #335879;
     flex: 1;
     margin-left: 3em;
     margin-right: 3em;
-    font-weight: 700;
     min-width: 700px;
-    text-align: center;
+    text-align: left;
   }
   .card-WHATSINCLUDED h2 {
     color: #335879;
     font-size: 40px;
     margin-bottom: 10px;
+    text-align: center;
   }
-  .card-WHATSINCLUDED p {
-    font-size: 20px;
+  .card-WHATSINCLUDED span {
+    font-size: 40px;
     margin-bottom: 10px;
+  }
+  .card-WHATSINCLUDED ul {
+    margin-left: 190px;
   }
   .card-WHATSINCLUDED .info-label {
     font-weight: bold;
