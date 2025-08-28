@@ -142,25 +142,34 @@
     margin-bottom: 3em;
   }
   .menu {
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    /* border: 1px solid #ccc; */
+    /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); */
     padding: 20px;
     flex: 1;
     width: 33%;
     color: white;
     border-radius: 1.25rem;
-    background-color: #707f42;
+    /* background-color: #707f42; */
     margin: 3em;
     text-align: left;
   }
-  .divider {
-    height: 0.05px;
-    color: white;
-    /* width: 300px; */
+  .sectiondivider {
+    justify-self: center;
+    height: 2px;
+    background-color: #99AA65;
+    width: 300px;
   }
   #dateTXT{
     padding: 0;
     margin: 0;
+  }
+  .dateCard{
+    background-color: #FFFDE9;
+    border: 6px solid #707F43;
+    border-radius: 11px;
+  }
+  .date {
+    text-align:center;
   }
   /* For checkbox */
   .checkbox-label {
@@ -835,27 +844,66 @@
 }
 
 
-
-.menuCard {
+.food {
+  justify-content: center;
+  justify-self:center;
+  text-align: center;
+  background-image: url(content/NewFoodCardBackground.png);
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+  border-radius: 8px;
+  width:375px;
+  height: 900px;
+  padding-top: 5px;
+}
+.menuTitle {
   color: #335879;
   font-size: 50px;
   -webkit-text-stroke: .5px #F3F1DF;
   padding: 0;
   margin: 0;
 }
+.circle {
+  width: 10px;
+  height: 10px;
+  background-color: #99AA65;
+  border-radius: 50px;
+  align-self: center;
+}
+.left {
+  justify-self: flex-start;
+  position: relative;
+  bottom: 4px;
+  right: 5px; 
+}
+.right {
+  justify-self: flex-end;
+  position: relative;
+  bottom: 14px;
+  left: 5px;
+}
+.fooddivider {
+  width: 25px;
+  height: 5px;
+  background-image: url(content/Food-Dash.png);
+  background-size: cover;
+  justify-self: center;
+}
 .menuSectionTitle {
   /* color:#335879; */
-  color:#F3F1DF;
+  color:#5578BC;
   /* -webkit-text-stroke: .5px #F3F1DF; */
-  -webkit-text-stroke: 2.5px #335879;
+  -webkit-text-stroke: 2.5px #5578BC;
 }
 .closed{
   font-size: 40px;
   text-align: center;
 }
 .menu-items-spaced-over {
-  margin-left: 2.5em;
-  color: white;
+  /* margin-left: 2.5em; */
+  justify-self: center;
+  color: #132E5E;
   padding:0;
 }
 
