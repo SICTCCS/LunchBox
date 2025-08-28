@@ -13,13 +13,13 @@
                 import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
                 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
                 const firebaseConfig = {
-                    apiKey: "AIzaSyBYvVybs496FHpiQbqNmQyrg0YOpZaRcNc",
-                    authDomain: "lunchbox-2815d.firebaseapp.com",
-                    projectId: "lunchbox-2815d",
-                    storageBucket: "lunchbox-2815d.appspot.com",
-                    messagingSenderId: "945076737341",
-                    appId: "1:945076737341:web:4466cf8cc243b71d6be154",
-                    measurementId: "G-C2CCXQ3JDN"
+                apiKey: "AIzaSyDwdFssKc8-QiyrMNwVURNga882xpO4bIY",
+                authDomain: "lunchboxweb-7b9c1.firebaseapp.com",
+                projectId: "lunchboxweb-7b9c1",
+                storageBucket: "lunchboxweb-7b9c1.firebasestorage.app",
+                messagingSenderId: "160202746545",
+                appId: "1:160202746545:web:087529c4e7432a91329090",
+                measurementId: "G-C2E1SK93M1"
                 };
                 const app = initializeApp(firebaseConfig);
                 const db = getFirestore(app);
@@ -27,6 +27,7 @@
                 //handle form submission
                 function submitForm(event) {
                     //email to it's Google Sheet
+                    // 2025- This was made by the last guys. I don't know what it does and The entir program breaks when removed.
                     const scriptURL = 'https://script.google.com/macros/s/AKfycbyszkeMxNOSgKDwxueAc7aiZcY8ZrvlJlQUnHcWkt63zymvxipmiq-pefW7E3aM1vKa/exec'
                     const form = document.forms['submit-to-google-sheet']
                     console.log("submit to google sheet btn triggered")
@@ -48,13 +49,13 @@
                         //checkbox initializations
                         const closedCHECKBOX1 = document.getElementById('closedCHECKBOX1');
                         const closedINPUT1 = closedCHECKBOX1.checked ? "CLOSED" : " ";
-                        const closedCHECKBOX2 = document.getElementById('closedCHECKBOX2');
-                        const closedINPUT2 = closedCHECKBOX2.checked ? "CLOSED" : " ";
+                        // const closedCHECKBOX2 = document.getElementById('closedCHECKBOX2');
+                        // const closedINPUT2 = closedCHECKBOX2.checked ? "CLOSED" : " ";
                         const closedCHECKBOX3 = document.getElementById('closedCHECKBOX3');
                         const closedINPUT3 = closedCHECKBOX3.checked ? "CLOSED" : " ";
                         //get values from input fields if closed not checked
                         console.log(closedINPUT1)
-                        console.log(closedINPUT2)
+                        // console.log(closedINPUT2)
                         console.log(closedINPUT3)
                         if (closedINPUT1=="CLOSED"){
                             console.log("day 1 closed")
@@ -64,14 +65,14 @@
                             document.getElementById('sideINPUT1').value="";
                             document.getElementById('dessertINPUT1').value="";
                         }
-                        if (closedINPUT2=="CLOSED"){
-                            console.log("day 2 closed")
-                            document.getElementById('entreeINPUT2').value="";
-                            document.getElementById('soupINPUT2').value="";
-                            document.getElementById('saladINPUT2').value="";
-                            document.getElementById('sideINPUT2').value="";
-                            document.getElementById('dessertINPUT2').value="";
-                        }
+                        // if (closedINPUT2=="CLOSED"){
+                        //     console.log("day 2 closed")
+                        //     document.getElementById('entreeINPUT2').value="";
+                        //     document.getElementById('soupINPUT2').value="";
+                        //     document.getElementById('saladINPUT2').value="";
+                        //     document.getElementById('sideINPUT2').value="";
+                        //     document.getElementById('dessertINPUT2').value="";
+                        // }
                         if (closedINPUT3=="CLOSED"){
                             console.log("day 3 closed")
                             document.getElementById('entreeINPUT3').value="";
@@ -87,12 +88,12 @@
                         const sideINPUT1 =      document.getElementById('sideINPUT1').value;
                         const dessertINPUT1 =   document.getElementById('dessertINPUT1').value;
 
-                        const dateINPUT2 =      document.getElementById('dateINPUT2').value;
-                        const entreeINPUT2 =    document.getElementById('entreeINPUT2').value;
-                        const soupINPUT2 =      document.getElementById('soupINPUT2').value;
-                        const saladINPUT2 =     document.getElementById('saladINPUT2').value;
-                        const sideINPUT2 =      document.getElementById('sideINPUT2').value;
-                        const dessertINPUT2 =   document.getElementById('dessertINPUT2').value;
+                        // const dateINPUT2 =      document.getElementById('dateINPUT2').value;
+                        // const entreeINPUT2 =    document.getElementById('entreeINPUT2').value;
+                        // const soupINPUT2 =      document.getElementById('soupINPUT2').value;
+                        // const saladINPUT2 =     document.getElementById('saladINPUT2').value;
+                        // const sideINPUT2 =      document.getElementById('sideINPUT2').value;
+                        // const dessertINPUT2 =   document.getElementById('dessertINPUT2').value;
                         
                         const dateINPUT3 =      document.getElementById('dateINPUT3').value;
                         const entreeINPUT3 =    document.getElementById('entreeINPUT3').value;
@@ -224,4 +225,5 @@
                 <a href="https://sictc.evscschools.com/"><img src="content/footerSICTC.png" style="width:150px;height:75px;" alt="footerSICTC"></a>
             </footer>
         </body>
+
 </html>
