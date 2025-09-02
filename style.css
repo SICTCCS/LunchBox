@@ -170,7 +170,7 @@ ul > li:before {
     justify-self: center;
     height: 2px;
     background-color: #99AA65;
-    width: 300px;
+    width: 35%;
   }
   #dateTXT{
     padding: 0;
@@ -866,11 +866,12 @@ ul > li:before {
   text-align: center;
   background-image: url(content/NewFoodCardBackground.png);
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size:contain;
+  background-origin: border-box;
   background-position: center;
   border-radius: 8px;
-  width:375px;
-  height: 900px;
+  width:100%;
+  height: 700px;
   padding-top: 5px;
 }
 .menuTitle {
