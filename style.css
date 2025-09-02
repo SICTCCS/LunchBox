@@ -73,7 +73,7 @@ ul > li:before {
   }
   #logo-horiz {
     height: 100px;
-    width: 600px; 
+    width: 700px; 
   }
   /* Upload card */
   .upload-container {
@@ -170,7 +170,7 @@ ul > li:before {
     justify-self: center;
     height: 2px;
     background-color: #99AA65;
-    width: 35%;
+    width: 98%;
   }
   #dateTXT{
     padding: 0;
@@ -385,35 +385,44 @@ ul > li:before {
     font-size: 40px;
   }
   /* email input at the bottom of home page */
+  .form-EMAIL {
+    background-color: white;
+    border: 3px solid #707f42;
+    margin-right: 50px;
+  }
+  .email{
+    padding: 0px;
+    width:550px;
+  }
+  .email h2{
+    color: white;
+    text-align: center;
+  }
   .form-EMAIL > input {
     /* width: 20em; */
     height: 50px;
-    border: 2px solid #707f42;
     font-size: 20px;
     padding: 0 16px;
-    border-radius: 1.25rem;
+    /* border-radius: 1.25rem; */
+    border:transparent;
     transition: all 0.375s;
-    color: #323031;
-    margin-left:1em;
+    color: #314E6B;
+    /* margin-left:1em; */
     text-align: center;
-  }
-  .form-EMAIL > input:hover {
-    border: 2px solid #335879;
   }
   .form-EMAIL > button {
     cursor: pointer;
     /* width: 150px; */
-    height: 55px;
-    margin-right:1em;
-    border-radius: 1.25rem;
-    background: #707f42;
+    height: 45px;
+    /* border-radius: 1.25rem; */
+    background: #5578BC;
     color: white;
     border: 0;
     font-size: 20px;
     text-align: center;
     transition: all 0.375s;
-    margin-left: auto;
-    margin-right: 1em;
+    margin:2px;
+    /* margin-right: 1em; */
     font-weight: bold;
     padding:0 16px;
     float:right;
@@ -866,9 +875,7 @@ ul > li:before {
   text-align: center;
   background-image: url(content/NewFoodCardBackground.png);
   background-repeat: no-repeat;
-  background-size:contain;
-  background-origin: border-box;
-  background-position: center;
+  background-size:100% 700px;
   border-radius: 8px;
   width:100%;
   height: 700px;
