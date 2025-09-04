@@ -9,9 +9,9 @@
             <script src="emailScript.js"></script>
             <script type="module" name="upload process">
                 //imports and configs
-                import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-                import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
-                import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+                import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+                import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+                import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
                 const firebaseConfig = {
                 apiKey: "AIzaSyDwdFssKc8-QiyrMNwVURNga882xpO4bIY",
                 authDomain: "lunchboxweb-7b9c1.firebaseapp.com",
@@ -27,7 +27,7 @@
                 //handle form submission
                 function submitForm(event) {
                     //email to it's Google Sheet
-                    // 2025- This was made by the last guys. I don't know what it does and The entir program breaks when removed.
+                    // 2025- This was made by the last guys. I don't know what it does and The entire program breaks when removed.
                     const scriptURL = 'https://script.google.com/macros/s/AKfycbyszkeMxNOSgKDwxueAc7aiZcY8ZrvlJlQUnHcWkt63zymvxipmiq-pefW7E3aM1vKa/exec'
                     const form = document.forms['submit-to-google-sheet']
                     console.log("submit to google sheet btn triggered")
@@ -44,7 +44,7 @@
                     //event.preventDefault();
                     const email = document.getElementById('emailINPUT').value;
                     const password = document.getElementById('passwordINPUT').value;
-                    signInWithEmailAndPassword(auth, email, password)
+                    signInWithPopup(auth, provider)
                     .then((userCredential) => {
                         //checkbox initializations
                         const closedCHECKBOX1 = document.getElementById('closedCHECKBOX1');
