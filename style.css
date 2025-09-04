@@ -27,7 +27,7 @@ ul > li:before {
   }
   footer {
     background-color: #446198;
-    color: white;
+    color: #ffffff;
     font-weight: 500;
     text-align: center;
     width: 110%;
@@ -63,7 +63,7 @@ ul > li:before {
   nav a {
     font-size: 30px;
     font-weight: bold;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     padding: 0 1em; 
   }
@@ -110,12 +110,12 @@ ul > li:before {
     margin-right: auto;
   }
   .upload-form > input {
-    border: 2px solid white;
+    border: 2px solid #ffffff;
     font-size: 15px;
     padding: 0 16px;
     border-radius: 1.25rem;
     transition: all 0.375s;
-    color:white;
+    color:#ffffff;
   }
   .upload-form > input:hover {
     border: 2px solid #335879;
@@ -125,7 +125,7 @@ ul > li:before {
     width: 125px;
     border-radius: 1.25rem;
     background: #335879;
-    color: white;
+    color: #ffffff;
     border: 0;
     font-size: 15px;
     font-weight: bold;
@@ -146,7 +146,7 @@ ul > li:before {
   }
   .current-site-text a {
     text-decoration: none;
-    color: white; 
+    color: #ffffff; 
   }
   /* Menu page cards */
   .menu-container {
@@ -160,7 +160,7 @@ ul > li:before {
     padding: 20px;
     flex: 1;
     width: 33%;
-    color: white;
+    color: #ffffff;
     border-radius: 1.25rem;
     /* background-color: #707f42; */
     margin: 3em;
@@ -183,6 +183,7 @@ ul > li:before {
   }
   .date {
     color:#99AA65;
+    font-size: 30px;
     text-align:center;
   }
   /* For checkbox */
@@ -205,7 +206,7 @@ ul > li:before {
     text-decoration: none;
   }
   .white-address {
-    color: white;
+    color: #ffffff;
   }
   .map-pic {
     margin-top: 3em;
@@ -272,7 +273,7 @@ ul > li:before {
     padding: 20px;
     border-radius: 74px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: white;
+    background-color: #ffffff;
     color: #335879;
     flex: 1;
     margin-left: 3em;
@@ -367,14 +368,14 @@ ul > li:before {
   }
   .learn-more-link a {
     text-decoration: none;
-    color: white; 
+    color: #ffffff; 
   }
   .about-small-text {
-    color: white; 
+    color: #ffffff; 
     font-size: 20px;
   }
   .about-medium-text {
-    color: white; 
+    color: #ffffff; 
     font-size: 60px;
   }
   .about-large-text {
@@ -387,28 +388,29 @@ ul > li:before {
   }
   /* email input at the bottom of home page */
   .form-EMAIL {
-    background-color: white;
+    justify-self: center;
+    background-color: #ffffff;
     border: 3px solid #707f42;
-    margin-right: 50px;
+    width: 80%;
   }
   .email{
-    padding: 0px;
-    width:550px;
+    margin-right: 50px;
+    width:440.5px;
   }
   .email h2{
-    color: white;
+    color: #ffffff;
     text-align: center;
   }
   .form-EMAIL > input {
-    /* width: 20em; */
+    width: 7.5em;
     height: 50px;
     font-size: 20px;
-    padding: 0 16px;
+    /* padding: 0 16px; */
     /* border-radius: 1.25rem; */
     border:transparent;
     transition: all 0.375s;
     color: #314E6B;
-    /* margin-left:1em; */
+    margin-right:0.5em;
     text-align: center;
   }
   .form-EMAIL > button {
@@ -417,7 +419,7 @@ ul > li:before {
     height: 45px;
     /* border-radius: 1.25rem; */
     background: #5578BC;
-    color: white;
+    color: #ffffff;
     border: 0;
     font-size: 20px;
     text-align: center;
@@ -426,7 +428,7 @@ ul > li:before {
     /* margin-right: 1em; */
     font-weight: bold;
     padding:0 16px;
-    float:right;
+    /* float:right; */
   }
   .form-EMAIL > button:hover {
     background: #335879;
@@ -487,7 +489,7 @@ ul > li:before {
   }
   footer {
     background-color: #323031;
-    color: white;
+    color: #ffffff;
     font-weight: 500;
     text-align: center;
     width: 110%;
@@ -524,7 +526,7 @@ ul > li:before {
   nav a {
     font-size: 24px;
     font-weight: bold;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     padding: 0 .5em; 
   }
@@ -580,7 +582,7 @@ ul > li:before {
     width: 125px;
     border-radius: 1.25rem;
     background: #335879;
-    color: white;
+    color: #ffffff;
     border: 0;
     font-size: 15px;
     font-weight: bold;
@@ -598,7 +600,7 @@ ul > li:before {
   }
   .current-site-text a {
     text-decoration: none;
-    color: white; 
+    color: #ffffff; 
   }
   /* Menu page cards */
   .menu-container {
@@ -612,7 +614,7 @@ ul > li:before {
     flex: 1;
     max-width: 500px;
     /* height: 1000px; */
-    color: white;
+    color: #ffffff;
     border-radius: 1.25rem;
     background-color: #707f42;
     margin: 3em;
@@ -620,7 +622,7 @@ ul > li:before {
   }
   .divider {
     height: 0.05px;
-    color: white;
+    color: #ffffff;
     width: 300px;
     padding: 0;
     margin: 0;
@@ -649,7 +651,7 @@ ul > li:before {
     text-decoration: none;
   }
   .white-address {
-    color: white;
+    color: #ffffff;
   }
   .map-pic {
     margin-top: 3em;
@@ -679,7 +681,7 @@ ul > li:before {
     max-width: 500px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #335879;
-    color: white;
+    color: #ffffff;
     flex: 1;
     font-weight: 700;
     margin-bottom: 6em;
@@ -708,7 +710,7 @@ ul > li:before {
       padding: 20px;
       border-radius: 1.25rem;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      background-color: white;
+      background-color: #ffffff;
       color: #335879;
       flex: 1;
       margin-left: 3em;
@@ -788,14 +790,14 @@ ul > li:before {
   }
   .learn-more-link a {
     text-decoration: none;
-    color: white; 
+    color: #ffffff; 
   }
   .about-small-text {
-    color: white; 
+    color: #ffffff; 
     font-size: 20px;
   }
   .about-medium-text {
-    color: white; 
+    color: #ffffff; 
     font-size: 50px;
   }
   .about-large-text {
@@ -827,7 +829,7 @@ ul > li:before {
     height: 50px;
     border-radius: 1.25rem;
     background: #707f42;
-    color: white;
+    color: #ffffff;
     border: 0;
     font-size: 15px;
     text-align: center;
