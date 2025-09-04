@@ -59,7 +59,7 @@ onSnapshot(queryRef, updateMenu);
 ```
 
 <br>
-
+Wednesday is commented out, as Chef doesn't do Wednesdays in 2025.<br><br>
 The function 'updateMenu(snapshot)' is called to update the menu data. The function contains each data field that is being updated. <br>
 updateMenuItem('{elementId}','{dataKey - found in the 'construct menu data' section in uploadMenu.html}') <br>
 ```

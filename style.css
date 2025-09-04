@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Kurale&family=Vina+Sans&display=swap');
+/*Adds the dash in front of ul*/
+ul{
+  list-style-type: none;
+}
+ul > li {
+  text-indent: -5px;
+}
+ul > li:before {
+  content: "-";
+  text-indent: -5px;
+  font-size: 50px;
+  margin-right: 15px;
+}
 /* desktop view */
 @media (min-width: 1024px) {
   html {
@@ -9,11 +23,11 @@
     padding: 0;
     display: grid;
     place-items: center;
-    background-color: #f3f1df;
+    background-color: #99AA65;
   }
   footer {
-    background-color: #323031;
-    color: white;
+    background-color: #446198;
+    color: #ffffff;
     font-weight: 500;
     text-align: center;
     width: 110%;
@@ -49,7 +63,7 @@
   nav a {
     font-size: 30px;
     font-weight: bold;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     padding: 0 1em; 
   }
@@ -59,7 +73,7 @@
   }
   #logo-horiz {
     height: 100px;
-    width: 600px; 
+    width: 700px; 
   }
   /* Upload card */
   .upload-container {
@@ -75,7 +89,9 @@
     margin: 0 20px;
     padding: 30px 30px 44px;
     border-radius: 1.25rem;
-    background: #707f42;
+    background: url(content/NewFoodCardBackground.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     text-align: center;
     margin-bottom: 1em;
     margin-top: 1em;
@@ -96,12 +112,12 @@
     margin-right: auto;
   }
   .upload-form > input {
-    border: 2px solid white;
+    border: 2px solid #ffffff;
     font-size: 15px;
     padding: 0 16px;
     border-radius: 1.25rem;
     transition: all 0.375s;
-    color:white;
+    color:#ffffff;
   }
   .upload-form > input:hover {
     border: 2px solid #335879;
@@ -111,7 +127,7 @@
     width: 125px;
     border-radius: 1.25rem;
     background: #335879;
-    color: white;
+    color: #ffffff;
     border: 0;
     font-size: 15px;
     font-weight: bold;
@@ -132,7 +148,7 @@
   }
   .current-site-text a {
     text-decoration: none;
-    color: white; 
+    color: #ffffff; 
   }
   /* Menu page cards */
   .menu-container {
@@ -141,25 +157,36 @@
     margin-bottom: 3em;
   }
   .menu {
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    /* border: 1px solid #ccc; */
+    /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); */
     padding: 20px;
     flex: 1;
     width: 33%;
-    color: white;
+    color: #ffffff;
     border-radius: 1.25rem;
-    background-color: #707f42;
+    /* background-color: #707f42; */
     margin: 3em;
     text-align: left;
   }
-  .divider {
-    height: 0.05px;
-    color: white;
-    /* width: 300px; */
+  .sectiondivider {
+    justify-self: center;
+    height: 2px;
+    background-color: #99AA65;
+    width: 98%;
   }
   #dateTXT{
     padding: 0;
     margin: 0;
+  }
+  .dateCard{
+    background-color: #FFFDE9;
+    border: 6px solid #707F43;
+    border-radius: 11px;
+  }
+  .date {
+    color:#99AA65;
+    font-size: 30px;
+    text-align:center;
   }
   /* For checkbox */
   .checkbox-label {
@@ -181,7 +208,7 @@
     text-decoration: none;
   }
   .white-address {
-    color: white;
+    color: #ffffff;
   }
   .map-pic {
     margin-top: 3em;
@@ -199,57 +226,75 @@
   }
   /* For COMMON INFO */
   .card-COMMON {
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 1.25rem;
-    margin: 3em;
+    border: 9px dashed #446198;
+    /* border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10' viewBox='0 0 20 10'%3E%3Ccircle cx='5' cy='5' r='3' fill='black'/%3E%3C/svg%3E"); */
+    /* border-radius: 1.25rem; */
+    margin: 1em;
     width: 33%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #335879;
-    color: white;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    /* background-color: #335879; */
+    color: #446198;
     flex: 1;
     font-weight: 700;
+    stroke-width: 3px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .payments {
+    text-align: left;
+    font-size: 32px;
   }
   .card-COMMON h2 {
-    color: #f3f1df;
-    font-size: 29px;
+    color: #707F43;
+    font-size: 48px;
+    font-family: "Vina Sans";
+    font-weight: 400;
+    margin-top: 5px;
     margin-bottom: 10px;
+    letter-spacing: 1.44px;
   }
   .card-COMMON p {
     font-size: 20px;
+    font-family: Kurale;
+    font-weight: 400;
+    font-style: normal;
     margin-bottom: 10px;
-  }
-  .card-COMMON .info-label {
-    font-weight: bold;
   }
   .card-container-COMMON {
     display: flex;
     margin-top: 3em;
     margin-bottom: 3em;
+    background-color: #FFFDE9;
+    border-radius: 9px;
+    width: 90%;
+    margin: auto;
   }
   /* For WHATSINCLUDED INFO */
   .card-WHATSINCLUDED {
     border: 1px solid #ccc;
     padding: 20px;
-    border-radius: 1.25rem;
+    border-radius: 74px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: white;
+    background-color: #ffffff;
     color: #335879;
     flex: 1;
     margin-left: 3em;
     margin-right: 3em;
-    font-weight: 700;
     min-width: 700px;
-    text-align: center;
+    text-align: left;
   }
   .card-WHATSINCLUDED h2 {
     color: #335879;
     font-size: 40px;
     margin-bottom: 10px;
+    text-align: center;
   }
-  .card-WHATSINCLUDED p {
-    font-size: 20px;
+  .card-WHATSINCLUDED span {
+    font-size: 40px;
     margin-bottom: 10px;
+  }
+  .card-WHATSINCLUDED ul {
+    margin-left: 190px;
   }
   .card-WHATSINCLUDED .info-label {
     font-weight: bold;
@@ -325,14 +370,14 @@
   }
   .learn-more-link a {
     text-decoration: none;
-    color: white; 
+    color: #ffffff; 
   }
   .about-small-text {
-    color: white; 
+    color: #ffffff; 
     font-size: 20px;
   }
   .about-medium-text {
-    color: white; 
+    color: #ffffff; 
     font-size: 60px;
   }
   .about-large-text {
@@ -344,38 +389,48 @@
     font-size: 40px;
   }
   /* email input at the bottom of home page */
-  .form-EMAIL > input {
-    /* width: 20em; */
-    height: 50px;
-    border: 2px solid #707f42;
-    font-size: 20px;
-    padding: 0 16px;
-    border-radius: 1.25rem;
-    transition: all 0.375s;
-    color: #323031;
-    margin-left:1em;
+  .form-EMAIL {
+    justify-self: center;
+    background-color: #ffffff;
+    border: 3px solid #707f42;
+    width: 80%;
+  }
+  .email{
+    margin-right: 50px;
+    width:440.5px;
+  }
+  .email h2{
+    color: #ffffff;
     text-align: center;
   }
-  .form-EMAIL > input:hover {
-    border: 2px solid #335879;
+  .form-EMAIL > input {
+    width: 7.5em;
+    height: 50px;
+    font-size: 20px;
+    /* padding: 0 16px; */
+    /* border-radius: 1.25rem; */
+    border:transparent;
+    transition: all 0.375s;
+    color: #314E6B;
+    margin-right:0.5em;
+    text-align: center;
   }
   .form-EMAIL > button {
     cursor: pointer;
     /* width: 150px; */
-    height: 55px;
-    margin-right:1em;
-    border-radius: 1.25rem;
-    background: #707f42;
-    color: white;
+    height: 45px;
+    /* border-radius: 1.25rem; */
+    background-color: #5578BC;
+    color: #ffffff;
     border: 0;
     font-size: 20px;
     text-align: center;
     transition: all 0.375s;
-    margin-left: auto;
-    margin-right: 1em;
+    margin:2px;
+    /* margin-right: 1em; */
     font-weight: bold;
     padding:0 16px;
-    float:right;
+    /* float:right; */
   }
   .form-EMAIL > button:hover {
     background: #335879;
@@ -436,7 +491,7 @@
   }
   footer {
     background-color: #323031;
-    color: white;
+    color: #ffffff;
     font-weight: 500;
     text-align: center;
     width: 110%;
@@ -473,7 +528,7 @@
   nav a {
     font-size: 24px;
     font-weight: bold;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     padding: 0 .5em; 
   }
@@ -529,7 +584,7 @@
     width: 125px;
     border-radius: 1.25rem;
     background: #335879;
-    color: white;
+    color: #ffffff;
     border: 0;
     font-size: 15px;
     font-weight: bold;
@@ -547,7 +602,7 @@
   }
   .current-site-text a {
     text-decoration: none;
-    color: white; 
+    color: #ffffff; 
   }
   /* Menu page cards */
   .menu-container {
@@ -561,7 +616,7 @@
     flex: 1;
     max-width: 500px;
     /* height: 1000px; */
-    color: white;
+    color: #ffffff;
     border-radius: 1.25rem;
     background-color: #707f42;
     margin: 3em;
@@ -569,7 +624,7 @@
   }
   .divider {
     height: 0.05px;
-    color: white;
+    color: #ffffff;
     width: 300px;
     padding: 0;
     margin: 0;
@@ -598,7 +653,7 @@
     text-decoration: none;
   }
   .white-address {
-    color: white;
+    color: #ffffff;
   }
   .map-pic {
     margin-top: 3em;
@@ -628,7 +683,7 @@
     max-width: 500px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #335879;
-    color: white;
+    color: #ffffff;
     flex: 1;
     font-weight: 700;
     margin-bottom: 6em;
@@ -657,7 +712,7 @@
       padding: 20px;
       border-radius: 1.25rem;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      background-color: white;
+      background-color: #ffffff;
       color: #335879;
       flex: 1;
       margin-left: 3em;
@@ -737,14 +792,14 @@
   }
   .learn-more-link a {
     text-decoration: none;
-    color: white; 
+    color: #ffffff; 
   }
   .about-small-text {
-    color: white; 
+    color: #ffffff; 
     font-size: 20px;
   }
   .about-medium-text {
-    color: white; 
+    color: #ffffff; 
     font-size: 50px;
   }
   .about-large-text {
@@ -776,7 +831,7 @@
     height: 50px;
     border-radius: 1.25rem;
     background: #707f42;
-    color: white;
+    color: #ffffff;
     border: 0;
     font-size: 15px;
     text-align: center;
@@ -819,27 +874,65 @@
 }
 
 
-
-.menuCard {
+.food {
+  justify-content: center;
+  justify-self:center;
+  text-align: center;
+  background-image: url(content/NewFoodCardBackground.png);
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+  border-radius: 8px;
+  width:100%;
+  height: 700px;
+  padding-top: 5px;
+}
+.menuTitle {
   color: #335879;
   font-size: 50px;
   -webkit-text-stroke: .5px #F3F1DF;
   padding: 0;
   margin: 0;
 }
+.circle {
+  width: 10px;
+  height: 10px;
+  background-color: #99AA65;
+  border-radius: 50px;
+  align-self: center;
+}
+.left {
+  justify-self: flex-start;
+  position: relative;
+  bottom: 4px;
+  right: 5px; 
+}
+.right {
+  justify-self: flex-end;
+  position: relative;
+  bottom: 14px;
+  left: 5px;
+}
+.fooddivider {
+  width: 25px;
+  height: 5px;
+  background-image: url(content/Food-Dash.png);
+  background-size: cover;
+  justify-self: center;
+}
 .menuSectionTitle {
   /* color:#335879; */
-  color:#F3F1DF;
+  color:#5578BC;
   /* -webkit-text-stroke: .5px #F3F1DF; */
-  -webkit-text-stroke: 2.5px #335879;
+  -webkit-text-stroke: 2.5px #5578BC;
 }
 .closed{
   font-size: 40px;
   text-align: center;
 }
 .menu-items-spaced-over {
-  margin-left: 2.5em;
-  color: white;
+  /* margin-left: 2.5em; */
+  justify-self: center;
+  color: #132E5E;
   padding:0;
 }
 
