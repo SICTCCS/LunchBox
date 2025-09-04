@@ -182,6 +182,7 @@ ul > li:before {
     border-radius: 11px;
   }
   .date {
+    color:#99AA65;
     text-align:center;
   }
   /* For checkbox */

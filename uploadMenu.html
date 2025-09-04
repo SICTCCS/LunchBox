@@ -9,9 +9,9 @@
             <script src="emailScript.js"></script>
             <script type="module" name="upload process">
                 //imports and configs
-                import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-                import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
-                import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+                import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+                import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+                import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
                 const firebaseConfig = {
                 apiKey: "AIzaSyDwdFssKc8-QiyrMNwVURNga882xpO4bIY",
                 authDomain: "lunchboxweb-7b9c1.firebaseapp.com",
@@ -49,8 +49,8 @@
                         //checkbox initializations
                         const closedCHECKBOX1 = document.getElementById('closedCHECKBOX1');
                         const closedINPUT1 = closedCHECKBOX1.checked ? "CLOSED" : " ";
-                        /*const closedCHECKBOX2 = document.getElementById('closedCHECKBOX2');
-                        const closedINPUT2 = closedCHECKBOX2.checked ? "CLOSED" : " ";*/
+                        //const closedCHECKBOX2 = document.getElementById('closedCHECKBOX2');
+                        //const closedINPUT2 = closedCHECKBOX2.checked ? "CLOSED" : " ";
                         const closedCHECKBOX3 = document.getElementById('closedCHECKBOX3');
                         const closedINPUT3 = closedCHECKBOX3.checked ? "CLOSED" : " ";
                         //get values from input fields if closed not checked
@@ -168,8 +168,8 @@
                         <form class="upload-form">
                             <input id="dateINPUT1" type="date" placeholder="Tuesday - Date (JAN 1)" style="background-color:silver">
                             <input id="entreeINPUT1" type="text" placeholder="Tuesday - Entree" style="background-color:silver">
-                            <!-- <input id="soupINPUT1" type="text" placeholder="Tuesday - Soups" style="background-color:silver">
-                            <input id="saladINPUT1" type="text" placeholder="Tuesday - Salads" style="background-color:silver"> -->
+                            <input id="soupINPUT1" type="text" placeholder="Tuesday - Soups" style="background-color:silver">
+                            <input id="saladINPUT1" type="text" placeholder="Tuesday - Salads" style="background-color:silver">
                             <input id="sideINPUT1" type="text" placeholder="Tuesday - Sides" style="background-color:silver">
                             <input id="dessertINPUT1" type="text" placeholder="Tuesday - Desserts" style="background-color:silver">
                             <label class="checkbox-label">
@@ -196,8 +196,8 @@
                         <form class="upload-form">
                             <input id="dateINPUT3" type="date" placeholder="Thursday - Date (JAN 1)" style="background-color:silver">
                             <input id="entreeINPUT3" type="text" placeholder="Thursday - Entree" style="background-color:silver">
-                            <!-- <input id="soupINPUT3" type="text" placeholder="Thursday - Soups" style="background-color:silver">
-                            <input id="saladINPUT3" type="text" placeholder="Thursday - Salads" style="background-color:silver"> -->
+                            <input id="soupINPUT3" type="text" placeholder="Thursday - Soups" style="background-color:silver">
+                            <input id="saladINPUT3" type="text" placeholder="Thursday - Salads" style="background-color:silver">
                             <input id="sideINPUT3" type="text" placeholder="Thursday - Sides" style="background-color:silver">
                             <input id="dessertINPUT3" type="text" placeholder="Thursday - Desserts" style="background-color:silver">
                             <label class="checkbox-label">
