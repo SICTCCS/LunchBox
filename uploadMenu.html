@@ -81,7 +81,7 @@
                             document.getElementById('sideINPUT3').value="";
                             document.getElementById('dessertINPUT3').value="";
                         }
-                        const dateINPUT1 =      document.getElementById('dateINPUT1').value;
+                        const dateINPUT1 =      new Date(document.getElementById('dateINPUT1').value).toLocaleDateString();
                         const entreeINPUT1 =    document.getElementById('entreeINPUT1').value;
                         const soupINPUT1 =      document.getElementById('soupINPUT1').value;
                         const saladINPUT1 =     document.getElementById('saladINPUT1').value;
@@ -95,7 +95,7 @@
                         const sideINPUT2 =      document.getElementById('sideINPUT2').value;
                         const dessertINPUT2 =   document.getElementById('dessertINPUT2').value;*/
                         
-                        const dateINPUT3 =      document.getElementById('dateINPUT3').value;
+                        const dateINPUT3 =      new Date(document.getElementById('dateINPUT3').value).toLocaleDateString();
                         const entreeINPUT3 =    document.getElementById('entreeINPUT3').value;
                         const soupINPUT3 =      document.getElementById('soupINPUT3').value;
                         const saladINPUT3 =     document.getElementById('saladINPUT3').value;
@@ -216,7 +216,6 @@
                         <button id="submitBTN" type="submit" >publish</button>
                         * publishing replaces all current menu details
                     </form>
-                    <h2 class="current-site-text"><a href="https://sictccs.github.io/LunchBox/index.html" target="_blank">current menu &#x2197;</a></h2>
                 </div>
             </main>
             <footer>
