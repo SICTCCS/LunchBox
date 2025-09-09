@@ -25,8 +25,9 @@
                 const db = getFirestore(app);
                 const auth = getAuth();
                 //handle form submission
-                function submitForm(event) {
+                                function submitForm(event) {
                     //email to it's Google Sheet
+                    // 2025- This was made by the last guys. I don't know what it does and The entir program breaks when removed.
                     const scriptURL = 'https://script.google.com/macros/s/AKfycbyszkeMxNOSgKDwxueAc7aiZcY8ZrvlJlQUnHcWkt63zymvxipmiq-pefW7E3aM1vKa/exec'
                     const form = document.forms['submit-to-google-sheet']
                     console.log("submit to google sheet btn triggered")
@@ -48,8 +49,8 @@
                         //checkbox initializations
                         const closedCHECKBOX1 = document.getElementById('closedCHECKBOX1');
                         const closedINPUT1 = closedCHECKBOX1.checked ? "CLOSED" : " ";
-                        /*const closedCHECKBOX2 = document.getElementById('closedCHECKBOX2');
-                        const closedINPUT2 = closedCHECKBOX2.checked ? "CLOSED" : " ";*/
+                        //const closedCHECKBOX2 = document.getElementById('closedCHECKBOX2');
+                        //const closedINPUT2 = closedCHECKBOX2.checked ? "CLOSED" : " ";
                         const closedCHECKBOX3 = document.getElementById('closedCHECKBOX3');
                         const closedINPUT3 = closedCHECKBOX3.checked ? "CLOSED" : " ";
                         //get values from input fields if closed not checked
@@ -80,7 +81,7 @@
                             document.getElementById('sideINPUT3').value="";
                             document.getElementById('dessertINPUT3').value="";
                         }
-                        const dateINPUT1 =      document.getElementById('dateINPUT1').value;
+                        const dateINPUT1 =      new Date(document.getElementById('dateINPUT1').value).toLocaleDateString();
                         const entreeINPUT1 =    document.getElementById('entreeINPUT1').value;
                         const soupINPUT1 =      document.getElementById('soupINPUT1').value;
                         const saladINPUT1 =     document.getElementById('saladINPUT1').value;
@@ -94,7 +95,7 @@
                         const sideINPUT2 =      document.getElementById('sideINPUT2').value;
                         const dessertINPUT2 =   document.getElementById('dessertINPUT2').value;*/
                         
-                        const dateINPUT3 =      document.getElementById('dateINPUT3').value;
+                        const dateINPUT3 =      new Date(document.getElementById('dateINPUT3').value).toLocaleDateString();
                         const entreeINPUT3 =    document.getElementById('entreeINPUT3').value;
                         const soupINPUT3 =      document.getElementById('soupINPUT3').value;
                         const saladINPUT3 =     document.getElementById('saladINPUT3').value;
@@ -165,7 +166,7 @@
                 <div class="upload-container">
                     <div class="upload-card" style="width:33%">
                         <form class="upload-form">
-                            <input id="dateINPUT1" type="text" placeholder="Tuesday - Date (JAN 1)" style="background-color:silver">
+                            <input id="dateINPUT1" type="date" placeholder="Tuesday - Date (JAN 1)" style="background-color:silver">
                             <input id="entreeINPUT1" type="text" placeholder="Tuesday - Entree" style="background-color:silver">
                             <input id="soupINPUT1" type="text" placeholder="Tuesday - Soups" style="background-color:silver">
                             <input id="saladINPUT1" type="text" placeholder="Tuesday - Salads" style="background-color:silver">
@@ -193,7 +194,7 @@
                     </div> -->
                     <div class="upload-card" style="width:33%">
                         <form class="upload-form">
-                            <input id="dateINPUT3" type="text" placeholder="Thursday - Date (JAN 1)" style="background-color:silver">
+                            <input id="dateINPUT3" type="date" placeholder="Thursday - Date (JAN 1)" style="background-color:silver">
                             <input id="entreeINPUT3" type="text" placeholder="Thursday - Entree" style="background-color:silver">
                             <input id="soupINPUT3" type="text" placeholder="Thursday - Soups" style="background-color:silver">
                             <input id="saladINPUT3" type="text" placeholder="Thursday - Salads" style="background-color:silver">
@@ -225,4 +226,5 @@
                 <a href="https://sictc.evscschools.com/"><img src="content/footerSICTC.png" style="width:150px;height:75px;" alt="footerSICTC"></a>
             </footer>
         </body>
+
 </html>
