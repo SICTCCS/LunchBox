@@ -63,6 +63,7 @@
                     function updateMenuItem(elementId, dataKey) {
                         if (menuDocument[dataKey] !== undefined) {
                             document.getElementById(elementId).innerText = menuDocument[dataKey];
+                            document.getElementById(elementId).display = 'block';
                         } 
                         else {
                             console.error(`${dataKey} is undefined in menuDocument`);
@@ -126,7 +127,7 @@
     <!-- <div id="summerhero"></div> -->
     <!-- <div id="winterhero"></div> -->
     <!-- <div id="springhero"></div> -->
-    <div style="display:flex;align-items:center;width:100%;justify-content: center;"><img style="margin-top: 50px;width: 40%;" src="content/WeeklyMenuBanner.png"></div>
+    <div class="banner-Container"><img class="weekly-Banner" src="content/WeeklyMenuBanner.png"></div>
     <div class="menu-container">
         <div class="menu">
             <div class="dateCard">
