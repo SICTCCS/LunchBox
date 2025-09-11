@@ -9,20 +9,21 @@
     <script src="https://kit.fontawesome.com/2bb903859e.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="content/favicon.png">
+    <script defer src="firebaseConfig.js"></script>
     <script type="module">
         //imports and configs
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
         import { getFirestore, collection, query, orderBy, limit, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
         document.addEventListener("DOMContentLoaded", function () {
-            const firebaseConfig = {
-                apiKey: "AIzaSyDwdFssKc8-QiyrMNwVURNga882xpO4bIY",
-                authDomain: "lunchboxweb-7b9c1.firebaseapp.com",
-                projectId: "lunchboxweb-7b9c1",
-                storageBucket: "lunchboxweb-7b9c1.firebasestorage.app",
-                messagingSenderId: "160202746545",
-                appId: "1:160202746545:web:087529c4e7432a91329090",
-                measurementId: "G-C2E1SK93M1"
-            };
+             const firebaseConfig = {
+                 apiKey: "AIzaSyDwdFssKc8-QiyrMNwVURNga882xpO4bIY",
+                 authDomain: "lunchboxweb-7b9c1.firebaseapp.com",
+                 projectId: "lunchboxweb-7b9c1",
+                 storageBucket: "lunchboxweb-7b9c1.firebasestorage.app",
+                 messagingSenderId: "160202746545",
+                 appId: "1:160202746545:web:087529c4e7432a91329090",
+                 measurementId: "G-C2E1SK93M1"
+             };
             //initialize firebase
             const app = initializeApp(firebaseConfig);
             const db = getFirestore(app);
