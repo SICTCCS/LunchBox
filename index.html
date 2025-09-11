@@ -63,7 +63,6 @@
                     function updateMenuItem(elementId, dataKey) {
                         if (menuDocument[dataKey] !== undefined) {
                             document.getElementById(elementId).innerText = menuDocument[dataKey];
-                            document.getElementById(elementId).display = 'block';
                         } 
                         else {
                             console.error(`${dataKey} is undefined in menuDocument`);
