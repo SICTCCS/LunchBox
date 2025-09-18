@@ -65,7 +65,30 @@
                     <form name=submit-to-google-sheet class="upload-form">
                         <textarea name="message"  rows="10"></textarea>
                         <input id="emailINPUT" type="text" placeholder="email" style="background-color:#335879">
-                        <input id="passwordINPUT" type="password" placeholder="password" style="background-color:#335879">
+                        <div id="passCon">
+                            <input id="passwordINPUT" type="password" placeholder="password" style="background-color:#335879">
+                            <div class="container">
+                                <img id="img-unchecked"  src="./PNG/Password/showPass.png" width="30px" style="filter: invert(100%);" onclick="myFunction()">
+                                <img id="img-checked"    src="./PNG/Password/hidePass.png"   width="35px" height="17px" style="filter: invert(100%);" onclick="myFunction()">
+                            </div>
+                        </div>
+                        <br>
+                        <script>
+                            function myFunction() {
+                            //   var passwordINPUT = document.getElementById("passwordINPUT");
+                              var showPass = document.getElementById("img-unchecked");
+                              var hidePass = document.getElementById("img-checked");
+                              if (passwordINPUT.type === "password") {
+                                showPass.style.display="none"
+                                hidePass.style.display="inline"
+                                passwordINPUT.type = "text";
+                              } else {
+                                showPass.style.display="inline"
+                                hidePass.style.display="none"
+                                passwordINPUT.type = "password";
+                              }
+                            }
+                        </script>
                         <button id="submitBTN" type="submit" >publish</button>
                         * publishing replaces all current menu details
                     </form>
