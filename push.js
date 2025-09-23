@@ -3,13 +3,13 @@
                 import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
                 import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
                 const firebaseConfig = {
-                apiKey: "AIzaSyDwdFssKc8-QiyrMNwVURNga882xpO4bIY",
-                authDomain: "lunchboxweb-7b9c1.firebaseapp.com",
-                projectId: "lunchboxweb-7b9c1",
-                storageBucket: "lunchboxweb-7b9c1.firebasestorage.app",
-                messagingSenderId: "160202746545",
-                appId: "1:160202746545:web:087529c4e7432a91329090",
-                measurementId: "G-C2E1SK93M1"
+                    apiKey: "AIzaSyBYvVybs496FHpiQbqNmQyrg0YOpZaRcNc",
+                    authDomain: "lunchbox-2815d.firebaseapp.com",
+                    projectId: "lunchbox-2815d",
+                    storageBucket: "lunchbox-2815d.appspot.com",
+                    messagingSenderId: "945076737341",
+                    appId: "1:945076737341:web:4466cf8cc243b71d6be154",
+                    measurementId: "G-C2CCXQ3JDN"
                 };
                 const app = initializeApp(firebaseConfig);
                 const db = getFirestore(app);
@@ -55,14 +55,6 @@
                             document.getElementById('sideINPUT1').value="";
                             document.getElementById('dessertINPUT1').value="";
                         }
-                        /*if (closedINPUT2=="CLOSED"){
-                            console.log("day 2 closed")
-                            document.getElementById('entreeINPUT2').value="";
-                            document.getElementById('soupINPUT2').value="";
-                            document.getElementById('saladINPUT2').value="";
-                            document.getElementById('sideINPUT2').value="";
-                            document.getElementById('dessertINPUT2').value="";
-                        }*/
                         if (closedINPUT3=="CLOSED"){
                             console.log("day 3 closed")
                             document.getElementById('entreeINPUT3').value="";
@@ -77,14 +69,7 @@
                         const saladINPUT1 =     document.getElementById('saladINPUT1').value;
                         const sideINPUT1 =      document.getElementById('sideINPUT1').value;
                         const dessertINPUT1 =   document.getElementById('dessertINPUT1').value;
-
-                        /*const dateINPUT2 =      document.getElementById('dateINPUT2').value;
-                        const entreeINPUT2 =    document.getElementById('entreeINPUT2').value;
-                        const soupINPUT2 =      document.getElementById('soupINPUT2').value;
-                        const saladINPUT2 =     document.getElementById('saladINPUT2').value;
-                        const sideINPUT2 =      document.getElementById('sideINPUT2').value;
-                        const dessertINPUT2 =   document.getElementById('dessertINPUT2').value;*/
-                        
+ 
                         const dateINPUT3 =      new Date(document.getElementById('dateINPUT3').value).toLocaleDateString('en-US', {timeZone: 'UTC'});
                         const entreeINPUT3 =    document.getElementById('entreeINPUT3').value;
                         const soupINPUT3 =      document.getElementById('soupINPUT3').value;
