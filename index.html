@@ -9,65 +9,7 @@
     <script src="https://kit.fontawesome.com/2bb903859e.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="content/favicon.png">
-    <script type="module">
-        //imports and configs
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-        import { getFirestore, collection, query, orderBy, limit, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
-        document.addEventListener("DOMContentLoaded", function () {
-            const firebaseConfig = {
-                apiKey: "AIzaSyBYvVybs496FHpiQbqNmQyrg0YOpZaRcNc",
-                authDomain: "lunchbox-2815d.firebaseapp.com",
-                projectId: "lunchbox-2815d",
-                storageBucket: "lunchbox-2815d.appspot.com",
-                messagingSenderId: "945076737341",
-                appId: "1:945076737341:web:4466cf8cc243b71d6be154",
-                measurementId: "G-C2CCXQ3JDN"
-                };
-            //initialize firebase
-            const app = initializeApp(firebaseConfig);
-            const db = getFirestore(app);
-            const menuCollectionRef = collection(db, 'menu');
-            //create a query to get the most recent menu document
-            const queryRef = query(menuCollectionRef, orderBy('timestamp', 'desc'), limit(1));
-            //set up the snapshot listener
-            onSnapshot(queryRef, updateMenu);
-            //function to update the menu
-            function updateMenu(snapshot) {
-                if (!snapshot.empty) {
-                    const mostRecentDocument = snapshot.docs[0];
-                    const menuDocument = mostRecentDocument.data();
-                    //update the HTML 
-                    updateMenuItem('date1', 'tuesday_date');
-                    updateMenuItem('entree1', 'tuesday_entree');
-                    updateMenuItem('soup1', 'tuesday_soup');
-                    updateMenuItem('salad1', 'tuesday_salad');
-                    updateMenuItem('side1', 'tuesday_side');
-                    updateMenuItem('dessert1', 'tuesday_dessert');
-                    updateMenuItem('closed1', 'tuesday_closed');
-                    updateMenuItem('date3', 'thursday_date');
-                    updateMenuItem('entree3', 'thursday_entree');
-                    updateMenuItem('soup3', 'thursday_soup');
-                    updateMenuItem('salad3', 'thursday_salad');
-                    updateMenuItem('side3', 'thursday_side');
-                    updateMenuItem('dessert3', 'thursday_dessert');
-                    updateMenuItem('closed3', 'thursday_closed');
-
-                    //update all items
-                    function updateMenuItem(elementId, dataKey) {
-                        if (menuDocument[dataKey] !== undefined) {
-                            document.getElementById(elementId).innerText = menuDocument[dataKey];
-                        } 
-                        else {
-                            console.error(`${dataKey} is undefined in menuDocument`);
-                        }
-                    }
-                } 
-                else {
-                    console.log('No documents found in the "menu" collection.');
-                }
-            }
-        });
-    </script>
+    <script type="module" src="pull.js"></script>
     <script>
         function submitForm() {
             document.getElementById('emailBTN').innerHTML='Upload In Progress'
@@ -104,10 +46,13 @@
     <div id="logo-container">
         <a href="index.html"><img id="logo-horiz" src="content/lunchBoxLogoHorizontalAllGreen2.png" alt="lunchboxLogoHorizontal"></a>
     </div>
-    <form name='submit-to-google-sheet' class="form-EMAIL" id="signUpForm">
-        <input id="email" name="email" type="email" placeholder="enter email here" style="background-color:white;margin-left:4em">
-        <button id="emailBTN" type="submit" onclick="submitForm()">Get Weekly Email!</button>
-    </form>
+    <div class="email">
+        <h2>Get Weekly Email!</h2>
+        <form name='submit-to-google-sheet' class="form-EMAIL" id="signUpForm">
+            <input id="email" name="email" type="email" placeholder="enter email here" style="background-color:white;margin-left:4em">
+            <button id="emailBTN" type="submit" onclick="submitForm()">Submit</button>
+        </form>
+    </div>
 </nav>
 <main>
     <!-- <div id="summerhero"></div> -->
@@ -120,33 +65,28 @@
                 <h3 id="date1" style="text-align:center;"></h3>
                 <h1 class="menuSectionTitle">ENTREE</h1> 
                 <h3 id="entree1" class="menu-items-spaced-over"></h3>
-                <div class="divider"></div>
-                <h1 class="menuSectionTitle">SOUPS</h1> 
-                <h3 id="soup1" class="menu-items-spaced-over"></h3>
-                <div class="divider"></div>
-                <h1 class="menuSectionTitle">SALADS</h1> 
-                <h3 id="salad1" class="menu-items-spaced-over"></h3>
-                <div class="divider"></div>
+                <div class="sectiondivider"><div class="left circle"></div><div class="right circle"></div></div>
                 <h1 class="menuSectionTitle">SIDES</h1> 
                 <h3 id="side1" class="menu-items-spaced-over"></h3>
-                <div class="divider"></div> 
+                <div class="fooddivider"></div>
+                <h3 id="salad1" class="menu-items-spaced-over"></h3>
+                <div class="fooddivider"></div>
+                <h3 id="soup1" class="menu-items-spaced-over"></h3>
+                <div class="sectiondivider"><div class="left circle"></div><div class="right circle"></div></div> 
                 <h1 class="menuSectionTitle">DESSERTS</h1> 
                 <h3 id="dessert1" class="menu-items-spaced-over"></h3>
-                <div class="divider"></div>
+                <div class="fooddivider"></div>
             </div>
-            <div class="menu">
-                <h1 class="menuCard" style="text-align:center;">THURSDAY</h1>
+        </div>
+        <div class="menu">
+            <div class="dateCard">
+                <h1 class="menuTitle" style="text-align:center;">THURSDAY</h1>
+                <h3 id="date3" class="date"></h3>
                 <h1 id="closed3" class="closed" style="color:#be4d25;background-color:white;"></h1>
                 <h3 id="date3" style="text-align:center;"></h3>
                 <h1 class="menuSectionTitle">ENTREE</h1> 
                 <h3 id="entree3" class="menu-items-spaced-over"></h3>
-                <div class="divider"></div>
-                <h1 class="menuSectionTitle">SOUPS</h1> 
-                <h3 id="soup3" class="menu-items-spaced-over"></h3>
-                <div class="divider"></div>
-                <h1 class="menuSectionTitle">SALADS</h1> 
-                <h3 id="salad3" class="menu-items-spaced-over"></h3>
-                <div class="divider"></div>
+                <div class="sectiondivider"><div class="left circle"></div><div class="right circle"></div></div>
                 <h1 class="menuSectionTitle">SIDES</h1> 
                 <h3 id="side3" class="menu-items-spaced-over"></h3>
                 <div class="divider"></div>
@@ -167,11 +107,11 @@
     </div>
     <div class="card-container-COMMON">
         <div class="card-COMMON">
-            <h2>About</h2>
-            <p><span class="info-label-COMMON">Opening Hours:</span> 10:15 AM - 1:00 PM</p>
-            <p><span class="info-label-COMMON">Availability:</span> Open to the public</p>
-            <p><span class="info-label-COMMON">Location:</span> Please enter through the main entrance at SICTC, and the restaurant is located at the third door on the left.</p>
-            <p><span class="info-label-COMMON">Reservations:</span> Requested for groups of 6 and larger</p>
+            <a href="about.html"><h2>About</h2></a>
+            <p>Opening Hours: 10:15 AM - 1:00 PM</p>
+            <p>Availability: Open to the public</p>
+            <p>Location: Please enter through the main entrance at SICTC, and the restaurant is located at the third door on the left.</p>
+            <p><a src="https://docs.google.com/forms/d/e/1FAIpQLSesKeiuhUK01citbYRUrUXX5Tfmcz4_7lTJX2t-28Cchk6cGw/viewform?usp=header">Reservations: Requested for groups of 6 and larger</a></p>
         </div>
         <div class="card-COMMON">
             <h2>Accepted Payments</h2>
