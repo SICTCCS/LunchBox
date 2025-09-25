@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="457px" height="457px" viewBox="0 0 457 457" xmlns="http://www.w3.org/2000/svg">
+    <!-- top -->
+    <rect width="20px" height="5px" x="-10" y="-2" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="25" y="-2" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="60" y="-2" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="95" y="-2" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="130" y="-2" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="165" y="-2" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="200" y="-2" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="235" y="-2" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="270" y="-2" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="305" y="-2" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="340" y="-2" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="375" y="-2" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="410" y="-2" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="445" y="-2" rx="50px" ry="50px" fill="#446198"/>
+    <!-- left side -->
+    <rect width="5px" height="20px" x="-2" y="-10" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="-2" y="25" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="-2" y="60" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="-2" y="95" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="-2" y="130" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="-2" y="165" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="-2" y="200" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="-2" y="235" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="-2" y="270" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="-2" y="305" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="-2" y="340" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="-2" y="375" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="-2" y="410" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="-2" y="445" rx="50px" ry="50px" fill="#446198"/>
+    <!-- bottom -->
+    <rect width="20px" height="5px" x="-10" y="454" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="25" y="454" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="60" y="454" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="95" y="454" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="130" y="454" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="165" y="454" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="200" y="454" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="235" y="454" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="270" y="454" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="305" y="454" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="340" y="454" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="375" y="454" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="410" y="454" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="20px" height="5px" x="445" y="454" rx="50px" ry="50px" fill="#446198"/>
+    <!-- right -->
+    <rect width="5px" height="20px" x="454" y="-10" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="454" y="25" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="454" y="60" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="454" y="95" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="454" y="130" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="454" y="165" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="454" y="200" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="454" y="235" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="454" y="270" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="454" y="305" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="454" y="340" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="454" y="375" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="454" y="410" rx="50px" ry="50px" fill="#446198"/>
+    <rect width="5px" height="20px" x="454" y="445" rx="50px" ry="50px" fill="#446198"/>
+</svg>
