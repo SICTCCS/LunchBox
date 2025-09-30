@@ -645,6 +645,37 @@ ul > li:before {
     margin-left: auto;
     margin-right: auto;
   }
+  #passCon{
+    width: 75%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    background: #335879;
+  }
+  #passCon > input{
+    border: none;
+    width: 90%;
+    height: 47px;
+    font-size: 15px;
+    color: #ffffff;
+  }
+  .upload-form > input,
+  #passCon {
+    border: 2px solid #ffffff;
+    font-size: 15px;
+    padding: 0 16px;
+    border-radius: 1.25rem;
+    transition: all 0.375s;
+    color:#ffffff;
+  }
+  .upload-form > input:focus,
+  #passwordINPUT:focus{
+    outline: none;
+  }
+  .upload-form > input:hover,
+  #passCon:hover {
+    border: 2px solid #335879;
+  }
   .upload-form > input {
     border: 2px solid #ffffff;
     font-size: 15px;
@@ -677,7 +708,15 @@ ul > li:before {
   .upload-form > textarea{
     background-color: #ebebeb;
   }
-    .current-site-text{
+  .container {
+    font-size: 24px;
+    cursor: pointer;
+    caret-color: transparent;
+    display: flex;
+    align-items: center;
+  }
+  img { padding-right: 5px;}
+  .current-site-text{
     margin-top: 2em;
   }
   .current-site-text a {
