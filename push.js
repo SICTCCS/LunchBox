@@ -65,14 +65,14 @@ const auth = getAuth();
             document.getElementById('sideINPUT3').value="";
             document.getElementById('dessertINPUT3').value="";
         }
-        const dateINPUT1 =      document.getElementById('dateINPUT1').value;
+        const dateINPUT1 =      new Date(document.getElementById('dateINPUT1').value).toLocaleDateString('en-US', {timeZone: 'UTC'});;
         const entreeINPUT1 =    document.getElementById('entreeINPUT1').value;
         const soupINPUT1 =      document.getElementById('soupINPUT1').value;
         const saladINPUT1 =     document.getElementById('saladINPUT1').value;
         const sideINPUT1 =      document.getElementById('sideINPUT1').value;
         const dessertINPUT1 =   document.getElementById('dessertINPUT1').value;
 
-        const dateINPUT3 =      document.getElementById('dateINPUT3').value;
+        const dateINPUT3 =      new Date(document.getElementById('dateINPUT3').value).toLocaleDateString('en-US', {timeZone: 'UTC'});;
         const entreeINPUT3 =    document.getElementById('entreeINPUT3').value;
         const soupINPUT3 =      document.getElementById('soupINPUT3').value;
         const saladINPUT3 =     document.getElementById('saladINPUT3').value;
