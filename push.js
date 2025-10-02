@@ -127,7 +127,5 @@
                     
                     
                 }
-                const showPassBTN = document.getElementById("showPassBTN")
                 const submitBTN = document.getElementById("submitBTN");
-                showPassBTN.addEventListener("click", showPass)
                 submitBTN.addEventListener("click", submitForm);
