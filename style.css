@@ -203,6 +203,13 @@ ul > li:before {
     margin: 3em;
     text-align: left;
   }
+  .menuTitle {
+    color: #335879;
+    font-size: 50px;
+    -webkit-text-stroke: .5px #F3F1DF;
+    padding: 0;
+    margin: 0;
+  }
   .dateCard{
     background-color: #FFFDE9;
     border: 6px solid #707F43;
@@ -530,13 +537,13 @@ ul > li:before {
 @media (max-width: 1023px) {
   html {
     font-family: 'Source Sans Pro', sans-serif;
-    overflow-x: hidden;
   }
   body {
+    overflow-x:hidden;
     margin: 0;
     padding: 0;
     /* display: grid; */
-    /* place-items: center; */
+    place-items: center;
     background-color: #99AA65;
   }
   footer {
@@ -550,7 +557,7 @@ ul > li:before {
     font-style: normal;
     font-family: "Konkhmer Sleakchher";
     text-align: center;
-    width: 110%;
+    width: 105%;
     padding-top: 3em;
     padding-left: 5px;
     margin-left: -10px;
@@ -576,11 +583,11 @@ ul > li:before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right: 30px; 
+    padding-right: 5px;
   }
   #logo-container {
     text-align: center;
-    padding: 0px;
+    margin-left:-20px;
   }
   #links-container {
     display: flex;
@@ -731,7 +738,7 @@ ul > li:before {
     /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); */
     /* padding: 20px; */
     flex: 1;
-    width: 90%;
+    width: 100%;
     color: #ffffff;
     border-radius: 1.25rem;
     /* background-color: #707f42; */
@@ -740,13 +747,21 @@ ul > li:before {
     margin-left: auto;
     text-align: left;
   }
+  .menuTitle {
+    color: #335879;
+    font-size: 50px;
+    padding: 0;
+    margin: 0;
+  }
   .dateCard{
     background-color: #FFFDE9;
     border: 6px solid #707F43;
     border-radius: 11px;
     margin-bottom: 20px;
+    margin-left:auto;
+    margin-right:auto;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    width: 100%;
+    width: 90%;
     height: 175px;
   }
   .date {
@@ -810,8 +825,7 @@ ul > li:before {
     /* border-radius: 1.25rem; */
     margin-top: 1em;
     background-color: #FFFDE9;
-    width: 90%;
-    min-width: 280px;
+    width: 85%;
     height: auto;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     /* background-color: #335879; */
@@ -823,7 +837,7 @@ ul > li:before {
   }
   .payments {
     text-align: left;
-    font-size: 22px;
+    font-size: 20px;
   }
   .card-COMMON h2 {
     color: #99AA65;
@@ -1089,13 +1103,6 @@ ul > li:before {
   width:100%;
   height: 700px;
   padding-top: 5px;
-}
-.menuTitle {
-  color: #335879;
-  font-size: 50px;
-  -webkit-text-stroke: .5px #F3F1DF;
-  padding: 0;
-  margin: 0;
 }
 .circle {
   width: 15px;
