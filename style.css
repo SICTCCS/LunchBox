@@ -552,6 +552,7 @@ ul > li:before {
     text-align: center;
     width: 110%;
     padding-top: 3em;
+    padding-left: 5px;
     margin-left: -10px;
     margin-top: 4em;
   }
@@ -575,7 +576,7 @@ ul > li:before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* padding: 0 2em;  */
+    padding-right: 30px; 
   }
   #logo-container {
     text-align: center;
@@ -607,7 +608,7 @@ ul > li:before {
   }
   .weekly-Banner {
     margin-top: 50px;
-    /* width: 40%; */
+    width: 90%;
   }
   /*
   /* Upload card */
@@ -720,6 +721,8 @@ ul > li:before {
   .menu-container {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+    justify-self: center;
     margin: 0;
     margin-bottom: 3em;
   }
@@ -728,13 +731,13 @@ ul > li:before {
     /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); */
     /* padding: 20px; */
     flex: 1;
-    width: 33%;
+    width: 90%;
     color: #ffffff;
     border-radius: 1.25rem;
     /* background-color: #707f42; */
     margin-top: 3em;
-    margin-right: 3em;
-    margin-left: 3em;
+    margin-right: auto;
+    margin-left: auto;
     text-align: left;
   }
   .dateCard{
@@ -805,11 +808,11 @@ ul > li:before {
     border-image-width: 100%;
     padding: 10px;
     /* border-radius: 1.25rem; */
-    margin: 1em;
+    margin-top: 1em;
     background-color: #FFFDE9;
     width: 90%;
-    min-width: 380px;
-    height: 315px;
+    min-width: 280px;
+    height: auto;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     /* background-color: #335879; */
     color: #446198;
@@ -820,7 +823,7 @@ ul > li:before {
   }
   .payments {
     text-align: left;
-    font-size: 32px;
+    font-size: 22px;
   }
   .card-COMMON h2 {
     color: #99AA65;
@@ -839,13 +842,18 @@ ul > li:before {
     font-weight: 400;
     line-height: 16px;
   }
+  .card-COMMON img {
+    width:35%;
+    height:auto;
+  }
   .card-container-COMMON {
     display: flex;
     flex: 1;
+    flex-direction: column;
     flex-wrap: wrap;
     margin: auto;
-    margin-top: 3em;
-    margin-bottom: 3em;
+    /* margin-top: 3em;
+    margin-bottom: 3em; */
     /* background-color: #FFFDE9; */
     border-radius: 9px;
     width: 90%;
@@ -858,10 +866,10 @@ ul > li:before {
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     background-color: #fffde9;
     color: #335879;
-    flex: 1;
-    margin-left: 3em;
-    margin-right: 3em;
-    /* min-width: 700px; */
+    /* flex: 1; */
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
     text-align: left;
   }
   .card-WHATSINCLUDED h2 {
