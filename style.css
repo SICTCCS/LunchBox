@@ -542,14 +542,9 @@ ul > li:before {
     overflow-x:hidden;
     margin: 0;
     padding: 0;
-    /* display: grid; */
-    place-items: center;
     background-color: #99AA65;
   }
   footer {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     background-color: #446198;
     color: #ffffff;
     font-weight: 400;
@@ -557,10 +552,10 @@ ul > li:before {
     font-style: normal;
     font-family: "Konkhmer Sleakchher";
     text-align: center;
-    width: 105%;
+    width: 100%;
     padding-top: 3em;
     padding-left: 5px;
-    margin-left: -10px;
+    padding-right:5px;
     margin-top: 4em;
   }
   footer img {
@@ -581,13 +576,12 @@ ul > li:before {
     height: 150px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding-right: 5px;
   }
   #logo-container {
     text-align: center;
-    margin-left:-20px;
+    padding-right: 25px;
   }
   #links-container {
     display: flex;
@@ -597,14 +591,14 @@ ul > li:before {
     font-weight: bold;
     color: #ffffff;
     text-decoration: none;
-    padding: 0 1em; 
+    margin-left: auto;
+    margin-right: auto;
   }
   nav a:hover {
     text-decoration: none;
     color: #707f42;
   }
   #logo-horiz {
-    /* height: 100px; */
     width: 90%;
   }
   .banner-Container {
@@ -612,9 +606,9 @@ ul > li:before {
     display:flex;
     align-items:center;
     width:100%;
+    margin-top: 50px;
   }
   .weekly-Banner {
-    margin-top: 50px;
     width: 90%;
   }
   /*
@@ -749,9 +743,9 @@ ul > li:before {
   }
   .menuTitle {
     color: #335879;
-    font-size: 50px;
-    padding: 0;
-    margin: 0;
+    font-size: 45px;
+    padding: 0px;
+    margin: 0px;
   }
   .dateCard{
     background-color: #FFFDE9;
@@ -760,6 +754,7 @@ ul > li:before {
     margin-bottom: 20px;
     margin-left:auto;
     margin-right:auto;
+    padding:10px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     width: 90%;
     height: 175px;
