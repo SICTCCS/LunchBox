@@ -12,6 +12,10 @@ ul > li:before {
   font-size: 50px;
   margin-right: 15px;
 }
+.download a{
+  text-decoration: none;
+  color:#FFF;
+}
 /* desktop view */
 @media (min-width: 1024px) {
   html {
@@ -37,6 +41,23 @@ ul > li:before {
     padding-top: 3em;
     padding-bottom: .5em;
     margin-top: 4em;
+  }
+  .download{
+    margin-left: 783px;
+    cursor: pointer;
+    width: 300px;
+    height: 90px;
+    border-radius: .5rem;
+    background-color: #5578BC;
+    color: #ffffff;
+    border: 0;
+    font-size: 40px;
+    text-align: center;
+    transition: all 0.375s;
+    /* margin: 2px; */
+    /* margin-right: 1em; */
+    font-weight: bold;
+    padding: 0 16px;
   }
   footer img {
     width:auto;
@@ -561,6 +582,23 @@ ul > li:before {
   #logo-upload-middle {
     height: 100px;
     width: 600px;
+  }
+  .download{
+    margin-left: 125px;
+    cursor: pointer;
+    width: 150px;
+    height: 45px;
+    border-radius: .5rem;
+    background-color: #5578BC;
+    color: #ffffff;
+    border: 0;
+    font-size: 20px;
+    text-align: center;
+    transition: all 0.375s;
+    /* margin: 2px; */
+    /* margin-right: 1em; */
+    font-weight: bold;
+    padding: 0 16px;
   }
   nav {
     background-color: #335879;
