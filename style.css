@@ -203,6 +203,18 @@ ul > li:before {
     margin: 3em;
     text-align: left;
   }
+  .food {
+    justify-content: center;
+    /* justify-self:center; */
+    text-align: center;
+    background-image: url(content/NewFoodCardBackground.png);
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    border-radius: 8px;
+    width:100%;
+    height: fit-content;
+    padding: 10px;
+  }
   .menuTitle {
     color: #335879;
     font-size: 50px;
@@ -732,18 +744,28 @@ ul > li:before {
     margin-bottom: 3em;
   }
   .menu {
-    /* border: 1px solid #ccc; */
-    /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); */
-    /* padding: 20px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     flex: 1;
     width: 100%;
     color: #ffffff;
     border-radius: 1.25rem;
-    /* background-color: #707f42; */
     margin-top: 3em;
-    margin-right: auto;
     margin-left: auto;
-    text-align: left;
+    margin-right: auto;
+  }
+  .food {
+    justify-content: center;
+    /* justify-self:center; */
+    text-align: center;
+    background-image: url(content/NewFoodCardBackground.png);
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    border-radius: 8px;
+    width:90%;
+    height: fit-content;
+    padding: 10px;
   }
   .menuTitle {
     color: #335879;
@@ -759,9 +781,10 @@ ul > li:before {
     margin-left:auto;
     margin-right:auto;
     padding:10px;
+    padding-bottom: 20px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     width: 90%;
-    height: 175px;
+    height: fit-content;
   }
   .date {
     color:#99AA65;
@@ -882,7 +905,7 @@ ul > li:before {
     /* flex: 1; */
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    width: 80%;
     text-align: left;
   }
   .card-WHATSINCLUDED h2 {
@@ -1090,19 +1113,6 @@ ul > li:before {
   
 }
 
-
-.food {
-  justify-content: center;
-  /* justify-self:center; */
-  text-align: center;
-  background-image: url(content/NewFoodCardBackground.png);
-  background-repeat: no-repeat;
-  background-size:100% 100%;
-  border-radius: 8px;
-  width:100%;
-  height: fit-content;
-  padding: 10px;
-}
 .circle {
   width: 15px;
   height: 15px;
