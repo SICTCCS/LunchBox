@@ -44,7 +44,15 @@
                     function updateMenuItem(elementId, dataKey) {
                         if (menuDocument[dataKey] !== undefined) {
                             document.getElementById(elementId).innerText = menuDocument[dataKey];
-                            document.getElementById(elementId).display = 'block';
+                            document.getElementById(elementId).style.display = 'block';
+
+                            if(dataKey.includes('closed')){
+                                if(menuDocument[dataKey]=='CLOSED'){
+                                    document.getElementById('food'+elementId.substring(elementId.length-1)).style.display = 'none';
+                                } else {
+                                    document.getElementById('food'+elementId.substring(elementId.length-1)).style.display = 'block';
+                                }
+                            }
                         } 
                         else {
                             console.error(`${dataKey} is undefined in menuDocument`);
