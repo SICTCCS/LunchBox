@@ -1,23 +1,25 @@
-//imports and configs
+ //imports and configs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyDwdFssKc8-QiyrMNwVURNga882xpO4bIY",
-    authDomain: "lunchboxweb-7b9c1.firebaseapp.com",
-    projectId: "lunchboxweb-7b9c1",
-    storageBucket: "lunchboxweb-7b9c1.firebasestorage.app",
-    messagingSenderId: "160202746545",
-    appId: "1:160202746545:web:087529c4e7432a91329090",
-    measurementId: "G-C2E1SK93M1"
+    apiKey: "AIzaSyBYvVybs496FHpiQbqNmQyrg0YOpZaRcNc",
+    authDomain: "lunchbox-2815d.firebaseapp.com",
+    projectId: "lunchbox-2815d",
+    storageBucket: "lunchbox-2815d.firebasestorage.app",
+    messagingSenderId: "945076737341",
+    appId: "1:945076737341:web:4466cf8cc243b71d6be154",
+    measurementId: "G-C2CCXQ3JDN"
 };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
 //handle form submission
-function submitForm(event) {
+                function submitForm(event) {
     //email to it's Google Sheet
-    // 2025- This was made by the last guys. I don't know what it does and The entire program breaks when removed.
+    // 2025- This was made by the last guys. I don't know what it does and The entir program breaks when removed.
+    // 2025- This was made by the last guys. I don't know what it does and The entir program breaks when removed.
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyszkeMxNOSgKDwxueAc7aiZcY8ZrvlJlQUnHcWkt63zymvxipmiq-pefW7E3aM1vKa/exec'
     const form = document.forms['submit-to-google-sheet']
     console.log("submit to google sheet btn triggered")
@@ -63,7 +65,10 @@ function submitForm(event) {
             document.getElementById('sideINPUT3').value="";
             document.getElementById('dessertINPUT3').value="";
         }
-        const dateINPUT1 =      new Date(document.getElementById('dateINPUT1').value).toLocaleDateString('en-US', {timeZone: 'UTC'});
+
+        const breaksINPUT = document.querySelector('input[name="breaksRadio"]:checked').value;
+
+        const dateINPUT1 =      new Date(document.getElementById('dateINPUT1').value).toLocaleDateString('en-US', {timeZone: 'UTC'});;
         const entreeINPUT1 =    document.getElementById('entreeINPUT1').value;
         const soupINPUT1 =      document.getElementById('soupINPUT1').value;
         const saladINPUT1 =     document.getElementById('saladINPUT1').value;
@@ -79,8 +84,11 @@ function submitForm(event) {
         const saladINPUT3 =     document.getElementById('saladINPUT3').value;
         const sideINPUT3 =      document.getElementById('sideINPUT3').value;
         const dessertINPUT3 =   document.getElementById('dessertINPUT3').value;
+        console.log(dateINPUT1,dateINPUT3);
         //construct menu data object
         const menuData = {
+            breaks: breaksINPUT,
+
             tuesday_date: dateINPUT1,
             tuesday_entree: entreeINPUT1,
             tuesday_soup: soupINPUT1,
@@ -96,13 +104,6 @@ function submitForm(event) {
             thursday_side: sideINPUT3,
             thursday_dessert: dessertINPUT3,
             thursday_closed: closedINPUT3
-            /*wednesday_date: dateINPUT2,
-            wednesday_entree: entreeINPUT2,
-            wednesday_soup: soupINPUT2,
-            wednesday_salad: saladINPUT2,
-            wednesday_side: sideINPUT2,
-            wednesday_dessert: dessertINPUT2,
-            wednesday_closed: closedINPUT2,*/
         };
         //generate a timestamp document name
         const timestamp = new Date().toISOString();
