@@ -45,11 +45,11 @@ function submitForm(event) {
         const closedCHECKBOX3 = document.getElementById('closedCHECKBOX3');
         const closedINPUT3 = closedCHECKBOX3.checked ? "CLOSED" : " ";
         //get values from input fields if closed not checked
-        console.log(closedINPUT1)
+        console.log(closedINPUT1);
         //console.log(closedINPUT2)
-        console.log(closedINPUT3)
+        console.log(closedINPUT3);
         if (closedINPUT1=="CLOSED"){
-            console.log("day 1 closed")
+            console.log("day 1 closed");
             document.getElementById('entreeINPUT1').value="";
             document.getElementById('soupINPUT1').value="";
             document.getElementById('saladINPUT1').value="";
@@ -65,7 +65,7 @@ function submitForm(event) {
             document.getElementById('dessertINPUT2').value="";
         }*/
         if (closedINPUT3=="CLOSED"){
-            console.log("day 3 closed")
+            console.log("day 3 closed");
             document.getElementById('entreeINPUT3').value="";
             document.getElementById('soupINPUT3').value="";
             document.getElementById('saladINPUT3').value="";
@@ -141,9 +141,9 @@ function submitForm(event) {
         //emailResults()
     })
     .catch((error) => {
-            console.error("Authentication failed: ", error);
-            alert("Authentication failed.", error);
-        });
+        console.error("Authentication failed: ", error);
+        alert("Authentication failed.", error);
+    });
     document.getElementById('passwordINPUT').value="";
     
     
