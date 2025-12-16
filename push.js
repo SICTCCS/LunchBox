@@ -18,19 +18,19 @@ const provider = new GoogleAuthProvider();
 //handle form submission
 function submitForm(event) {
     //email to it's Google Sheet
-    // const scriptURL = 'https://script.google.com/macros/s/AKfycbyszkeMxNOSgKDwxueAc7aiZcY8ZrvlJlQUnHcWkt63zymvxipmiq-pefW7E3aM1vKa/exec'
-    // const form = document.forms['submit-to-google-sheet']
-    // console.log("submit to google sheet btn triggered")
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyszkeMxNOSgKDwxueAc7aiZcY8ZrvlJlQUnHcWkt63zymvxipmiq-pefW7E3aM1vKa/exec'
+    const form = document.forms['submit-to-google-sheet']
+    console.log("submit to google sheet btn triggered")
     
-    // form.addEventListener('submit', e => {
-    //     console.log("Start of EventListener");
-    //     e.preventDefault();
-    //     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-    //     .then(response =>{ console.log('Google Sheet Success!', response)})
-    //     .catch(error => console.error('Error!', error.message));
-    // })
+    form.addEventListener('submit', e => {
+        console.log("Start of EventListener");
+        e.preventDefault();
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response =>{ console.log('Google Sheet Success!', response)})
+        .catch(error => console.error('Error!', error.message));
+    })
     
-    // console.log("form submitting")
+    console.log("form submitting")
     //event.preventDefault();
     const email = document.getElementById('emailINPUT').value;
     const password = document.getElementById('passwordINPUT').value;
@@ -72,8 +72,8 @@ function submitForm(event) {
             document.getElementById('dessertINPUT3').value="";
         }
 
-        const breaksINPUT = document.querySelector('input[name="breaksRadio"]:checked').value;
-
+        const breaksINPUT= document.querySelector('input[name="breaksRADIO"]:checked').value;
+            
         const dateINPUT1 =      new Date(document.getElementById('dateINPUT1').value).toLocaleDateString('en-US', {timeZone: 'UTC'});
         const entreeINPUT1 =    document.getElementById('entreeINPUT1').value;
         const soupINPUT1 =      document.getElementById('soupINPUT1').value;
@@ -145,7 +145,7 @@ function submitForm(event) {
     });
     document.getElementById('passwordINPUT').value="";
     
-    
 }
 const submitBTN = document.getElementById("submitBTN");
+
 submitBTN.addEventListener("click", submitForm);
