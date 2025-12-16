@@ -2,15 +2,14 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyDwdFssKc8-QiyrMNwVURNga882xpO4bIY",
-    authDomain: "lunchboxweb-7b9c1.firebaseapp.com",
-    projectId: "lunchboxweb-7b9c1",
-    storageBucket: "lunchboxweb-7b9c1.firebasestorage.app",
-    messagingSenderId: "160202746545",
-    appId: "1:160202746545:web:087529c4e7432a91329090",
-    measurementId: "G-C2E1SK93M1"
+apiKey: "AIzaSyDwdFssKc8-QiyrMNwVURNga882xpO4bIY",
+authDomain: "lunchboxweb-7b9c1.firebaseapp.com",
+projectId: "lunchboxweb-7b9c1",
+storageBucket: "lunchboxweb-7b9c1.firebasestorage.app",
+messagingSenderId: "160202746545",
+appId: "1:160202746545:web:087529c4e7432a91329090",
+measurementId: "G-C2E1SK93M1"
 };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
