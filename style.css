@@ -6,6 +6,10 @@ ul{
 ul > li {
   text-indent: -5px;
 }
+.download a{
+  text-decoration: none;
+  color:#FFF;
+}
 /* desktop view */
 @media (min-width: 1024px) {
   html {
@@ -45,6 +49,23 @@ ul > li {
     height: 100px;
     width: 600px;
   }
+  .download{
+    margin-left: 783px;
+    cursor: pointer;
+    width: 300px;
+    height: 90px;
+    border-radius: .5rem;
+    background-color: #5578BC;
+    color: #ffffff;
+    border: 0;
+    font-size: 40px;
+    text-align: center;
+    transition: all 0.375s;
+    /* margin: 2px; */
+    /* margin-right: 1em; */
+    font-weight: bold;
+    padding: 0 16px;
+  }
   nav {
     background-color: #335879;
     height: 150px;
@@ -79,11 +100,17 @@ ul > li {
     justify-content: center;
     display:flex;
     align-items:center;
+    flex-direction: column;
     width:100%;
   }
   .weekly-Banner {
     margin-top: 50px;
     width: 40%;
+  }
+  #breakBanner {
+    display: none;
+    margin-top: 50px;
+    width:50%;
   }
   /* Upload card */
   .upload-container {
@@ -587,6 +614,23 @@ ul > li {
     height: 100px;
     width: 600px;
   }
+  .download{
+    margin-left: 85px;
+    cursor: pointer;
+    width: 150px;
+    height: 45px;
+    border-radius: .5rem;
+    background-color: #5578BC;
+    color: #ffffff;
+    border: 0;
+    font-size: 20px;
+    text-align: center;
+    transition: all 0.375s;
+    /* margin: 2px; */
+    /* margin-right: 1em; */
+    font-weight: bold;
+    padding: 0 16px;
+  }
   nav {
     background-color: #335879;
     height: 150px;
@@ -621,11 +665,17 @@ ul > li {
     justify-content: center;
     display:flex;
     align-items:center;
+    flex-direction: column;
     width:100%;
     margin-top: 50px;
   }
   .weekly-Banner {
     width: 90%;
+    margin-top: 50px;
+  }
+  #breakBanner {
+    display: none;
+    width:90%;
   }
   /*
   /* Upload card */
