@@ -88,7 +88,13 @@ function submitForm(event) {
         const sideINPUT2 =      document.getElementById('sideINPUT2').value;
         const dessertINPUT2 =   document.getElementById('dessertINPUT2').value;*/
         
-        const dateINPUT3 =      new Date(document.getElementById('dateINPUT3').value).toLocaleDateString('en-US', {timeZone: 'UTC'});
+        //gets date input 1 and adds two days.
+        // gets date input 1
+        const tempInput = new Date(document.getElementById('dateINPUT1').value);
+        // add two days
+        tempInput.setDate(tempInput.getDate() + 2);
+        // output as a date string
+        const dateINPUT3 = tempInput.toLocaleDateString('en-US', {timeZone: 'UTC'});
         const entreeINPUT3 =    document.getElementById('entreeINPUT3').value;
         const soupINPUT3 =      document.getElementById('soupINPUT3').value;
         const saladINPUT3 =     document.getElementById('saladINPUT3').value;
