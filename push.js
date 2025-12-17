@@ -1,8 +1,7 @@
  //imports and configs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 const firebaseConfig = {
     apiKey: "AIzaSyBYvVybs496FHpiQbqNmQyrg0YOpZaRcNc",
     authDomain: "lunchbox-2815d.firebaseapp.com",
@@ -15,6 +14,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
+const provider = new GoogleAuthProvider();
 //handle form submission
                 function submitForm(event) {
     //email to it's Google Sheet
@@ -36,7 +36,7 @@ const auth = getAuth();
     //event.preventDefault();
     const email = document.getElementById('emailINPUT').value;
     const password = document.getElementById('passwordINPUT').value;
-    signInWithEmailAndPassword(auth, email, password)
+    signInWithPopup(auth, provider)
     .then((userCredential) => {
         //checkbox initializations
         const closedCHECKBOX1 = document.getElementById('closedCHECKBOX1');
@@ -46,33 +46,57 @@ const auth = getAuth();
         const closedCHECKBOX3 = document.getElementById('closedCHECKBOX3');
         const closedINPUT3 = closedCHECKBOX3.checked ? "CLOSED" : " ";
         //get values from input fields if closed not checked
-        console.log(closedINPUT1)
+        console.log(closedINPUT1);
         //console.log(closedINPUT2)
-        console.log(closedINPUT3)
+        console.log(closedINPUT3);
         if (closedINPUT1=="CLOSED"){
-            console.log("day 1 closed")
+            console.log("day 1 closed");
             document.getElementById('entreeINPUT1').value="";
             document.getElementById('soupINPUT1').value="";
             document.getElementById('saladINPUT1').value="";
             document.getElementById('sideINPUT1').value="";
             document.getElementById('dessertINPUT1').value="";
         }
+        /*if (closedINPUT2=="CLOSED"){
+            console.log("day 2 closed")
+            document.getElementById('entreeINPUT2').value="";
+            document.getElementById('soupINPUT2').value="";
+            document.getElementById('saladINPUT2').value="";
+            document.getElementById('sideINPUT2').value="";
+            document.getElementById('dessertINPUT2').value="";
+        }*/
         if (closedINPUT3=="CLOSED"){
-            console.log("day 3 closed")
+            console.log("day 3 closed");
             document.getElementById('entreeINPUT3').value="";
             document.getElementById('soupINPUT3').value="";
             document.getElementById('saladINPUT3').value="";
             document.getElementById('sideINPUT3').value="";
             document.getElementById('dessertINPUT3').value="";
         }
-        const dateINPUT1 =      new Date(document.getElementById('dateINPUT1').value).toLocaleDateString('en-US', {timeZone: 'UTC'});;
+
+        const breaksINPUT= document.querySelector('input[name="breaksRADIO"]:checked').value;
+            
+        const dateINPUT1 =      new Date(document.getElementById('dateINPUT1').value).toLocaleDateString('en-US', {timeZone: 'UTC'});
         const entreeINPUT1 =    document.getElementById('entreeINPUT1').value;
         const soupINPUT1 =      document.getElementById('soupINPUT1').value;
         const saladINPUT1 =     document.getElementById('saladINPUT1').value;
         const sideINPUT1 =      document.getElementById('sideINPUT1').value;
         const dessertINPUT1 =   document.getElementById('dessertINPUT1').value;
 
-        const dateINPUT3 =      new Date(document.getElementById('dateINPUT3').value).toLocaleDateString('en-US', {timeZone: 'UTC'});;
+        /*const dateINPUT2 =      document.getElementById('dateINPUT2').value;
+        const entreeINPUT2 =    document.getElementById('entreeINPUT2').value;
+        const soupINPUT2 =      document.getElementById('soupINPUT2').value;
+        const saladINPUT2 =     document.getElementById('saladINPUT2').value;
+        const sideINPUT2 =      document.getElementById('sideINPUT2').value;
+        const dessertINPUT2 =   document.getElementById('dessertINPUT2').value;*/
+        
+        //gets date input 1 and adds two days.
+        // gets date input 1
+        const tempInput = new Date(document.getElementById('dateINPUT1').value);
+        // add two days
+        tempInput.setDate(tempInput.getDate() + 2);
+        // output as a date string
+        const dateINPUT3 = tempInput.toLocaleDateString('en-US', {timeZone: 'UTC'});
         const entreeINPUT3 =    document.getElementById('entreeINPUT3').value;
         const soupINPUT3 =      document.getElementById('soupINPUT3').value;
         const saladINPUT3 =     document.getElementById('saladINPUT3').value;
@@ -81,6 +105,8 @@ const auth = getAuth();
         console.log(dateINPUT1,dateINPUT3);
         //construct menu data object
         const menuData = {
+            breaks: breaksINPUT,
+
             tuesday_date: dateINPUT1,
             tuesday_entree: entreeINPUT1,
             tuesday_soup: soupINPUT1,
@@ -116,12 +142,12 @@ const auth = getAuth();
         //emailResults()
     })
     .catch((error) => {
-            console.error("Authentication failed: ", error);
-            alert("Authentication failed.", error);
-        });
+        console.error("Authentication failed: ", error);
+        alert("Authentication failed.", error);
+    });
     document.getElementById('passwordINPUT').value="";
-    
     
 }
 const submitBTN = document.getElementById("submitBTN");
+
 submitBTN.addEventListener("click", submitForm);

@@ -25,6 +25,7 @@
                     const mostRecentDocument = snapshot.docs[0];
                     const menuDocument = mostRecentDocument.data();
                     //update the HTML 
+                    updateMenuItem('breakBanner','breaks');
                     updateMenuItem('date1', 'tuesday_date');
                     updateMenuItem('entree1', 'tuesday_entree');
                     updateMenuItem('soup1', 'tuesday_soup');
@@ -40,19 +41,40 @@
                     updateMenuItem('dessert3', 'thursday_dessert');
                     updateMenuItem('closed3', 'thursday_closed');
 
-                    //update all items
-                    function updateMenuItem(elementId, dataKey) {
-                        if (menuDocument[dataKey] !== undefined) {
-                            document.getElementById(elementId).innerText = menuDocument[dataKey];
-                            document.getElementById(elementId).display = 'block';
-                        } 
-                        else {
-                            console.error(`${dataKey} is undefined in menuDocument`);
+            //update all items
+            function updateMenuItem(elementId, dataKey) {
+                if (menuDocument[dataKey] !== undefined) {
+                    document.getElementById(elementId).innerText = menuDocument[dataKey];
+                    document.getElementById(elementId).style.display = 'block';
+
+                    if(dataKey.includes('closed')){
+                        if(menuDocument[dataKey]=='CLOSED'){
+                            document.getElementById('food'+elementId.substring(elementId.length-1)).style.display = 'none';
+                        } else {
+                            document.getElementById('food'+elementId.substring(elementId.length-1)).style.display = 'block';
+                        }
+                    } else if(dataKey=='breaks'){
+                        if(menuDocument[dataKey]=='summer'){
+                            document.getElementById(elementId).src = 'content/ClosedForSummer.png';
+                            document.getElementById(elementId).style.display = 'block';
+                        } else if(menuDocument[dataKey]=='spring'){
+                            document.getElementById(elementId).src = 'content/ClosedForSpring.png';
+                            document.getElementById(elementId).style.display = 'block';
+                        } else if(menuDocument[dataKey]=='winter'){
+                            document.getElementById(elementId).src = 'content/ClosedForWinter.png';
+                            document.getElementById(elementId).style.display = 'block';
+                        } else {
+                            document.getElementById(elementId).style.display = 'none';
                         }
                     }
                 } 
                 else {
-                    console.log('No documents found in the "menu" collection.');
+                    console.error(`${dataKey} is undefined in menuDocument`);
                 }
             }
-        });
+        } 
+        else {
+            console.log('No documents found in the "menu" collection.');
+        }
+    }
+});

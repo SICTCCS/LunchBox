@@ -27,17 +27,17 @@
                         customAlert.alert('Thank you for signing up for the weekly email!','You\'re All Set!')
                         //alert('Success!', response)
                         document.getElementById('email').value="";
-                        document.getElementById('emailBTN').innerHTML='Get Weekly Email!'
+                        document.getElementById('emailBTN').innerHTML='Submit'
                     })    
                     .catch(error => {
                         alert('Error!', error.message)
                         document.getElementById('email').value="";
-                        document.getElementById('emailBTN').innerHTML='Get Weekly Email!'
+                        document.getElementById('emailBTN').innerHTML='Submit'
                     })
                 }
                 else{
                     customAlert.alert('Please be sure to add your email!','Sign Up Error')
-                    document.getElementById('emailBTN').innerHTML='Get Weekly Email!'
+                    document.getElementById('emailBTN').innerHTML='Submit'
                 }
             })
             }
@@ -54,16 +54,16 @@
     <div class="email">
         <h2>Get Weekly Email!</h2>
         <form name='submit-to-google-sheet' class="form-EMAIL" id="signUpForm">
-            <input id="email" name="email" type="email" placeholder="enter email here" style="background-color:white;margin-left:4em">
+            <input id="email" name="email" type="email" placeholder="enter email here" style="background-color:white;">
             <button id="emailBTN" type="submit" onclick="submitForm()">Submit</button>
         </form>
     </div>
 </nav>
 <main>
-    <!-- <div id="summerhero"></div> -->
-    <!-- <div id="winterhero"></div> -->
-    <!-- <div id="springhero"></div> -->
-    <div class="banner-Container"><img class="weekly-Banner" src="content/WeeklyMenuBanner.png"></div>
+    <div class="banner-Container">
+        <img id="breakBanner">
+        <img class="weekly-Banner" src="content/WeeklyMenuBanner.png">
+    </div>
     <div class="menu-container">
         <div class="menu">
             <div class="dateCard">
@@ -71,7 +71,7 @@
                 <h3 id="date1" class="date"></h3>
             </div>
             <h1 id="closed1" class="closed" style="color:#be4d25;background-color:white;"></h1>
-            <div class="food">
+            <div class="food" id="food1">
                 <h1 class="menuSectionTitle">ENTREE</h1> 
                 <h3 id="entree1" class="menu-items-spaced-over"></h3>
                 <!-- <div class="divider"></div> -->
@@ -121,7 +121,7 @@
                 <h3 id="date3" class="date"></h3>
             </div>
             <h1 id="closed3" class="closed" style="color:#be4d25;background-color:white;"></h1>
-            <div class="food">
+            <div class="food" id="food3">
                 <h1 class="menuSectionTitle">ENTREE</h1> 
                 <h3 id="entree3" class="menu-items-spaced-over"></h3>
                 <!-- <div class="divider"></div> -->
@@ -143,7 +143,7 @@
             <div class="divider"></div>
         </div>
     </div>
-    <button class="download"><a href="https://drive.google.com/uc?export=download&id=1hcYgYWXTxm-T5o9I3uV4E0kaQ0cYsmw-">Download Menu</a></button>
+    <button class="download" style="display: none;"><a href="https://drive.google.com/uc?export=download&id=1hcYgYWXTxm-T5o9I3uV4E0kaQ0cYsmw-">Download Menu</a></button>
     <div class="card-container-WHATSINCLUDED">
         <div class="card-WHATSINCLUDED">
             <h2>$8 MEAL INCLUDES:</h2>
