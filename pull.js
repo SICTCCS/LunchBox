@@ -2,14 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 import { getFirestore, collection, query, orderBy, limit, onSnapshot } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
 document.addEventListener("DOMContentLoaded", function () {
-const firebaseConfig = {
-        // apiKey: "AIzaSyBYvVybs496FHpiQbqNmQyrg0YOpZaRcNc",
-        // authDomain: "lunchbox-2815d.firebaseapp.com",
-        // projectId: "lunchbox-2815d",
-        // storageBucket: "lunchbox-2815d.appspot.com",
-        // messagingSenderId: "945076737341",
-        // appId: "1:945076737341:web:4466cf8cc243b71d6be154",
-        // measurementId: "G-C2CCXQ3JDN"
+    const firebaseConfig = {
         apiKey: "AIzaSyDwdFssKc8-QiyrMNwVURNga882xpO4bIY",
         authDomain: "lunchboxweb-7b9c1.firebaseapp.com",
         projectId: "lunchboxweb-7b9c1",
@@ -17,7 +10,7 @@ const firebaseConfig = {
         messagingSenderId: "160202746545",
         appId: "1:160202746545:web:087529c4e7432a91329090",
         measurementId: "G-C2E1SK93M1"
-        };
+    };
     //initialize firebase
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
@@ -32,6 +25,7 @@ const firebaseConfig = {
             const mostRecentDocument = snapshot.docs[0];
             const menuDocument = mostRecentDocument.data();
             //update the HTML 
+            updateMenuItem('breakBanner', 'breaks');
             updateMenuItem('date1', 'tuesday_date');
             updateMenuItem('entree1', 'tuesday_entree');
             updateMenuItem('soup1', 'tuesday_soup');
@@ -51,7 +45,28 @@ const firebaseConfig = {
             function updateMenuItem(elementId, dataKey) {
                 if (menuDocument[dataKey] !== undefined) {
                     document.getElementById(elementId).innerText = menuDocument[dataKey];
-                    document.getElementById(elementId).display = 'block';
+                    document.getElementById(elementId).style.display = 'block';
+
+                    if(dataKey.includes('closed')){
+                        if(menuDocument[dataKey]=='CLOSED'){
+                            document.getElementById('food'+elementId.substring(elementId.length-1)).style.display = 'none';
+                        } else {
+                            document.getElementById('food'+elementId.substring(elementId.length-1)).style.display = 'block';
+                        }
+                    } else if(dataKey=='breaks'){
+                        if(menuDocument[dataKey]=='summer'){
+                            document.getElementById(elementId).src = 'content/ClosedForSummer.png';
+                            document.getElementById(elementId).style.display = 'block';
+                        } else if(menuDocument[dataKey]=='spring'){
+                            document.getElementById(elementId).src = 'content/ClosedForSpring.png';
+                            document.getElementById(elementId).style.display = 'block';
+                        } else if(menuDocument[dataKey]=='winter'){
+                            document.getElementById(elementId).src = 'content/ClosedForWinter.png';
+                            document.getElementById(elementId).style.display = 'block';
+                        } else {
+                            document.getElementById(elementId).style.display = 'none';
+                        }
+                    }
                 } 
                 else {
                     console.error(`${dataKey} is undefined in menuDocument`);

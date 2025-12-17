@@ -47,6 +47,18 @@
                     </div>
                 </div>
                 <div class="upload-card">
+                    <form class="upload-form" style="display: flex;flex-direction: row;">
+                        <input id="openRADIO" type="radio" name="breaksRADIO" value="open" checked>
+                        <label for="openRADIO">No breaks</label>
+                        <input id="summerRADIO" type="radio" name="breaksRADIO" value="summer">
+                        <label for="summerRADIO">Summer Break</label>
+                        <input id="springRADIO" type="radio" name="breaksRADIO" value="spring">
+                        <label for="springRADIO">Spring break</label>
+                        <input id="winterRADIO" type="radio" name="breaksRADIO" value="winter">
+                        <label for="winterRADIO">Winter Break</label>
+                    </form>
+                </div>
+                <div class="upload-card">
                     <h2>Write your email here:</h1>
                     <form name=submit-to-google-sheet class="upload-form">
                         <textarea name="message"  rows="10"></textarea>

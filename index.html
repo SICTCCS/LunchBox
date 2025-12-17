@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="content/favicon.png">
     <script type="module" src="pull.js"></script>
+    <script type="module" name="downlod drive" src="downloadDrive.js"></script>
     <script>
         function submitForm() {
             document.getElementById('emailBTN').innerHTML='Upload In Progress'
@@ -59,10 +60,10 @@
     </div>
 </nav>
 <main>
-    <!-- <div id="summerhero"></div> -->
-    <!-- <div id="winterhero"></div> -->
-    <!-- <div id="springhero"></div> -->
-    <div class="banner-Container"><img class="weekly-Banner" src="content/WeeklyMenuBanner.png"></div>
+    <div class="banner-Container">
+        <img id="breakBanner">
+        <img class="weekly-Banner" src="content/WeeklyMenuBanner.png">
+    </div>
     <div class="menu-container">
         <div class="menu">
             <div class="dateCard">
@@ -70,7 +71,7 @@
                 <h3 id="date1" class="date"></h3>
             </div>
             <h1 id="closed1" class="closed" style="color:#be4d25;background-color:white;"></h1>
-            <div class="food">
+            <div class="food" id="food1">
                 <h1 class="menuSectionTitle">ENTREE</h1> 
                 <h3 id="entree1" class="menu-items-spaced-over"></h3>
                 <!-- <div class="divider"></div> -->
@@ -120,7 +121,7 @@
                 <h3 id="date3" class="date"></h3>
             </div>
             <h1 id="closed3" class="closed" style="color:#be4d25;background-color:white;"></h1>
-            <div class="food">
+            <div class="food" id="food3">
                 <h1 class="menuSectionTitle">ENTREE</h1> 
                 <h3 id="entree3" class="menu-items-spaced-over"></h3>
                 <!-- <div class="divider"></div> -->
