@@ -57,14 +57,18 @@
                         if(menuDocument[dataKey]=='summer'){
                             document.getElementById(elementId).src = 'content/ClosedForSummer.png';
                             document.getElementById(elementId).style.display = 'block';
+                            document.querySelector('.menu-container').style.display = 'none';
                         } else if(menuDocument[dataKey]=='spring'){
                             document.getElementById(elementId).src = 'content/ClosedForSpring.png';
                             document.getElementById(elementId).style.display = 'block';
+                            document.querySelector('.menu-container').style.display = 'none';
                         } else if(menuDocument[dataKey]=='winter'){
                             document.getElementById(elementId).src = 'content/ClosedForWinter.png';
                             document.getElementById(elementId).style.display = 'block';
+                            document.querySelector('.menu-container').style.display = 'none';
                         } else {
                             document.getElementById(elementId).style.display = 'none';
+                            document.querySelector('.menu-container').style.display = 'block';
                         }
                     }
                 } 
