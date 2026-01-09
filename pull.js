@@ -68,7 +68,7 @@
                             document.querySelector('.menu-container').style.display = 'none';
                         } else {
                             document.getElementById(elementId).style.display = 'none';
-                            document.querySelector('.menu-container').style.display = 'block';
+                            document.querySelector('.menu-container').style.display = 'flex';
                         }
                     }
                 } 
