@@ -1,92 +1,186 @@
 <!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <title>The LunchBox - Menu Upload</title>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="style.css">
-            <link rel="icon" type="image/x-icon" href="content/favicon.png">
-            <script src="emailScript.js"></script>
-            <script type="module" name="upload process" src="push.js"></script>
-            
-            </head>
-            <nav>
-                <div class="nav-upload-middle">
-                    <a href="index.html"><img id="logo-upload-middle" src="content/lunchBoxLogoHorizontalAllGreen2.png" alt="lunchboxLogoAllGreen"></a>
-                </div>
-            </nav>
-            <main>
-                <div class="upload-container">
-                    <div class="upload-card" style="width:33%">
-                        <form class="upload-form">
-                            <input id="dateINPUT1" type="date" placeholder="Tuesday - Date (JAN 1)" style="background-color:silver">
-                            <input id="entreeINPUT1" type="text" placeholder="Tuesday - Entree" style="background-color:silver">
-                            <input id="soupINPUT1" type="text" placeholder="Tuesday - Soups" style="background-color:silver">
-                            <input id="saladINPUT1" type="text" placeholder="Tuesday - Salads" style="background-color:silver">
-                            <input id="sideINPUT1" type="text" placeholder="Tuesday - Sides" style="background-color:silver">
-                            <input id="dessertINPUT1" type="text" placeholder="Tuesday - Desserts" style="background-color:silver">
-                            <label class="checkbox-label">
-                                <input id="closedCHECKBOX1" type="checkbox" class="custom-checkbox">
-                                <span class="checkbox-text">closed</span>
-                            </label>
-                        </form>
-                    </div>
-                    <div class="upload-card" style="width:33%">
-                        <form class="upload-form">
-                            <input id="dateINPUT3" type="date" placeholder="Thursday - Date (JAN 1)" style="background-color:silver">
-                            <input id="entreeINPUT3" type="text" placeholder="Thursday - Entree" style="background-color:silver">
-                            <input id="soupINPUT3" type="text" placeholder="Thursday - Soups" style="background-color:silver">
-                            <input id="saladINPUT3" type="text" placeholder="Thursday - Salads" style="background-color:silver">
-                            <input id="sideINPUT3" type="text" placeholder="Thursday - Sides" style="background-color:silver">
-                            <input id="dessertINPUT3" type="text" placeholder="Thursday - Desserts" style="background-color:silver">
-                            <label class="checkbox-label">
-                                <input id="closedCHECKBOX3" type="checkbox" class="custom-checkbox">
-                                <span class="checkbox-text">closed</span>
-                            </label>
-                        </form>
-                    </div>
-                </div>
-                <div class="upload-card">
-                    <form class="upload-form" style="display: flex;flex-direction: row;">
-                        <input id="openRADIO" type="radio" name="breaksRADIO" value="open" checked>
-                        <label for="openRADIO">No breaks</label>
-                        <input id="summerRADIO" type="radio" name="breaksRADIO" value="summer">
-                        <label for="summerRADIO">Summer Break</label>
-                        <input id="springRADIO" type="radio" name="breaksRADIO" value="spring">
-                        <label for="springRADIO">Spring break</label>
-                        <input id="winterRADIO" type="radio" name="breaksRADIO" value="winter">
-                        <label for="winterRADIO">Winter Break</label>
-                    </form>
-                </div>
-                <div class="upload-card">
-                    <h2>Write your email here:</h1>
-                    <form name=submit-to-google-sheet class="upload-form">
-                        <textarea name="message"  rows="10"></textarea>
-                        <input id="emailINPUT" type="text" placeholder="email" style="background-color:#335879">
-                        <div id="passCon">
-                            <input id="passwordINPUT" type="password" placeholder="password" style="background-color:#335879">
-                            <img id="showImg"  src="./PNG/Password/showPass.png" width="30px" height="20px" style="filter: invert(100%);margin-top:15px;" onclick="myFunction()">
-                        </div>
-                        <br>
-                        <script>
-                            function myFunction() {
-                                var passwordINPUT = document.getElementById("passwordINPUT");
-                                var showPass = document.getElementById("showImg");
-                                if (passwordINPUT.type === "password") {
-                                    showPass.src = "./PNG/Password/hidePass.png"
-                                    passwordINPUT.type = "text";
-                                } else {
-                                    showPass.src = "./PNG/Password/showPass.png"
-                                    passwordINPUT.type = "password";
-                                }
-                            }
-                        </script>
-                        <button id="submitBTN" type="submit" >publish</button>
-                        * publishing replaces all current menu details
-                    </form>
-                </div>
-            </main>
-            <script src="footer.js" defer></script>
-        </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Menu | The LunchBox Admin</title>
+  <meta name="description" content="Admin panel for uploading weekly menus.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="content/favicon.png">
+</head>
 
+<body class="page-admin">
+
+  <nav class="navbar">
+    <div class="nav-top">
+      <div class="logo-section">
+        <a href="index.html" class="logo-link">
+          <img
+            id="logo-horiz"
+            src="content/lunchBoxLogoHorizontalAllGreen2.png"
+            alt="The LunchBox Logo">
+        </a>
+        <span class="site-title">The LunchBox</span>
+        <span class="admin-badge">Admin</span>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="upload-container">
+      <div class="upload-header">
+        <h1>Upload Weekly Menu</h1>
+        <p>Enter the menu items for each day. Changes will be published to the public menu page.</p>
+      </div>
+
+      <div class="upload-layout">
+
+        <!-- Menu Upload Grid - 2 columns -->
+        <div class="menu-upload-grid">
+
+          <!-- Tuesday -->
+          <div class="day-card">
+            <div class="day-header">
+              <h3>Tuesday</h3>
+              <input type="date" id="date-tuesday" name="date-tuesday">
+              <label class="closed-checkbox">
+                <input type="checkbox" id="closed-tue" name="closed-tue">
+                <span>Closed</span>
+              </label>
+            </div>
+            <div class="day-fields">
+              <div class="field-group">
+                <label for="entree-tue">Entree</label>
+                <input type="text" id="entree-tue" name="entree-tue" placeholder="Enter entree...">
+              </div>
+              <div class="field-group">
+                <label for="soup-tue">Soups</label>
+                <input type="text" id="soup-tue" name="soup-tue" placeholder="Enter soups...">
+              </div>
+              <div class="field-group">
+                <label for="salad-tue">Salads</label>
+                <input type="text" id="salad-tue" name="salad-tue" placeholder="Enter salads...">
+              </div>
+              <div class="field-group">
+                <label for="side-tue">Sides</label>
+                <input type="text" id="side-tue" name="side-tue" placeholder="Enter sides...">
+              </div>
+              <div class="field-group">
+                <label for="dessert-tue">Desserts</label>
+                <input type="text" id="dessert-tue" name="dessert-tue" placeholder="Enter desserts...">
+              </div>
+            </div>
+          </div>
+
+          <!-- Thursday -->
+          <div class="day-card">
+            <div class="day-header">
+              <h3>Thursday</h3>
+              <input type="date" id="date-thursday" name="date-thursday">
+              <label class="closed-checkbox">
+                <input type="checkbox" id="closed-thu" name="closed-thu">
+                <span>Closed</span>
+              </label>
+            </div>
+            <div class="day-fields">
+              <div class="field-group">
+                <label for="entree-thu">Entree</label>
+                <input type="text" id="entree-thu" name="entree-thu" placeholder="Enter entree...">
+              </div>
+              <div class="field-group">
+                <label for="soup-thu">Soups</label>
+                <input type="text" id="soup-thu" name="soup-thu" placeholder="Enter soups...">
+              </div>
+              <div class="field-group">
+                <label for="salad-thu">Salads</label>
+                <input type="text" id="salad-thu" name="salad-thu" placeholder="Enter salads...">
+              </div>
+              <div class="field-group">
+                <label for="side-thu">Sides</label>
+                <input type="text" id="side-thu" name="side-thu" placeholder="Enter sides...">
+              </div>
+              <div class="field-group">
+                <label for="dessert-thu">Desserts</label>
+                <input type="text" id="dessert-thu" name="dessert-thu" placeholder="Enter desserts...">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Week Status Section -->
+        <div class="week-status">
+          <h3>Week Status</h3>
+          <div class="week-status-options">
+            <label>
+              <input type="radio" name="week-status" value="none" checked>
+              No Breaks
+            </label>
+            <label>
+              <input type="radio" name="week-status" value="spring">
+              Spring Break
+            </label>
+            <label>
+              <input type="radio" name="week-status" value="summer">
+              Summer Break
+            </label>
+            <label>
+              <input type="radio" name="week-status" value="winter">
+              Winter Break
+            </label>
+          </div>
+        </div>
+
+        <!-- Bottom Panels Container - Email and Past Menus side by side -->
+        <div class="bottom-panels">
+
+          <!-- Email Notification Panel - Larger form -->
+          <div class="email-panel">
+            <h3>Email Notification</h3>
+            <label for="email-content">Compose weekly email:</label>
+            <textarea id="email-content" placeholder="Write your weekly menu announcement here...&#10;&#10;Example:&#10;This week at The LunchBox...&#10;&#10;Tuesday: [Entree]&#10;Thursday: [Entree]&#10;&#10;See you soon!"></textarea>
+            <button type="button" id="send-email-btn">Send to Subscribers</button>
+          </div>
+
+          <div class="past-menu-panel">
+            <h3>Past Menus</h3>
+            <div class="past-menu-list">
+              <div class="past-menu-item">Week of April 28, 2025</div>
+              <div class="past-menu-item">Week of April 21, 2025</div>
+              <div class="past-menu-item">Week of April 14, 2025</div>
+              <div class="past-menu-item">Week of April 7, 2025</div>
+              <div class="past-menu-item">Week of March 31, 2025</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!--
+          Action Buttons
+          
+          TODO: Preview Menu Button Implementation
+          
+          When the "Preview Menu" button is clicked:
+          
+          1. Gather all form data (dates, menu items, closed status) from firebase
+          2. Create a preview that matches the public menu page layout
+          
+        -->
+        <div class="upload-actions">
+          <button type="button" class="btn-secondary" id="preview-btn">Preview Menu</button>
+          <button type="button" class="btn-primary" id="publish-btn">Publish Menu</button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>The LunchBox Admin Panel</p>
+      <p><a href="index.html">View Public Site</a></p>
+      <p><a href="mailto:info@sictc.edu">Contact Us</a></p>
+    </div>
+  </footer>
+
+</body>
 </html>

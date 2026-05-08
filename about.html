@@ -1,54 +1,118 @@
 <!DOCTYPE html>
-    <html lang="en">
-            <head>
-                <title>The LunchBox - About</title>
-                <meta charset="utf-8">
-                <link rel="stylesheet" href="style.css">
-                <meta name="viewport" content="width=device-width,initial-scale=0.75">
-                <link rel="icon" type="image/x-icon" href="content/favicon.png">
-            </head>
-            <body>
-              <nav>
-                <div id="logo-container">
-                    <a href="index.html"><img id="logo-horiz" src="content/lunchBoxLogoHorizontalAllGreen.png" alt="lunchboxLogoHorizontal"></a>
-                </div>
-                <div id="links-container">
-                    <a href="index.html">MENU</a>
-                    <a href="about.html">ABOUT</a>
-                </div>
-              </nav>
-                <main>
-                    <div class="about-container">
-                          <div class="card-ABOUT-LARGE-TOP">
-                            <h2 class="about-medium-text">About The <br> <span class="about-large-text"> Culinary Arts </span> <br> Program</h2>
-                          </div>
-                        <div class="card-container-ABOUT-MIDDLE">
-                          <div class="card-ABOUT">
-                            <h2 style="color: #335879;">-<span style="color:white">Customers Selecting The Perfect Meal</span>-</h2>
-                            <div class="rounded-image-about">
-                              <img src="content/buffet.png" height="300px" width="400px" alt="Buffet Image">
-                            </div>
-                          </div>
-                          <div class="card-ABOUT">
-                            <div class="rounded-image-about">
-                              <img src="content/chef.png" height="300px" width="400px" alt="Chef Image">
-                            </div>
-                            <h2 style="color: #335879;">-<span style="color:white">Chef Samuel Wagoner</span>-</h2>
-                          </div>
-                        </div>
-                          <div class="card-ABOUT-LARGE-BOTTOM">
-                            <h2 class="about-desc-text">Program Description</h2> 
-                            <p class="about-small-text">Culinary Arts I and II prepare students for occupations and higher education programs of study related to the entire spectrum of careers in the food industry: including (but not limited to) food production and services; food science, dietetics, and nutrition; and hospitality and tourism. Instruction and intensive laboratory experiences may include commercial applications of principles of nutritious, aesthetic, and sanitary selection, purchasing, storage, preparation, and service of food and food products; using and maintaining related tools and equipment; managing operations in food service, food science, or hospitality establishments; providing for the dietary needs of persons with special requirements; related research, development, and testing.</p>
-                            <h2 class="learn-more-link"><a href="https://sictc.evscschools.com/courses/public_service_program_areas/culinary_arts" target="_blank">learn more &#x2197;</a></h2>
-                          </div>
-                    </div>
-                </main>
-                <footer>
-                    Maintained & Built by SICTC Computer Science Software Development <br>
-                    The LunchBox <br>
-                    1901 Lynch Rd, Evansville, IN 47711 <br>
-                    <a href="https://sictc.evscschools.com/"><img src="content/footerSICTC.png" style="width:auto;height:75px;" alt="footerSICTC"><a></a>
-                </footer>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | The LunchBox - SICTC Culinary Arts</title>
+  <meta name="description" content="Learn about The LunchBox and the SICTC Culinary Arts program.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="content/favicon.png">
+</head>
 
-            </body>
-    </html>
+<body class="page-about">
+
+  <nav class="navbar">
+    <div class="nav-top">
+      <div class="logo-section">
+        <a href="index.html" class="logo-link">
+          <img
+            id="logo-horiz"
+            src="content/lunchBoxLogoHorizontalAllGreen2.png"
+            alt="The LunchBox Logo">
+        </a>
+      </div>
+
+      <div class="email">
+        <h2>Get Weekly Updates</h2>
+        <form name="submit-to-google-sheet" class="form-EMAIL" id="signUpForm">
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Enter your email"
+            required>
+          <button id="emailBTN" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="nav-tabs">
+      <a href="index.html" class="nav-tab tab-menu">Menu</a>
+      <a href="about.html" class="nav-tab tab-about active">About</a>
+      <a href="reviews.html" class="nav-tab tab-reviews">Reviews</a>
+    </div>
+    <div class="tab-content-bar"></div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="about-hero">
+      <p class="about-medium-text">About The</p>
+      <h1 class="about-large-text">Culinary Arts Program</h1>
+    </section>
+
+    <!-- Image Cards -->
+    <section class="about-grid">
+      <div class="card-ABOUT">
+        <div class="rounded-image-about">
+          <img src="content/buffet.png" alt="Customers selecting food from the buffet">
+        </div>
+        <p class="about-caption">Customers Selecting The Perfect Meal</p>
+      </div>
+      <div class="card-ABOUT">
+        <div class="rounded-image-about">
+          <img src="content/food.png" alt="Culinary Students Preparing Food in the Kitchen">
+        </div>
+        <p class="about-caption">Students Hard at Work</p>
+      </div>
+    </section>
+
+    <!-- Chef Section with Paper Background -->
+    <section class="chef-section">
+      <div class="chef-image">
+        <img src="content/chef.png" alt="Chef Samuel Wagoner">
+      </div>
+      <div class="chef-info">
+        <h2>Chef Samuel Wagoner</h2>
+        <p class="chef-title">Culinary Arts Instructor</p>
+        <p>Chef Wagoner brings years of professional culinary experience to the SICTC Culinary Arts program. Under his guidance, students learn essential kitchen skills, food safety, and the art of creating memorable dining experiences. His passion for teaching and commitment to excellence ensures every meal served at The LunchBox meets the highest standards.</p>
+      </div>
+    </section>
+
+    <!-- Program Description -->
+    <section class="about-description">
+      <h2 class="about-desc-text">Program Description</h2>
+
+      <p class="about-small-text">
+        Culinary Arts I and II prepare students for occupations and higher education programs
+        related to the entire spectrum of careers in the food industry including food production,
+        hospitality, tourism, nutrition, and food science.
+      </p>
+
+      <p class="about-small-text">
+        Students gain hands-on experience in food preparation, sanitation, purchasing,
+        kitchen operations, hospitality management, and customer service through
+        intensive lab experiences and commercial applications.
+      </p>
+
+      <a
+        class="learn-more-btn"
+        href="https://sictc.evscschools.com/academics/pathways/public-service/culinary-arts"
+        target="_blank"
+        rel="noopener noreferrer">
+        Learn More
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>Managed by SICTC Computer Science Software Development</p>
+      <p><a href="mailto:info@sictc.edu">Contact Us</a></p>
+      <p>1901 Lynch Rd, Evansville, IN 47711</p>
+      <img src="content/lunchBoxLogoHorizontalAllGreen.png" alt="SICTC Logo">
+    </div>
+  </footer>
+
+</body>
+</html>
