@@ -540,9 +540,9 @@ footer img {
 .card-ABOUT-LARGE-BOTTOM {
   background-color: #707f42;
   width: 1300px;
-  height: 500px;
+  height: 580px;
   margin: 40px;
-  margin-top: 80px;
+  margin-top: 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 1.25em;
   box-sizing: border-box;
@@ -579,10 +579,11 @@ footer img {
 .about-desc-text {
   color: #335879;
   font-size: 40px;
+  margin-bottom:0px;
 }
 
 .learn-more-link {
-  margin-top: 1em;
+  margin-top: 0em;
 }
 
 .learn-more-link a {
