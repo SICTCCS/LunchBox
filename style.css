@@ -64,7 +64,6 @@ nav a:hover {
 }
 
 #logo-horiz {
-  height: 100px;
   width: 700px;
 }
 
@@ -843,6 +842,7 @@ img {
 
   #logo-horiz {
     width: 90%;
+    min-width: 200px;
   }
 
   .banner-Container {
@@ -1005,6 +1005,18 @@ img {
     width: 100%;
     height: auto;
     margin: 20px;
+  }
+
+  .card-container-ABOUT-MIDDLE {
+    flex-direction: column;
+  }
+
+  .about-large-text {
+    font-size: 70px;
+  }
+
+  .about-medium-text {
+    font-size: 40px;
   }
 
   .card-ABOUT {
